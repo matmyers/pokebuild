@@ -1,0 +1,16 @@
+<div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle">{{ tier }}</button>
+	<div class="dropdown-menu">
+		<button class="dropdown-item">OU</button>
+		<button class="dropdown-item">UU</button>
+		<button class="dropdown-item">RU</button>
+		<button class="dropdown-item">NU</button>
+	</div>
+</div>
+<br>
+<p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
+<ng-template #teamNotEmpty>
+	<app-pkmncubby *ngFor="let member of teamMembers"></app-pkmncubby>
+</ng-template>
+<br>
+<button *ngIf="!isTeamFull()" class="btn btn-success" (click)="addTeamMember()">Add Pokemon</button>

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TbselectComponent } from './tbselect/tbselect.component';
 import { HomeComponent } from './home/home.component';
+import { TbselectComponent } from './tbselect/tbselect.component';
+import { TbcompetitiveComponent } from './tbcompetitive/tbcompetitive.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'teambuilderselect', component: TbselectComponent },
-  { path: '', component: HomeComponent }
+  { path: 'teambuildercompetitive', component: TbcompetitiveComponent }
 ];
 
 @NgModule({
