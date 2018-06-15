@@ -1,16 +1,28 @@
 <div class="dropdown">
-	<button class="btn btn-secondary dropdown-toggle">{{ tier }}</button>
+	<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">{{ tier }}</button>
 	<div class="dropdown-menu">
-		<button class="dropdown-item">OU</button>
-		<button class="dropdown-item">UU</button>
-		<button class="dropdown-item">RU</button>
-		<button class="dropdown-item">NU</button>
+		<button class="dropdown-item" (click)="setTier('OU')">OU</button>
+		<button class="dropdown-item" (click)="setTier('UU')">UU</button>
+		<button class="dropdown-item" (click)="setTier('RU')">RU</button>
+		<button class="dropdown-item" (click)="setTier('NU')">NU</button>
 	</div>
 </div>
 <br>
 <p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
-	<app-pkmncubby *ngFor="let member of teamMembers"></app-pkmncubby>
+	<div *ngFor="let member of teamMembers; let i = index">
+		<app-pkmncubby></app-pkmncubby>
+		<img src="../../assets/rowleticon.png">
+		<button class="btn btn-danger" style="margin-top:2px; margin-bottom:2px;" (click)="removeTeamMember(i)">x</button>
+	</div>
 </ng-template>
 <br>
-<button *ngIf="!isTeamFull()" class="btn btn-success" (click)="addTeamMember()">Add Pokemon</button>
+<div class="btn-group">
+	<button *ngIf="!isTeamFull()" class="btn btn-success" (click)="addTeamMember()">Add Pokemon</button>
+	<br>
+	<button class="btn btn-danger" (click)="printPokemon()">Print Pokemon</button>
+</div>
+<br><br>
+<div *ngIf="displayPokemon">
+	<p *ngFor="let poke of tierpkmn">{{ poke }}</p>
+</div>

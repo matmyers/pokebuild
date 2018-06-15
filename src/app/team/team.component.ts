@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
+import * as pkmnData from "../../assets/pokemon.json"
 
 
 @Component({
@@ -10,6 +11,9 @@ import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
 export class TeamComponent implements OnInit {
   teamMembers = [];
   tier = "Select tier";
+  pkmn = pkmnData;
+  tierpkmn = [];
+  displayPokemon = false;
 
 
   constructor() { }
@@ -33,9 +37,24 @@ export class TeamComponent implements OnInit {
   	}
   }
 
+  setTier(tierInput: string) {
+  	this.tier = tierInput;
+  	this.tierpkmn = this.pkmn[this.tier];
+  	this.displayPokemon = false;
+  }
+
   addTeamMember() {
   	var newpoke = new PkmncubbyComponent();
   	this.teamMembers.push(newpoke);
+  }
+
+  removeTeamMember(index: number) {
+  	this.teamMembers.splice(index, 1);
+  }
+
+  printPokemon() {
+  	console.log(this.pkmn[this.tier]);
+  	this.displayPokemon = true;
   }
 
 }
