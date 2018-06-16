@@ -11,18 +11,15 @@
 <p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
 	<div *ngFor="let member of teamMembers; let i = index">
-		<app-pkmncubby></app-pkmncubby>
+		<app-pkmncubby [name]="member"></app-pkmncubby>
 		<img src="../../assets/rowleticon.png">
 		<button class="btn btn-danger" style="margin-top:2px; margin-bottom:2px;" (click)="removeTeamMember(i)">x</button>
 	</div>
 </ng-template>
 <br>
-<div class="btn-group">
-	<button *ngIf="!isTeamFull()" class="btn btn-success" (click)="addTeamMember()">Add Pokemon</button>
-	<br>
-	<button class="btn btn-danger" (click)="printPokemon()">Print Pokemon</button>
-</div>
+<button *ngIf="!isTeamFull()" class="btn btn-success" (click)="printPokemon()">Add Pokemon</button>
+<br>
 <br><br>
-<div *ngIf="displayPokemon">
-	<p *ngFor="let poke of tierpkmn">{{ poke }}</p>
+<div *ngIf="displayPokemon && !isTeamFull()">
+	<button *ngFor="let poke of tierpkmn" class="btn btn-light d-block" (click)="addTeamMember(poke)">{{ poke }}</button>
 </div>

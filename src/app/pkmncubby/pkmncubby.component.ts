@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pkmncubby',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pkmncubby.component.css']
 })
 export class PkmncubbyComponent implements OnInit {
-	name = "";
+	@Input() name : string;
 	type = "";
 	item = "";
 	ability = "";
@@ -15,9 +15,11 @@ export class PkmncubbyComponent implements OnInit {
 	iv = [0, 0, 0, 0, 0, 0];
 	nature = "";
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  	// initialize everything using this.name
   }
 
 }

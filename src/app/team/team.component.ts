@@ -30,7 +30,7 @@ export class TeamComponent implements OnInit {
   }
 
   isTeamFull() {
-  	if (this.teamMembers.length == 6) {
+  	if (this.teamMembers.length >= 6) {
   		return true;
   	} else {
   		return false;
@@ -43,9 +43,8 @@ export class TeamComponent implements OnInit {
   	this.displayPokemon = false;
   }
 
-  addTeamMember() {
-  	var newpoke = new PkmncubbyComponent();
-  	this.teamMembers.push(newpoke);
+  addTeamMember(poke: string) {
+  	this.teamMembers.push(poke);
   }
 
   removeTeamMember(index: number) {
@@ -53,7 +52,6 @@ export class TeamComponent implements OnInit {
   }
 
   printPokemon() {
-  	console.log(this.pkmn[this.tier]);
   	this.displayPokemon = true;
   }
 
