@@ -1,25 +1,27 @@
-<div class="dropdown">
-	<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">{{ tier }}</button>
-	<div class="dropdown-menu">
-		<button class="dropdown-item" (click)="setTier('OU')">OU</button>
-		<button class="dropdown-item" (click)="setTier('UU')">UU</button>
-		<button class="dropdown-item" (click)="setTier('RU')">RU</button>
-		<button class="dropdown-item" (click)="setTier('NU')">NU</button>
+<div class="btn-toolbar">
+	<div class="dropdown">
+		<button type="button" class="btn btn-secondary dropdown-toggle mr-2" data-toggle="dropdown">{{ tier }}</button>
+		<div class="dropdown-menu">
+			<button class="dropdown-item" (click)="setTier('OU')">OU</button>
+			<button class="dropdown-item" (click)="setTier('UU')">UU</button>
+			<button class="dropdown-item" (click)="setTier('RU')">RU</button>
+			<button class="dropdown-item" (click)="setTier('NU')">NU</button>
+		</div>
 	</div>
+	<button *ngIf="!isTeamFull()" class="btn btn-success" [disabled]="!tierSelected" (click)="printPokemon()">Add Pokemon</button>
 </div>
 <br>
 <p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
-	<div *ngFor="let member of teamMembers; let i = index">
-		<app-pkmncubby [name]="member"></app-pkmncubby>
-		<img src="../../assets/rowleticon.png">
-		<button class="btn btn-danger" style="margin-top:2px; margin-bottom:2px;" (click)="removeTeamMember(i)">x</button>
+	<div *ngFor="let member of teamMembers; let i = index" class="border border-dark">
+		<app-pkmncubby [team]="teamMembers" [name]="member" [index]=i></app-pkmncubby>
 	</div>
 </ng-template>
-<br>
-<button *ngIf="!isTeamFull()" class="btn btn-success" (click)="printPokemon()">Add Pokemon</button>
-<br>
 <br><br>
 <div *ngIf="displayPokemon && !isTeamFull()">
-	<button *ngFor="let poke of tierpkmn" class="btn btn-light d-block" (click)="addTeamMember(poke)">{{ poke }}</button>
+	<input class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchField($event)">
+	<br>
+	<div *ngFor="let poke of tierpkmn">
+		<app-searchresultpkmn [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn>
+	</div>
 </div>

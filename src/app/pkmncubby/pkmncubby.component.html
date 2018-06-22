@@ -1,1 +1,46 @@
 <p class="d-inline">{{ name }}</p>
+<img src="../../assets/rowleticon.png">
+<p class="d-inline">{{ type }}</p>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 text-left">
+      <p>{{ item }}</p>
+    </div>
+    <div class="col-sm-2 text-left">
+      <p>{{ ability }}</p>
+    </div>
+    <div class="col-sm-3 text-left">
+      <p *ngFor="let m of moves">{{ m }}</p>
+    </div>
+    <div class="col-sm-4 text-left">
+      <p>Stats</p>
+    </div>
+    <div class="col-sm-1 text-left">
+      <button class="btn btn-danger" (click)="removeMe()">Delete</button>
+    </div>
+  </div>
+</div>
+<!-- <br>
+<div class="container card">
+  <div class="card-body">
+	  <p class="d-inline">{{ name }}</p>
+	  <img src="../../assets/rowleticon.png">
+	  <p class="d-inline">{{ type }}</p>
+	  <div class="row">
+	    <div class="col-sm-3 text-left">
+	      <p>{{ item }}</p>
+	    </div>
+	    <div class="col-sm-3 text-left">
+	      <p>{{ ability }}</p>
+	    </div>
+	    <div class="col-sm-3 text-left">
+	      <p *ngFor="let m of moves">{{ m }}</p>
+	    </div>
+	    <div class="col-sm-3 text-left">
+	      <p>Stats</p>
+	    </div>
+	  </div>
+	</div>
+  <br>
+</div> -->

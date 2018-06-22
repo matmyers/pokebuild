@@ -14,6 +14,8 @@ export class TeamComponent implements OnInit {
   pkmn = pkmnData;
   tierpkmn = [];
   displayPokemon = false;
+  tierSelected = false;
+  searchInput = "";
 
 
   constructor() { }
@@ -40,11 +42,13 @@ export class TeamComponent implements OnInit {
   setTier(tierInput: string) {
   	this.tier = tierInput;
   	this.tierpkmn = this.pkmn[this.tier];
-  	this.displayPokemon = false;
+    this.tierSelected = true;
+  	this.displayPokemon = true;
   }
 
   addTeamMember(poke: string) {
   	this.teamMembers.push(poke);
+    this.displayPokemon = false;
   }
 
   removeTeamMember(index: number) {
@@ -52,7 +56,19 @@ export class TeamComponent implements OnInit {
   }
 
   printPokemon() {
+    this.tierpkmn = this.pkmn[this.tier];
   	this.displayPokemon = true;
+  }
+
+  onUpdateSearchField(event: Event) {
+    this.searchInput = event.target.value;
+    this.tierpkmn = [];
+    // search by name
+    for (var i = 0; i < this.pkmn[this.tier].length; ++i) {
+      if (this.pkmn[this.tier][i].toLowerCase().includes(this.searchInput.toLowerCase())) {
+        this.tierpkmn.push(this.pkmn[this.tier][i]);
+      }
+    }
   }
 
 }

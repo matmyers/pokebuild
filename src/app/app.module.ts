@@ -9,6 +9,7 @@ import { NavbarpbComponent } from './navbarpb/navbarpb.component';
 import { TbcompetitiveComponent } from './tbcompetitive/tbcompetitive.component';
 import { PkmncubbyComponent } from './pkmncubby/pkmncubby.component';
 import { TeamComponent } from './team/team.component';
+import { SearchresultpkmnComponent } from './searchresultpkmn/searchresultpkmn.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TeamComponent } from './team/team.component';
     NavbarpbComponent,
     TbcompetitiveComponent,
     PkmncubbyComponent,
-    TeamComponent
+    TeamComponent,
+    SearchresultpkmnComponent
   ],
   imports: [
     BrowserModule,
