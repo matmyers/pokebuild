@@ -1,8 +1,8 @@
-<p class="d-inline">{{ name }}</p>
-<img src="../../assets/rowleticon.png">
-<p class="d-inline">{{ type }}</p>
-<br>
 <div class="container">
+	<p class="d-inline">{{ name }}</p>
+	<img src="{{ sprite }}">
+	<p class="d-inline">{{ type }}</p>
+	<br>
   <div class="row">
     <div class="col-sm-2 text-left">
       <p>{{ item }}</p>
@@ -13,10 +13,10 @@
     <div class="col-sm-3 text-left">
       <p *ngFor="let m of moves">{{ m }}</p>
     </div>
-    <div class="col-sm-4 text-left">
+    <div class="col-sm-3 text-left">
       <p>Stats</p>
     </div>
-    <div class="col-sm-1 text-left">
+    <div class="col-sm-2 text-right">
       <button class="btn btn-danger" (click)="removeMe()">Delete</button>
     </div>
   </div>

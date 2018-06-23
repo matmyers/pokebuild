@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
-import * as pkmnData from "../../assets/pokemon.json"
+import * as pkmnData from "../../assets/tierList.json"
 
 
 @Component({
@@ -9,6 +9,9 @@ import * as pkmnData from "../../assets/pokemon.json"
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
+  @ViewChildren(PkmncubbyComponent) pkmnCubbies: QueryList<PkmncubbyComponent>;
+  teamCubbies = [];
+
   teamMembers = [];
   tier = "Select tier";
   pkmn = pkmnData;
@@ -16,6 +19,9 @@ export class TeamComponent implements OnInit {
   displayPokemon = false;
   tierSelected = false;
   searchInput = "";
+  exportText = "";
+  exportClicked = false;
+  exportRows = 0;
 
 
   constructor() { }
@@ -58,6 +64,36 @@ export class TeamComponent implements OnInit {
   printPokemon() {
     this.tierpkmn = this.pkmn[this.tier];
   	this.displayPokemon = true;
+  }
+
+  exportShowdown() {
+    this.teamCubbies = this.pkmnCubbies.toArray();
+    for (var i = 0; i < this.teamCubbies.length; ++i) {
+      this.exportText += this.teamCubbies[i].name;
+      if (this.teamCubbies[i].item !== "Select item") {
+        this.exportText += " @ " + this.teamCubbies[i].item + "\n";
+      } else {
+        this.exportText += "\n";
+      }
+      this.exportText += "Ability: " + this.teamCubbies[i].ability + "\n";
+      this.exportText += "EVs: " + this.teamCubbies[i].ev[0] + " HP / " + this.teamCubbies[i].ev[1] + " Atk / " + this.teamCubbies[i].ev[2] + " Def / " + this.teamCubbies[i].ev[3] + " SpA / " + this.teamCubbies[i].ev[4] + " SpD / " + this.teamCubbies[i].ev[5] + " Spe\n";
+      if (this.teamCubbies[i].nature) {
+        this.exportText += this.teamCubbies[i].nature + " Nature\n";
+      }
+      for (var j = 0; j < this.teamCubbies[i].moves.length; ++j) {
+        if (this.teamCubbies[i].moves[j] !== "Select move") {
+          this.exportText += "- " + this.teamCubbies[i].moves[j] + "\n";
+        }
+      }
+      this.exportText += "\n";
+    }
+
+    this.exportRows = 9 * this.teamMembers.length + 1;
+    this.exportClicked = true;
+  }
+
+  hideExport() {
+    this.exportClicked = false;
   }
 
   onUpdateSearchField(event: Event) {

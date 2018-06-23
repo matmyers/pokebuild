@@ -8,12 +8,17 @@
 			<button class="dropdown-item" (click)="setTier('NU')">NU</button>
 		</div>
 	</div>
-	<button *ngIf="!isTeamFull()" class="btn btn-success" [disabled]="!tierSelected" (click)="printPokemon()">Add Pokemon</button>
+	<button *ngIf="!isTeamFull()" class="btn btn-success mr-2" [disabled]="!tierSelected" (click)="printPokemon()">Add Pokemon</button>
+	<button *ngIf="!isTeamEmpty()" class="btn btn-primary mr-2" (click)="exportShowdown()">Export to Showdown</button>
 </div>
 <br>
+<div *ngIf="exportClicked">
+	<textarea class="w-100" rows="{{exportRows}}" autofocus>{{ exportText }}</textarea><br><br>
+	<button class="btn btn-danger" (click)="hideExport()">Hide Export Text</button><br><br>
+</div>
 <p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
-	<div *ngFor="let member of teamMembers; let i = index" class="border border-dark">
+	<div *ngFor="let member of teamMembers; let i = index" class="border border-dark rounded">
 		<app-pkmncubby [team]="teamMembers" [name]="member" [index]=i></app-pkmncubby>
 	</div>
 </ng-template>

@@ -9,6 +9,7 @@ import * as pkmnData from "../../assets/pokemon.json"
 })
 export class SearchresultpkmnComponent implements OnInit {
   @Input() name : string;
+  sprite = "";
   type = "Type";
   ability = "Abilities";
   stats = "Stats"
@@ -19,6 +20,7 @@ export class SearchresultpkmnComponent implements OnInit {
   ngOnInit() {
   	// initialize everything using this.name
   	//this.type = pkmnData["OU"][this.name]["type"];
+    this.sprite = "../../assets/sprites/" + this.name.toLowerCase() + ".png";
   }
 
 }
