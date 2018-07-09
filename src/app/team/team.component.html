@@ -14,7 +14,7 @@
 <br>
 <div *ngIf="exportClicked">
 	<textarea class="w-100" rows="{{exportRows}}" autofocus>{{ exportText }}</textarea><br><br>
-	<button class="btn btn-danger" (click)="hideExport()">Hide Export Text</button><br><br>
+	<button class="btn btn-danger" (click)="exportClicked = false;">Hide Export Text</button><br><br>
 </div>
 <p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
@@ -24,7 +24,7 @@
 </ng-template>
 <br><br>
 <div *ngIf="displayPokemon && !isTeamFull()">
-	<input class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchField($event)">
+	<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)">
 	<br>
 	<div *ngFor="let poke of tierpkmn">
 		<app-searchresultpkmn [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn>

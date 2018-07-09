@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
 import * as pkmnData from "../../assets/tierList.json"
 
@@ -9,6 +9,8 @@ import * as pkmnData from "../../assets/tierList.json"
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
+  @ViewChild('searchPoke') searchBar: ElementRef;
+
   @ViewChildren(PkmncubbyComponent) pkmnCubbies: QueryList<PkmncubbyComponent>;
   teamCubbies = [];
 
@@ -50,6 +52,9 @@ export class TeamComponent implements OnInit {
   	this.tierpkmn = this.pkmn[this.tier];
     this.tierSelected = true;
   	this.displayPokemon = true;
+    setTimeout(()=>{
+      this.searchBar.nativeElement.focus();
+    },10);
   }
 
   addTeamMember(poke: string) {
@@ -64,13 +69,17 @@ export class TeamComponent implements OnInit {
   printPokemon() {
     this.tierpkmn = this.pkmn[this.tier];
   	this.displayPokemon = true;
+    setTimeout(()=>{
+      this.searchBar.nativeElement.focus();
+    },10);
   }
 
   exportShowdown() {
+    this.exportText = "";
     this.teamCubbies = this.pkmnCubbies.toArray();
     for (var i = 0; i < this.teamCubbies.length; ++i) {
       this.exportText += this.teamCubbies[i].name;
-      if (this.teamCubbies[i].item !== "Select item") {
+      if (this.teamCubbies[i].item) {
         this.exportText += " @ " + this.teamCubbies[i].item + "\n";
       } else {
         this.exportText += "\n";
@@ -92,11 +101,7 @@ export class TeamComponent implements OnInit {
     this.exportClicked = true;
   }
 
-  hideExport() {
-    this.exportClicked = false;
-  }
-
-  onUpdateSearchField(event: Event) {
+  onUpdateSearchPokemon(event: Event) {
     this.searchInput = event.target.value;
     this.tierpkmn = [];
     // search by name

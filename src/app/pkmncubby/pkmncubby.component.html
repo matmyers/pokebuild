@@ -4,22 +4,34 @@
 	<p class="d-inline">{{ type }}</p>
 	<br>
   <div class="row">
-    <div class="col-sm-2 text-left">
-      <p>{{ item }}</p>
+    <div class="col-sm-2 text-left mt-1">
+    	<input #searchItem class="form-control" placeholder="Select item" [value]="item" (input)="onUpdateSearchItem($event)" (focus)="displaySearch = true;" (blur)="displaySearch = false;">
+      <div *ngIf="displaySearch" class="mt-3">
+		  	<div *ngFor="let item of itemlist">
+		  		<button class="btn btn-light" (mousedown)="addItem(item)">{{ item }}</button>
+				</div>
+	  	</div>
     </div>
-    <div class="col-sm-2 text-left">
+    <div class="col-sm-2 text-left mt-1">
       <p>{{ ability }}</p>
     </div>
-    <div class="col-sm-3 text-left">
+    <div class="col-sm-3 text-left mt-1">
       <p *ngFor="let m of moves">{{ m }}</p>
     </div>
-    <div class="col-sm-3 text-left">
+    <div class="col-sm-3 text-left mt-1">
       <p>Stats</p>
     </div>
-    <div class="col-sm-2 text-right">
+    <div class="col-sm-2 text-right mt-1">
       <button class="btn btn-danger" (click)="removeMe()">Delete</button>
     </div>
   </div>
+  <!-- <div class="row" *ngIf="displaySearch">
+  	<div class="col-sm-2 text-left">
+	  	<div *ngFor="let item of itemlist">
+	  		<button class="btn btn-light" (click)="addItem(item)">{{ item }}</button>
+			</div>
+		</div>
+  </div> -->
 </div>
 <!-- <br>
 <div class="container card">

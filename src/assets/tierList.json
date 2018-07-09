@@ -2,5 +2,6 @@
 	"OU" : ["Alakazam-Mega", "Amoonguss", "Bisharp", "Blacephalon", "Celesteela", "Chansey", "Charizard-Mega-X", "Clefable", "Diancie-Mega", "Excadrill", "Ferrothorn", "Garchomp", "Garchomp-Mega", "Greninja", "Greninja-Ash", "Gyarados-Mega", "Hawlucha", "Heatran", "Hoopa-Unbound", "Jirachi", "Kartana", "Keldeo", "Kyurem-Black", "Landorus-Therian", "Latias-Mega", "Latios", "Latios-Mega", "Lopunny-Mega", "Magearna", "Magnezone", "Mamoswine", "Mawile-Mega", "Medicham-Mega", "Mew", "Mimikyu", "Pelipper", "Pinsir-Mega", "Rotom-Wash", "Sableye-Mega", "Scizor-Mega", "Skarmory", "Swampert-Mega", "Tangrowth", "Tapu Bulu", "Tapu Fini", "Tapu Koko", "Tapu Lele", "Tornadus-Therian", "Toxapex", "Tyranitar", "Tyranitar-Mega", "Venusaur-Mega", "Victini", "Volcarona", "Zapdos", "Zygarde"],
 	"UU" : ["Alakazam", "Slowbro", "Celebi"],
 	"RU" : [],
-	"NU" : ["Archeops", "Tangela"]
+	"NU" : ["Archeops", "Tangela"],
+	"item" : ["Eviolite", "Leftovers", "Life Orb"]
 }
