@@ -90,7 +90,7 @@ export class TeamComponent implements OnInit {
         this.exportText += this.teamCubbies[i].nature + " Nature\n";
       }
       for (var j = 0; j < this.teamCubbies[i].moves.length; ++j) {
-        if (this.teamCubbies[i].moves[j] !== "Select move") {
+        if (this.teamCubbies[i].moves[j]) {
           this.exportText += "- " + this.teamCubbies[i].moves[j] + "\n";
         }
       }

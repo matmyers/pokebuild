@@ -9,6 +9,7 @@ import * as pkmnData from "../../assets/tierList.json"
 })
 export class PkmncubbyComponent implements OnInit {
   @ViewChild('searchItem') searchIte: ElementRef;
+  @ViewChild('searchMove') searchMov: ElementRef;
 
 	@Input() team : string[];
   @Input() name : string;
@@ -17,12 +18,17 @@ export class PkmncubbyComponent implements OnInit {
 	type = "Type to be found later";
 	item = "";
   itemlist = pkmnData["item"];
-	ability = "Select ability";
-	moves = ["Select move", "Select move", "Select move", "Select move"];
+	ability = "";
+  abilitylist = pkmnData["item"];
+	moves = ["", "", "", ""];
+  movelist = pkmnData["item"];
+  moveIndex = 0;
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [0, 0, 0, 0, 0, 0];
 	nature = "";
-  displaySearch = false;
+  displayItems = false;
+  displayAbilities = false;
+  displayMoves = false;
 
   constructor() {
   }
@@ -60,7 +66,23 @@ export class PkmncubbyComponent implements OnInit {
 
   addItem(itemSelected: string) {
     this.item = itemSelected;
-    this.displaySearch = false;
+    this.displayItems = false;
+  }
+
+  onUpdateSearchMove(event: Event) {
+    //searchInput = event.target.value;
+    this.movelist = [];
+    // search by name
+    for (var i = 0; i < pkmnData["item"].length; ++i) {
+      if (pkmnData["item"][i].toLowerCase().includes(event.target.value.toLowerCase())) {
+        this.movelist.push(pkmnData["item"][i]);
+      }
+    }
+  }
+
+  addMove(moveSelected: string) {
+    this.moves[this.moveIndex] = moveSelected;
+    this.displayMoves = false;
   }
 
 }
