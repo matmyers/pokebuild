@@ -42,21 +42,12 @@ export class PkmncubbyComponent implements OnInit {
     this.sprite = "../../assets/sprites/" + this.name.toLowerCase() + ".png";
     this.searchIte.nativeElement.focus();
 
-    this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + this.ev[0]/4 + 110;
-    this.stats[1] = 2 * allPkmnData[this.name]["atk"] + this.iv[1] + this.ev[1]/4 + 5;
-    this.stats[2] = 2 * allPkmnData[this.name]["def"] + this.iv[2] + this.ev[2]/4 + 5;
-    this.stats[3] = 2 * allPkmnData[this.name]["spatk"] + this.iv[3] + this.ev[3]/4 + 5;
-    this.stats[4] = 2 * allPkmnData[this.name]["spdef"] + this.iv[4] + this.ev[4]/4 + 5;
-    this.stats[5] = 2 * allPkmnData[this.name]["speed"] + this.iv[5] + this.ev[5]/4 + 5;
-
-    // testing testing 123...
-    // this.item = "Leftovers";
-    // this.ability = "Pressure"
-    // this.nature = "Adamant";
-    // this.moves[0] = "Protect";
-    // this.moves[1] = "Protect";
-    // this.moves[2] = "Protect";
-    // this.moves[3] = "Protect";
+    this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
+    this.stats[1] = 2 * allPkmnData[this.name]["atk"] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
+    this.stats[2] = 2 * allPkmnData[this.name]["def"] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
+    this.stats[3] = 2 * allPkmnData[this.name]["spatk"] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
+    this.stats[4] = 2 * allPkmnData[this.name]["spdef"] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
+    this.stats[5] = 2 * allPkmnData[this.name]["speed"] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
   }
 
   removeMe() {
@@ -111,6 +102,43 @@ export class PkmncubbyComponent implements OnInit {
       setTimeout(()=>{
         document.getElementById('searchMov' + this.index + '-' + (this.moveIndex + 1)).focus();
       }, 10);
+    }
+  }
+
+  setStats(event: Event, statChanged: string) {
+    // if (!event.target.value) {
+    //   this.ev[0] = 0;
+    //   this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + 110;
+    // }
+    if (event.target.value > 252) {
+      event.target.value = 252;
+    }
+    switch(statChanged) {
+      case "hp":
+        this.ev[0] = event.target.value;
+        this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
+        break;
+      case "atk":
+        this.ev[1] = event.target.value;
+        this.stats[1] = 2 * allPkmnData[this.name]["atk"] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
+        break;
+      case "def":
+        this.ev[2] = event.target.value;
+        this.stats[2] = 2 * allPkmnData[this.name]["def"] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
+        break;
+      case "spa":
+        this.ev[3] = event.target.value;
+        this.stats[3] = 2 * allPkmnData[this.name]["spatk"] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
+        break;
+      case "spd":
+        this.ev[4] = event.target.value;
+        this.stats[4] = 2 * allPkmnData[this.name]["spdef"] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
+        break;
+      case "spe":
+        this.ev[5] = event.target.value;
+        this.stats[5] = 2 * allPkmnData[this.name]["speed"] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
+      default:
+        console.log("stat type error");
     }
   }
 
