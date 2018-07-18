@@ -22,11 +22,13 @@
 		<app-pkmncubby [team]="teamMembers" [name]="member" [index]=i></app-pkmncubby>
 	</div>
 </ng-template>
-<br><br>
-<div *ngIf="displayPokemon && !isTeamFull()">
-	<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)">
-	<br>
-	<div *ngFor="let poke of tierpkmn">
-		<app-searchresultpkmn [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn>
+<div id="searchDisplayArea">
+	<br><br>
+	<div *ngIf="displayPokemon && !isTeamFull()">
+		<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)" (focus)="scrollToSearch();">
+		<br>
+		<div *ngFor="let poke of tierpkmn">
+			<app-searchresultpkmn [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn>
+		</div>
 	</div>
 </div>

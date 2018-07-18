@@ -19,6 +19,7 @@ export class PkmncubbyComponent implements OnInit {
   sprite = "";
 	type = "Type to be found later";
 	item = "";
+  itemSprite = "../../assets/life-orb.png";
   itemlist = pkmnData["item"];
 	ability = "";
   abilitylist = pkmnData["ability"];
@@ -26,12 +27,14 @@ export class PkmncubbyComponent implements OnInit {
   movelist = pkmnData["moves"];
   moveIndex = 0;
   stats = [0, 0, 0, 0, 0, 0];
+  statsLabel = "";
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [0, 0, 0, 0, 0, 0];
 	nature = "";
   displayItems = false;
   displayAbilities = false;
   displayMoves = false;
+  displayStats = false;
 
   constructor() {
   }
@@ -52,6 +55,13 @@ export class PkmncubbyComponent implements OnInit {
 
   removeMe() {
     this.team.splice(this.index, 1);
+  }
+
+  scrollToDisplay() {
+    setTimeout(()=>{
+      var displayArea = document.getElementById('displayArea' + this.index);
+      displayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }, 10);
   }
 
   onUpdateSearchItem(event: Event) {
@@ -98,6 +108,8 @@ export class PkmncubbyComponent implements OnInit {
     if (this.moveIndex == 3) {
       this.displayMoves = false;
       // move focus to stats
+      this.displayStats = true;
+      //this.scrollToDisplay();
     } else {
       setTimeout(()=>{
         document.getElementById('searchMov' + this.index + '-' + (this.moveIndex + 1)).focus();
@@ -140,6 +152,16 @@ export class PkmncubbyComponent implements OnInit {
       default:
         console.log("stat type error");
     }
+
+    // set stats label
+    // REMOVE LATER AND REPLACE WITH LIST VIEW OF EVs AND NATURE +-
+    this.statsLabel = "";
+    if (this.ev[0] > 0) {this.statsLabel += this.ev[0] + ' HP ';}
+    if (this.ev[1] > 0) {this.statsLabel += this.ev[1] + ' Atk ';}
+    if (this.ev[2] > 0) {this.statsLabel += this.ev[2] + ' Def ';}
+    if (this.ev[3] > 0) {this.statsLabel += this.ev[3] + ' SpA ';}
+    if (this.ev[4] > 0) {this.statsLabel += this.ev[4] + ' SpD ';}
+    if (this.ev[5] > 0) {this.statsLabel += this.ev[5] + ' Spe ';}
   }
 
 }

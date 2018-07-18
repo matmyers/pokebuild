@@ -3,27 +3,131 @@
 	<img src="{{ sprite }}">
 	<p class="d-inline">{{ type }}</p>
   <hr>
-  <div class="row">
+  <div attr.id="displayArea{{index}}" class="row">
     <div class="col-sm-2 text-left mt-1">
     	<!-- item -->
-      <label for="searchItem">Item:</label>
-    	<input #searchItem class="form-control" placeholder="Select item" [value]="item" (input)="onUpdateSearchItem($event)" (focus)="displayItems = true;" (blur)="displayItems = false;">
+      <label for="searchItem">Item:<img src="{{ itemSprite }}"></label>
+    	<input #searchItem class="form-control" placeholder="Select item" [value]="item" (input)="onUpdateSearchItem($event)" (focus)="displayItems = true; scrollToDisplay();" (blur)="displayItems = false;" (click)="scrollToDisplay();">
     </div>
     <div class="col-sm-2 text-left mt-1">
     	<!-- ability -->
       <label for="searchAbility">Ability:</label>
-      <input #searchAbility class="form-control" placeholder="Select ability" [value]="ability" (focus)="displayAbilities = true;" (blur)="displayAbilities = false;">
+      <input #searchAbility class="form-control" placeholder="Select ability" [value]="ability" (focus)="displayAbilities = true; scrollToDisplay();" (blur)="displayAbilities = false;" (click)="scrollToDisplay();">
     </div>
     <div class="col-sm-2 text-left mt-1">
     	<!-- moves -->
       <label>Moves:</label>
       <div *ngFor="let m of moves; let i = index">
-      	<input attr.id="searchMov{{index}}-{{i}}" class="form-control mb-1" placeholder="Select move" [value]="m" (input)="onUpdateSearchMove($event)" (focus)="displayMoves = true; moveIndex = i;" (blur)="displayMoves = false;">
+      	<input attr.id="searchMov{{index}}-{{i}}" class="form-control mb-1" placeholder="Select move" [value]="m" (input)="onUpdateSearchMove($event)" (focus)="displayMoves = true; moveIndex = i; scrollToDisplay();" (blur)="displayMoves = false;" (click)="scrollToDisplay();">
       </div>
     </div>
     <div class="col-sm-4 text-left mt-1">
       <!-- stats -->
-      <label>Stats:</label>
+      <label>Stats: {{ statsLabel }}</label><br>
+      <button *ngIf="!displayStats; else hideStats" class="btn btn-outline-dark btn-block h-75" (click)="displayStats = true; scrollToDisplay();">Edit Stats</button>
+      <ng-template #hideStats>
+        <button class="btn btn-outline-dark btn-block h-75" (click)="displayStats = false;">Hide Stats</button>
+      </ng-template>
+      <!-- <div id="oldStatsAppearance">
+        <form>
+          <div class="form-group row">
+            <label for="hpInput" class="col-sm-2 col-form-label col-form-label-sm">HP:</label>
+            <div class="col-sm-6">
+              <input type="range" class="custom-range" min="0" max="252" step="4" id="hpInput" [value]="ev[0]" (input)="setStats($event, 'hp')">
+            </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[0]" (input)="setStats($event, 'hp')">
+            </div>
+            <p class="col-sm-1">{{ stats[0] }}</p>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row">
+            <label for="atkInput" class="col-sm-2 col-form-label col-form-label-sm">Atk:</label>
+            <div class="col-sm-6">
+              <input type="range" class="custom-range" min="0" max="252" step="4" id="atkInput" [value]="ev[1]" (input)="setStats($event, 'atk')">
+            </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[1]" (input)="setStats($event, 'atk')">
+            </div>
+            <p class="col-sm-1">{{ stats[1] }}</p>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row">
+            <label for="defInput" class="col-sm-2 col-form-label col-form-label-sm">Def:</label>
+            <div class="col-sm-6">
+              <input type="range" class="custom-range" min="0" max="252" step="4" id="defInput" [value]="ev[2]" (input)="setStats($event, 'def')">
+            </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[2]" (input)="setStats($event, 'def')">
+            </div>
+            <p class="col-sm-1">{{ stats[2] }}</p>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row">
+            <label for="spaInput" class="col-sm-2 col-form-label col-form-label-sm">SpA:</label>
+            <div class="col-sm-6">
+              <input type="range" class="custom-range" min="0" max="252" step="4" id="spaInput" [value]="ev[3]" (input)="setStats($event, 'spa')">
+            </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[3]" (input)="setStats($event, 'spa')">
+            </div>
+            <p class="col-sm-1">{{ stats[3] }}</p>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row">
+            <label for="spdInput" class="col-sm-2 col-form-label col-form-label-sm">SpD:</label>
+            <div class="col-sm-6">
+              <input type="range" class="custom-range" min="0" max="252" step="4" id="spdInput" [value]="ev[4]" (input)="setStats($event, 'spd')">
+            </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[4]" (input)="setStats($event, 'spd')">
+            </div>
+            <p class="col-sm-1">{{ stats[4] }}</p>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row">
+            <label for="speInput" class="col-sm-2 col-form-label col-form-label-sm">Spe:</label>
+            <div class="col-sm-6">
+              <input type="range" class="custom-range" min="0" max="252" step="4" id="speInput" [value]="ev[5]" (input)="setStats($event, 'spe')">
+            </div>
+            <div class="col-sm-3">
+              <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[5]" (input)="setStats($event, 'spe')">
+            </div>
+            <p class="col-sm-1">{{ stats[5] }}</p>
+          </div>
+        </form>
+      </div> -->
+    </div>
+    <div class="col-sm-2 text-right mt-1">
+      <button class="btn btn-danger" (click)="removeMe()">Delete</button>
+    </div>
+  </div>
+  <!-- display lists of stuff here, note id for displayArea is higher up the page -->
+  <div>
+    <div *ngIf="displayItems" class="mt-3 mb-3">
+      <h5>Items:</h5><hr>
+      <div *ngFor="let item of itemlist">
+        <button class="btn btn-light" (mousedown)="addItem(item)">{{ item }}</button>
+      </div>
+    </div>
+    <div *ngIf="displayAbilities" class="mt-3 mb-3">
+      <h5>Abilities:</h5><hr>
+      <div *ngFor="let ab of abilitylist">
+        <button class="btn btn-light" (mousedown)="addAbility(ab)">{{ ab }}</button>
+      </div>
+    </div>
+    <div *ngIf="displayMoves" class="mt-3 mb-3">
+      <h5>Moves:</h5><hr>
+    	<div *ngFor="let mo of movelist">
+    		<button class="btn btn-light" (mousedown)="addMove(mo)">{{ mo }}</button>
+  		</div>
+  	</div>
+    <div *ngIf="displayStats" class="mt-3 mb-3">
       <form>
         <div class="form-group row">
           <label for="hpInput" class="col-sm-2 col-form-label col-form-label-sm">HP:</label>
@@ -31,7 +135,7 @@
             <input type="range" class="custom-range" min="0" max="252" step="4" id="hpInput" [value]="ev[0]" (input)="setStats($event, 'hp')">
           </div>
           <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[0]" (input)="setStats($event, 'hp')">
+            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[0]" (input)="setStats($event, 'hp')" (click)="$event.target.select()">
           </div>
           <p class="col-sm-1">{{ stats[0] }}</p>
         </div>
@@ -43,7 +147,7 @@
             <input type="range" class="custom-range" min="0" max="252" step="4" id="atkInput" [value]="ev[1]" (input)="setStats($event, 'atk')">
           </div>
           <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[1]" (input)="setStats($event, 'atk')">
+            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[1]" (input)="setStats($event, 'atk')" (click)="$event.target.select()">
           </div>
           <p class="col-sm-1">{{ stats[1] }}</p>
         </div>
@@ -55,7 +159,7 @@
             <input type="range" class="custom-range" min="0" max="252" step="4" id="defInput" [value]="ev[2]" (input)="setStats($event, 'def')">
           </div>
           <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[2]" (input)="setStats($event, 'def')">
+            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[2]" (input)="setStats($event, 'def')" (click)="$event.target.select()">
           </div>
           <p class="col-sm-1">{{ stats[2] }}</p>
         </div>
@@ -67,7 +171,7 @@
             <input type="range" class="custom-range" min="0" max="252" step="4" id="spaInput" [value]="ev[3]" (input)="setStats($event, 'spa')">
           </div>
           <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[3]" (input)="setStats($event, 'spa')">
+            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[3]" (input)="setStats($event, 'spa')" (click)="$event.target.select()">
           </div>
           <p class="col-sm-1">{{ stats[3] }}</p>
         </div>
@@ -79,7 +183,7 @@
             <input type="range" class="custom-range" min="0" max="252" step="4" id="spdInput" [value]="ev[4]" (input)="setStats($event, 'spd')">
           </div>
           <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[4]" (input)="setStats($event, 'spd')">
+            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[4]" (input)="setStats($event, 'spd')" (click)="$event.target.select()">
           </div>
           <p class="col-sm-1">{{ stats[4] }}</p>
         </div>
@@ -91,34 +195,12 @@
             <input type="range" class="custom-range" min="0" max="252" step="4" id="speInput" [value]="ev[5]" (input)="setStats($event, 'spe')">
           </div>
           <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[5]" (input)="setStats($event, 'spe')">
+            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[5]" (input)="setStats($event, 'spe')" (click)="$event.target.select()">
           </div>
           <p class="col-sm-1">{{ stats[5] }}</p>
         </div>
       </form>
     </div>
-    <div class="col-sm-2 text-right mt-1">
-      <button class="btn btn-danger" (click)="removeMe()">Delete</button>
-    </div>
   </div>
-  <!-- display lists of stuff here -->
-  <div *ngIf="displayItems" class="mt-3 mb-3">
-    <h5>Items:</h5><hr>
-    <div *ngFor="let item of itemlist">
-      <button class="btn btn-light" (mousedown)="addItem(item)">{{ item }}</button>
-    </div>
-  </div>
-  <div *ngIf="displayAbilities" class="mt-3 mb-3">
-    <h5>Abilities:</h5><hr>
-    <div *ngFor="let ab of abilitylist">
-      <button class="btn btn-light" (mousedown)="addAbility(ab)">{{ ab }}</button>
-    </div>
-  </div>
-  <div *ngIf="displayMoves" class="mt-3 mb-3">
-    <h5>Moves:</h5><hr>
-  	<div *ngFor="let mo of movelist">
-  		<button class="btn btn-light" (mousedown)="addMove(mo)">{{ mo }}</button>
-		</div>
-	</div>
   <!-- end display lists of stuff -->
 </div>

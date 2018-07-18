@@ -31,6 +31,13 @@ export class TeamComponent implements OnInit {
   ngOnInit() {
   }
 
+  scrollToSearch() {
+    setTimeout(()=>{
+      var searchDisplayArea = document.getElementById('searchDisplayArea');
+      searchDisplayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }, 10);
+  }
+
   isTeamEmpty() {
   	if (this.teamMembers.length == 0) {
   		return true;
