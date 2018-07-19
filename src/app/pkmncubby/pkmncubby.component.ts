@@ -21,6 +21,7 @@ export class PkmncubbyComponent implements OnInit {
 	item = "";
   itemSprite = "../../assets/life-orb.png";
   itemlist = pkmnData["item"];
+  itemIndex = 0;
 	ability = "";
   abilitylist = pkmnData["ability"];
 	moves = ["", "", "", ""];
@@ -29,8 +30,8 @@ export class PkmncubbyComponent implements OnInit {
   stats = [0, 0, 0, 0, 0, 0];
   statsLabel = "";
 	ev = [0, 0, 0, 0, 0, 0];
-	iv = [0, 0, 0, 0, 0, 0];
-	nature = "";
+	iv = [31, 31, 31, 31, 31, 31];
+	nature = "Select nature";
   displayItems = false;
   displayAbilities = false;
   displayMoves = false;
@@ -57,7 +58,7 @@ export class PkmncubbyComponent implements OnInit {
     this.team.splice(this.index, 1);
   }
 
-  scrollToDisplay() {
+  scrollToDisplay(moveIndex?: number) {
     setTimeout(()=>{
       var displayArea = document.getElementById('displayArea' + this.index);
       displayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
@@ -81,6 +82,37 @@ export class PkmncubbyComponent implements OnInit {
     setTimeout(()=>{
       this.searchAbi.nativeElement.focus();
     }, 10);
+  }
+
+  navigateItem(event: Event) {
+    if (event.keyCode == 13) {
+      this.addItem(this.itemlist[this.itemIndex]);
+    } else if (event.keyCode == 38) {
+      if (this.itemIndex > 0) {
+        var prevHoverItem = document.getElementById('item' + this.itemIndex);
+        prevHoverItem.classList.remove('myHover');
+        this.itemIndex--;
+        var nextHoverItem = document.getElementById('item' + this.itemIndex);
+        nextHoverItem.classList.add('myHover');
+      }
+    } else if (event.keyCode == 40) {
+      if (this.itemIndex < (this.itemlist.length-1)) {
+        var prevHoverItem = document.getElementById('item' + this.itemIndex);
+        prevHoverItem.classList.remove('myHover');
+        this.itemIndex++;
+        var nextHoverItem = document.getElementById('item' + this.itemIndex);
+        nextHoverItem.classList.add('myHover');
+      }
+    }
+  }
+
+  highlightItems() {
+    setTimeout(()=>{
+      var hoverItem = document.getElementById('item' + this.itemIndex);
+      hoverItem.classList.add('myHover');
+    }, 10);
+
+    this.scrollToDisplay();
   }
 
   addAbility(abilitySelected: string) {
@@ -162,6 +194,104 @@ export class PkmncubbyComponent implements OnInit {
     if (this.ev[3] > 0) {this.statsLabel += this.ev[3] + ' SpA ';}
     if (this.ev[4] > 0) {this.statsLabel += this.ev[4] + ' SpD ';}
     if (this.ev[5] > 0) {this.statsLabel += this.ev[5] + ' Spe ';}
+  }
+
+  setNature(natureSelected: string) {
+    this.nature = natureSelected;
+
+    // reset stats to neutral nature
+    this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
+    this.stats[1] = 2 * allPkmnData[this.name]["atk"] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
+    this.stats[2] = 2 * allPkmnData[this.name]["def"] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
+    this.stats[3] = 2 * allPkmnData[this.name]["spatk"] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
+    this.stats[4] = 2 * allPkmnData[this.name]["spdef"] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
+    this.stats[5] = 2 * allPkmnData[this.name]["speed"] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
+    
+    // add modifier for non-neutral natures
+    switch(natureSelected) {
+      case "Adamant":
+        this.stats[1] = Math.floor(this.stats[1] * 1.1);
+        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        break;
+      case "Bold":
+        this.stats[2] = Math.floor(this.stats[2] * 1.1);
+        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        break;
+      case "Brave":
+        this.stats[1] = Math.floor(this.stats[1] * 1.1);
+        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        break;
+      case "Calm":
+        this.stats[4] = Math.floor(this.stats[4] * 1.1);
+        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        break;
+      case "Careful":
+        this.stats[4] = Math.floor(this.stats[4] * 1.1);
+        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        break;
+      case "Gentle":
+        this.stats[4] = Math.floor(this.stats[4] * 1.1);
+        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        break;
+      case "Hasty":
+        this.stats[5] = Math.floor(this.stats[5] * 1.1);
+        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        break;
+      case "Impish":
+        this.stats[2] = Math.floor(this.stats[2] * 1.1);
+        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        break;
+      case "Jolly":
+        this.stats[5] = Math.floor(this.stats[5] * 1.1);
+        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        break;
+      case "Lax":
+        this.stats[2] = Math.floor(this.stats[2] * 1.1);
+        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        break;
+      case "Lonely":
+        this.stats[1] = Math.floor(this.stats[1] * 1.1);
+        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        break;
+      case "Mild":
+        this.stats[3] = Math.floor(this.stats[3] * 1.1);
+        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        break;
+      case "Modest":
+        this.stats[3] = Math.floor(this.stats[3] * 1.1);
+        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        break;
+      case "Naive":
+        this.stats[5] = Math.floor(this.stats[5] * 1.1);
+        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        break;
+      case "Naughty":
+        this.stats[1] = Math.floor(this.stats[1] * 1.1);
+        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        break;
+      case "Quiet":
+        this.stats[3] = Math.floor(this.stats[3] * 1.1);
+        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        break;
+      case "Rash":
+        this.stats[3] = Math.floor(this.stats[3] * 1.1);
+        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        break;
+      case "Relaxed":
+        this.stats[2] = Math.floor(this.stats[2] * 1.1);
+        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        break;
+      case "Sassy":
+        this.stats[4] = Math.floor(this.stats[4] * 1.1);
+        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        break;
+      case "Timid":
+        this.stats[5] = Math.floor(this.stats[5] * 1.1);
+        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        break;
+      default:
+        console.log("unknown nature");
+    }
   }
 
 }
