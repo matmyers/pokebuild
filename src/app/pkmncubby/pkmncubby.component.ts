@@ -24,9 +24,11 @@ export class PkmncubbyComponent implements OnInit {
   itemIndex = 0;
 	ability = "";
   abilitylist = pkmnData["ability"];
+  abilityIndex = 0;
 	moves = ["", "", "", ""];
   movelist = pkmnData["moves"];
   moveIndex = 0;
+  moveNavIndex = 0;
   stats = [0, 0, 0, 0, 0, 0];
   statsLabel = "";
 	ev = [0, 0, 0, 0, 0, 0];
@@ -58,7 +60,7 @@ export class PkmncubbyComponent implements OnInit {
     this.team.splice(this.index, 1);
   }
 
-  scrollToDisplay(moveIndex?: number) {
+  scrollToDisplay() {
     setTimeout(()=>{
       var displayArea = document.getElementById('displayArea' + this.index);
       displayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
@@ -67,6 +69,12 @@ export class PkmncubbyComponent implements OnInit {
 
   onUpdateSearchItem(event: Event) {
     //searchInput = event.target.value;
+
+    var prevHoverItem = document.getElementById('item' + this.itemIndex);
+    prevHoverItem.classList.remove('myHover');
+    this.itemIndex = 0;
+    this.highlightItems();
+
     this.itemlist = [];
     // search by name
     for (var i = 0; i < pkmnData["item"].length; ++i) {
@@ -106,10 +114,77 @@ export class PkmncubbyComponent implements OnInit {
     }
   }
 
+  navigateAbility(event: Event) {
+    if (event.keyCode == 13) {
+      this.addAbility(this.abilitylist[this.abilityIndex]);
+    } else if (event.keyCode == 38) {
+      if (this.abilityIndex > 0) {
+        var prevHoverAbility = document.getElementById('ability' + this.abilityIndex);
+        prevHoverAbility.classList.remove('myHover');
+        this.abilityIndex--;
+        var nextHoverAbility = document.getElementById('ability' + this.abilityIndex);
+        nextHoverAbility.classList.add('myHover');
+      }
+    } else if (event.keyCode == 40) {
+      if (this.abilityIndex < (this.abilitylist.length-1)) {
+        var prevHoverAbility = document.getElementById('ability' + this.abilityIndex);
+        prevHoverAbility.classList.remove('myHover');
+        this.abilityIndex++;
+        var nextHoverAbility = document.getElementById('ability' + this.abilityIndex);
+        nextHoverAbility.classList.add('myHover');
+      }
+    }
+  }
+
+  navigateMove(event: Event) {
+    if (event.keyCode == 13) {
+      this.addMove(this.movelist[this.moveNavIndex]);
+    } else if (event.keyCode == 38) {
+      if (this.moveNavIndex > 0) {
+        var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+        prevHoverMove.classList.remove('myHover');
+        this.moveNavIndex--;
+        var nextHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+        nextHoverMove.classList.add('myHover');
+      }
+    } else if (event.keyCode == 40) {
+      if (this.moveNavIndex < (this.movelist.length-1)) {
+        var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+        prevHoverMove.classList.remove('myHover');
+        this.moveNavIndex++;
+        var nextHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+        nextHoverMove.classList.add('myHover');
+      }
+    }
+  }
+
   highlightItems() {
+    this.itemIndex = 0;
+
     setTimeout(()=>{
       var hoverItem = document.getElementById('item' + this.itemIndex);
       hoverItem.classList.add('myHover');
+    }, 10);
+
+    this.scrollToDisplay();
+  }
+
+  highlightAbilities() {
+    this.abilityIndex = 0;
+
+    setTimeout(()=>{
+      var hoverAbility = document.getElementById('ability' + this.abilityIndex);
+      hoverAbility.classList.add('myHover');
+    }, 10);
+
+    this.scrollToDisplay();
+  }
+
+  highlightMoves() {
+    this.moveNavIndex = 0;
+    setTimeout(()=>{
+      var hoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+      hoverMove.classList.add('myHover');
     }, 10);
 
     this.scrollToDisplay();
@@ -125,6 +200,13 @@ export class PkmncubbyComponent implements OnInit {
 
   onUpdateSearchMove(event: Event) {
     //searchInput = event.target.value;
+
+    var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+    prevHoverMove.classList.remove('myHover');
+    this.moveNavIndex = 0;
+    this.highlightMoves();
+
+
     this.movelist = [];
     // search by name
     for (var i = 0; i < pkmnData["moves"].length; ++i) {
@@ -144,7 +226,8 @@ export class PkmncubbyComponent implements OnInit {
       //this.scrollToDisplay();
     } else {
       setTimeout(()=>{
-        document.getElementById('searchMov' + this.index + '-' + (this.moveIndex + 1)).focus();
+        this.moveIndex++;
+        document.getElementById('searchMov' + this.index + '-' + (this.moveIndex)).focus();
       }, 10);
     }
   }

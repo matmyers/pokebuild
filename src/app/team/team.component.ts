@@ -18,6 +18,7 @@ export class TeamComponent implements OnInit {
   tier = "Select tier";
   pkmn = pkmnData;
   tierpkmn = [];
+  listedpkmnIndex = 0;
   displayPokemon = false;
   tierSelected = false;
   searchInput = "";
@@ -64,7 +65,39 @@ export class TeamComponent implements OnInit {
     },10);
   }
 
+  navigatePokemon(event: Event) {
+    if (event.keyCode == 13) {
+      this.addTeamMember(this.tierpkmn[this.listedpkmnIndex]);
+    } else if (event.keyCode == 38) {
+      if (this.listedpkmnIndex > 0) {
+        var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        prevHoverPkmn.classList.remove('myHover');
+        this.listedpkmnIndex--;
+        var nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        nextHoverPkmn.classList.add('myHover');
+      }
+    } else if (event.keyCode == 40) {
+      if (this.listedpkmnIndex < (this.tierpkmn.length-1)) {
+        var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        prevHoverPkmn.classList.remove('myHover');
+        this.listedpkmnIndex++;
+        var nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        nextHoverPkmn.classList.add('myHover');
+      }
+    }
+  }
+
+  highlightPokemon() {
+    setTimeout(()=>{
+      var hoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+      hoverPkmn.classList.add('myHover');
+    }, 10);
+
+    this.scrollToSearch();
+  }
+
   addTeamMember(poke: string) {
+    console.log(poke);
   	this.teamMembers.push(poke);
     this.displayPokemon = false;
   }
@@ -74,6 +107,7 @@ export class TeamComponent implements OnInit {
   }
 
   printPokemon() {
+    this.listedpkmnIndex = 0;
     this.tierpkmn = this.pkmn[this.tier];
   	this.displayPokemon = true;
     setTimeout(()=>{
@@ -110,6 +144,12 @@ export class TeamComponent implements OnInit {
 
   onUpdateSearchPokemon(event: Event) {
     this.searchInput = event.target.value;
+
+    var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+    prevHoverPkmn.classList.remove('myHover');
+    this.listedpkmnIndex = 0;
+    this.highlightPokemon();
+
     this.tierpkmn = [];
     // search by name
     for (var i = 0; i < this.pkmn[this.tier].length; ++i) {

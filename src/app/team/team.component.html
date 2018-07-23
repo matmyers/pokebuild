@@ -25,10 +25,11 @@
 <div id="searchDisplayArea">
 	<br><br>
 	<div *ngIf="displayPokemon && !isTeamFull()">
-		<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)" (focus)="scrollToSearch();">
+		<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)" (focus)="highlightPokemon();" (keydown)="navigatePokemon($event)">
 		<br>
-		<div *ngFor="let poke of tierpkmn">
-			<app-searchresultpkmn [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn>
+		<div *ngFor="let poke of tierpkmn; let i = index;">
+			<!-- <app-searchresultpkmn attr.id="listedpkmn{{i}}" [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn> -->
+			<button attr.id="listedpkmn{{i}}" class="btn btn-outline-dark" (click)="addTeamMember(poke)">{{ poke }}</button>
 		</div>
 	</div>
 </div>
