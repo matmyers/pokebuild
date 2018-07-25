@@ -17,7 +17,7 @@ export class PkmncubbyComponent implements OnInit {
   @Input() name : string;
   @Input() index : number;
   sprite = "";
-	type = "Type to be found later";
+	type = ["../../assets/types/dark.png", "../../assets/types/steel.png"];
 	item = "";
   itemSprite = "../../assets/life-orb.png";
   itemlist = pkmnData["item"];
@@ -31,6 +31,7 @@ export class PkmncubbyComponent implements OnInit {
   moveNavIndex = 0;
   stats = [0, 0, 0, 0, 0, 0];
   statsLabel = "";
+  ptsRemaining = 508;
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [31, 31, 31, 31, 31, 31];
 	nature = "Select nature";
@@ -190,6 +191,30 @@ export class PkmncubbyComponent implements OnInit {
     this.scrollToDisplay();
   }
 
+  setHoverItem(newHoverIndex: number) {
+    var prevHoverItem = document.getElementById('item' + this.itemIndex);
+    prevHoverItem.classList.remove('myHover');
+    this.itemIndex = newHoverIndex;
+    var nextHoverItem = document.getElementById('item' + this.itemIndex);
+    nextHoverItem.classList.add('myHover');
+  }
+
+  setHoverAbility(newHoverIndex: number) {
+    var prevHoverAbility = document.getElementById('ability' + this.abilityIndex);
+    prevHoverAbility.classList.remove('myHover');
+    this.abilityIndex = newHoverIndex;
+    var nextHoverAbility = document.getElementById('ability' + this.abilityIndex);
+    nextHoverAbility.classList.add('myHover');
+  }
+
+  setHoverMove(newHoverIndex: number) {
+    var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+    prevHoverMove.classList.remove('myHover');
+    this.moveNavIndex = newHoverIndex;
+    var nextHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
+    nextHoverMove.classList.add('myHover');
+  }
+
   addAbility(abilitySelected: string) {
     this.ability = abilitySelected;
     this.displayAbilities = false;
@@ -233,39 +258,47 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   setStats(event: Event, statChanged: string) {
-    // if (!event.target.value) {
-    //   this.ev[0] = 0;
-    //   this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + 110;
-    // }
+    if (event.target.value.length === 0) {
+      event.target.value = 0;
+    }
     if (event.target.value > 252) {
       event.target.value = 252;
     }
     switch(statChanged) {
       case "hp":
-        this.ev[0] = event.target.value;
+        this.ev[0] = parseInt(event.target.value);
         this.stats[0] = 2 * allPkmnData[this.name]["hp"] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
         break;
       case "atk":
-        this.ev[1] = event.target.value;
+        this.ev[1] = parseInt(event.target.value);
         this.stats[1] = 2 * allPkmnData[this.name]["atk"] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
         break;
       case "def":
-        this.ev[2] = event.target.value;
+        this.ev[2] = parseInt(event.target.value);
         this.stats[2] = 2 * allPkmnData[this.name]["def"] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
         break;
       case "spa":
-        this.ev[3] = event.target.value;
+        this.ev[3] = parseInt(event.target.value);
         this.stats[3] = 2 * allPkmnData[this.name]["spatk"] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
         break;
       case "spd":
-        this.ev[4] = event.target.value;
+        this.ev[4] = parseInt(event.target.value);
         this.stats[4] = 2 * allPkmnData[this.name]["spdef"] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
         break;
       case "spe":
-        this.ev[5] = event.target.value;
+        this.ev[5] = parseInt(event.target.value);
         this.stats[5] = 2 * allPkmnData[this.name]["speed"] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
+        break;
       default:
         console.log("stat type error");
+    }
+
+    this.ptsRemaining = 508 - (this.ev[0] + this.ev[1] + this.ev[2] + this.ev[3] + this.ev[4] + this.ev[5]);
+    //var ptsDisplay = document.getElementById('pts');
+    if (this.ptsRemaining < 0) {
+      document.getElementById('pts' + this.index).style.color = 'red';
+    } else {
+      document.getElementById('pts' + this.index).style.color = 'black';
     }
 
     // set stats label
@@ -375,6 +408,8 @@ export class PkmncubbyComponent implements OnInit {
       default:
         console.log("unknown nature");
     }
+
+    this.scrollToDisplay();
   }
 
 }

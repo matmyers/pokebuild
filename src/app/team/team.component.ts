@@ -18,6 +18,7 @@ export class TeamComponent implements OnInit {
   tier = "Select tier";
   pkmn = pkmnData;
   tierpkmn = [];
+  sprites = [];
   listedpkmnIndex = 0;
   displayPokemon = false;
   tierSelected = false;
@@ -39,25 +40,12 @@ export class TeamComponent implements OnInit {
     }, 10);
   }
 
-  isTeamEmpty() {
-  	if (this.teamMembers.length == 0) {
-  		return true;
-  	} else {
-  		return false;
-  	}
-  }
-
-  isTeamFull() {
-  	if (this.teamMembers.length >= 6) {
-  		return true;
-  	} else {
-  		return false;
-  	}
-  }
-
   setTier(tierInput: string) {
   	this.tier = tierInput;
   	this.tierpkmn = this.pkmn[this.tier];
+    for (var i = 0; i < this.tierpkmn.length; ++i) {
+      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase() + ".png";
+    }
     this.tierSelected = true;
   	this.displayPokemon = true;
     setTimeout(()=>{
@@ -96,8 +84,15 @@ export class TeamComponent implements OnInit {
     this.scrollToSearch();
   }
 
+  setHover(newHoverIndex: number) {
+    var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+    prevHoverPkmn.classList.remove('myHover');
+    this.listedpkmnIndex = newHoverIndex;
+    var nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+    nextHoverPkmn.classList.add('myHover');
+  }
+
   addTeamMember(poke: string) {
-    console.log(poke);
   	this.teamMembers.push(poke);
     this.displayPokemon = false;
   }
@@ -109,6 +104,9 @@ export class TeamComponent implements OnInit {
   printPokemon() {
     this.listedpkmnIndex = 0;
     this.tierpkmn = this.pkmn[this.tier];
+    for (var i = 0; i < this.tierpkmn.length; ++i) {
+      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase() + ".png";
+    }
   	this.displayPokemon = true;
     setTimeout(()=>{
       this.searchBar.nativeElement.focus();
@@ -145,10 +143,11 @@ export class TeamComponent implements OnInit {
   onUpdateSearchPokemon(event: Event) {
     this.searchInput = event.target.value;
 
-    var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
-    prevHoverPkmn.classList.remove('myHover');
-    this.listedpkmnIndex = 0;
-    this.highlightPokemon();
+    if (this.tierpkmn.length > 0) {
+      // remove hover class only if there was something to hover over before
+      var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+      prevHoverPkmn.classList.remove('myHover');
+    }
 
     this.tierpkmn = [];
     // search by name
@@ -156,6 +155,16 @@ export class TeamComponent implements OnInit {
       if (this.pkmn[this.tier][i].toLowerCase().includes(this.searchInput.toLowerCase())) {
         this.tierpkmn.push(this.pkmn[this.tier][i]);
       }
+    }
+
+    for (var i = 0; i < this.tierpkmn.length; ++i) {
+      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase() + ".png";
+    }
+
+    if (this.tierpkmn.length > 0) {
+      // highlight only if there is something to highlight
+      this.listedpkmnIndex = 0;
+      this.highlightPokemon();
     }
   }
 

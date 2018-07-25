@@ -12,7 +12,7 @@ export class SearchresultpkmnComponent implements OnInit {
   sprite = "";
   type = "Type";
   ability = "Abilities";
-  stats = "Stats"
+  stats = "Stats";
 
   constructor() {
   }

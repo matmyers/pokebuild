@@ -8,15 +8,15 @@
 			<button class="dropdown-item" (click)="setTier('NU')">NU</button>
 		</div>
 	</div>
-	<button *ngIf="!isTeamFull()" class="btn btn-success mr-2" [disabled]="!tierSelected" (click)="printPokemon()">Add Pokemon</button>
-	<button *ngIf="!isTeamEmpty()" class="btn btn-primary mr-2" (click)="exportShowdown()">Export to Showdown</button>
+	<button *ngIf="teamMembers.length < 6" class="btn btn-success mr-2" [disabled]="!tierSelected" (click)="printPokemon()">Add Pokemon</button>
+	<button *ngIf="teamMembers.length != 0" class="btn btn-primary mr-2" (click)="exportShowdown()">Export to Showdown</button>
 </div>
 <br>
 <div *ngIf="exportClicked">
 	<textarea class="w-100" rows="{{exportRows}}" autofocus>{{ exportText }}</textarea><br><br>
 	<button class="btn btn-danger" (click)="exportClicked = false;">Hide Export Text</button><br><br>
 </div>
-<p *ngIf="isTeamEmpty(); else teamNotEmpty">team is empty :(</p>
+<p *ngIf="teamMembers.length == 0; else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
 	<div *ngFor="let member of teamMembers; let i = index" class="border border-dark rounded">
 		<app-pkmncubby [team]="teamMembers" [name]="member" [index]=i></app-pkmncubby>
@@ -24,12 +24,30 @@
 </ng-template>
 <div id="searchDisplayArea">
 	<br><br>
-	<div *ngIf="displayPokemon && !isTeamFull()">
+	<div *ngIf="displayPokemon && teamMembers.length < 6">
 		<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)" (focus)="highlightPokemon();" (keydown)="navigatePokemon($event)">
 		<br>
 		<div *ngFor="let poke of tierpkmn; let i = index;">
 			<!-- <app-searchresultpkmn attr.id="listedpkmn{{i}}" [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn> -->
-			<button attr.id="listedpkmn{{i}}" class="btn btn-outline-dark" (click)="addTeamMember(poke)">{{ poke }}</button>
+			<button attr.id="listedpkmn{{i}}" class="btn btn-outline-dark btn-sm btn-block" (click)="addTeamMember(poke)" (mouseover)="setHover(i)">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3 text-left">
+				      <img src="{{ sprites[i] }}">
+				      <p  class="d-inline"> {{ poke }}</p>
+				    </div>
+				    <div class="col-sm-3 text-left">
+				      <p>Type</p>
+				    </div>
+				    <div class="col-sm-3 text-left">
+				      <p>Abilities</p>
+				    </div>
+				    <div class="col-sm-3 text-left">
+				      <p>Stats</p>
+				    </div>
+					</div>
+				</div>
+			</button>
 		</div>
 	</div>
 </div>

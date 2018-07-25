@@ -1,7 +1,9 @@
 <div class="container">
 	<p class="d-inline">{{ name }}</p>
 	<img src="{{ sprite }}">
-	<p class="d-inline">{{ type }}</p>
+  <img src="{{ type[0] }}">
+  <img src="{{ type[1] }}">
+	<!-- <p class="d-inline">{{ type }}</p> -->
   <hr>
   <div attr.id="displayArea{{index}}" class="row">
     <div class="col-sm-2 text-left mt-1">
@@ -112,22 +114,23 @@
     <div *ngIf="displayItems" class="mt-3 mb-3">
       <h5>Items:</h5><hr>
       <div *ngFor="let item of itemlist; let i = index">
-        <button attr.id="item{{i}}" class="btn btn-light" (mousedown)="addItem(item)">{{ item }}</button>
+        <button attr.id="item{{i}}" class="btn btn-light" (mousedown)="addItem(item)" (mouseover)="setHoverItem(i)">{{ item }}</button>
       </div>
     </div>
     <div *ngIf="displayAbilities" class="mt-3 mb-3">
       <h5>Abilities:</h5><hr>
       <div *ngFor="let ab of abilitylist; let i = index">
-        <button attr.id="ability{{i}}" class="btn btn-light" (mousedown)="addAbility(ab)">{{ ab }}</button>
+        <button attr.id="ability{{i}}" class="btn btn-light" (mousedown)="addAbility(ab)" (mouseover)="setHoverAbility(i)">{{ ab }}</button>
       </div>
     </div>
     <div *ngIf="displayMoves" class="mt-3 mb-3">
       <h5>Moves:</h5><hr>
     	<div *ngFor="let mo of movelist; let i = index">
-    		<button attr.id="moveNav{{i}}" class="btn btn-light" (mousedown)="addMove(mo)">{{ mo }}</button>
+    		<button attr.id="moveNav{{i}}" class="btn btn-light" (mousedown)="addMove(mo)" (mouseover)="setHoverMove(i)">{{ mo }}</button>
   		</div>
   	</div>
     <div *ngIf="displayStats" class="mt-3 mb-3">
+      <div>Points remaining: <p id="pts{{ index }}" class="d-inline">{{ ptsRemaining }}</p></div>
       <form>
         <div class="form-group row">
           <label for="hpInput" class="col-sm-2 col-form-label col-form-label-sm">HP:</label>
