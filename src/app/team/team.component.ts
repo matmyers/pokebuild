@@ -1,6 +1,7 @@
 import { Component, OnInit, QueryList, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
 import * as pkmnData from "../../assets/tierList.json"
+import * as allPkmnData from "../../assets/dataTest3.json"
 
 
 @Component({
@@ -16,8 +17,8 @@ export class TeamComponent implements OnInit {
 
   teamMembers = [];
   tier = "Select tier";
-  pkmn = pkmnData;
   tierpkmn = [];
+  allData = allPkmnData;
   sprites = [];
   listedpkmnIndex = 0;
   displayPokemon = false;
@@ -42,9 +43,9 @@ export class TeamComponent implements OnInit {
 
   setTier(tierInput: string) {
   	this.tier = tierInput;
-  	this.tierpkmn = this.pkmn[this.tier];
+  	this.tierpkmn = pkmnData[this.tier];
     for (var i = 0; i < this.tierpkmn.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase() + ".png";
+      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
     }
     this.tierSelected = true;
   	this.displayPokemon = true;
@@ -103,9 +104,9 @@ export class TeamComponent implements OnInit {
 
   printPokemon() {
     this.listedpkmnIndex = 0;
-    this.tierpkmn = this.pkmn[this.tier];
+    this.tierpkmn = pkmnData[this.tier];
     for (var i = 0; i < this.tierpkmn.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase() + ".png";
+      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
     }
   	this.displayPokemon = true;
     setTimeout(()=>{
@@ -151,14 +152,14 @@ export class TeamComponent implements OnInit {
 
     this.tierpkmn = [];
     // search by name
-    for (var i = 0; i < this.pkmn[this.tier].length; ++i) {
-      if (this.pkmn[this.tier][i].toLowerCase().includes(this.searchInput.toLowerCase())) {
-        this.tierpkmn.push(this.pkmn[this.tier][i]);
+    for (var i = 0; i < pkmnData[this.tier].length; ++i) {
+      if (pkmnData[this.tier][i].toLowerCase().includes(this.searchInput.toLowerCase())) {
+        this.tierpkmn.push(pkmnData[this.tier][i]);
       }
     }
 
     for (var i = 0; i < this.tierpkmn.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase() + ".png";
+      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
     }
 
     if (this.tierpkmn.length > 0) {

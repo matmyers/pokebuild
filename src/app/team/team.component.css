@@ -1,5 +1,15 @@
 .myHover {
-	color:#fff;
-	background-color:#343a40;
+	color:#000;
+	background-color:#dee5ef;
 	border-color:#343a40;
+}
+
+.row-bottom-margin {
+	margin-bottom:-14px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 98%;
+  }
 }
