@@ -12,7 +12,7 @@
         "contact": "spec",
         "power": "20",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "Leeches 50 of the damage dealt."
     },
     "Accelerock": {
@@ -20,7 +20,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Usually goes first."
     },
     "Acid": {
@@ -28,7 +28,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "10 chance to lower the target's Defense by one stage."
     },
     "Acid Armor": {
@@ -36,7 +36,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Defense by two stages."
     },
     "Acid Downpour": {
@@ -52,7 +52,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Special Defense by two stages."
     },
     "Acrobatics": {
@@ -60,7 +60,7 @@
         "contact": "phys",
         "power": "55",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Base Power doubles if the user has no held item."
     },
     "Acupressure": {
@@ -68,7 +68,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Boosts a random stat by two stages."
     },
     "Aerial Ace": {
@@ -76,7 +76,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Aeroblast": {
@@ -84,7 +84,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "95",
-        "pp": "5",
+        "pp": "8",
         "desc": "High critical hit rate."
     },
     "After You": {
@@ -92,7 +92,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "If the target has not yet moved, it will attack immediately after the user."
     },
     "Agility": {
@@ -100,7 +100,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Boosts the user's Speed by two stages."
     },
     "Air Cutter": {
@@ -108,7 +108,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "95",
-        "pp": "25",
+        "pp": "64",
         "desc": "High critical hit rate."
     },
     "Air Slash": {
@@ -116,7 +116,7 @@
         "contact": "spec",
         "power": "75",
         "accuracy": "95",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance of causing the target to flinch."
     },
     "All-Out Pummeling": {
@@ -132,7 +132,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Switches the user's position with that of an ally. Priority +2."
     },
     "Amnesia": {
@@ -140,7 +140,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Special Defense by two stages."
     },
     "Anchor Shot": {
@@ -148,7 +148,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Prevents the target from switching out."
     },
     "Ancient Power": {
@@ -156,7 +156,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "10 chance to boost all stats by one stage."
     },
     "Aqua Jet": {
@@ -164,7 +164,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Priority +1."
     },
     "Aqua Ring": {
@@ -172,7 +172,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "User recovers 1/16th of max HP each turn."
     },
     "Aqua Tail": {
@@ -180,7 +180,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Arm Thrust": {
@@ -188,7 +188,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Hits two to five times."
     },
     "Aromatherapy": {
@@ -196,7 +196,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Cures status on the user's team."
     },
     "Aromatic Mist": {
@@ -204,7 +204,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "The user raises its and its allies' Special Defense by one stage."
     },
     "Assist": {
@@ -212,7 +212,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Uses a random move from the user's team."
     },
     "Assurance": {
@@ -220,7 +220,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if the target takes damage in the same turn before this move is used."
     },
     "Astonish": {
@@ -228,7 +228,7 @@
         "contact": "phys",
         "power": "30",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance of causing the target to flinch."
     },
     "Attack Order": {
@@ -236,7 +236,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "High critical hit rate."
     },
     "Attract": {
@@ -244,7 +244,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Targets of the opposite gender are infatuated and have a 50 chance to do nothing."
     },
     "Aura Sphere": {
@@ -252,7 +252,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Aurora Beam": {
@@ -260,7 +260,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "10 chance to lower the opposing Pokemon's Attack by one stage."
     },
     "Aurora Veil": {
@@ -268,7 +268,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "For 5 turns, damage to allies is halved. Hail only."
     },
     "Autotomize": {
@@ -276,7 +276,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Boosts the user's Speed by two stages. Reduces the user's weight by 220 lbs (100 kg)."
     },
     "Avalanche": {
@@ -284,7 +284,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if the user was damaged by the target previously in the same turn. Priority -4."
     },
     "Baby-Doll Eyes": {
@@ -292,7 +292,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Lowers the target's Attack by one stage. Priority +1."
     },
     "Baneful Bunker": {
@@ -300,7 +300,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Protects from moves. Contact: poison."
     },
     "Barrage": {
@@ -308,7 +308,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "Hits two to five times."
     },
     "Barrier": {
@@ -316,7 +316,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Defense by two stages."
     },
     "Baton Pass": {
@@ -324,7 +324,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "The user switches, passing on all stat changes and some special conditions."
     },
     "Beak Blast": {
@@ -332,7 +332,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Burns on contact with the user before it moves."
     },
     "Beat Up": {
@@ -340,7 +340,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "All healthy Pokemon on the user's team aid in damaging the target."
     },
     "Belch": {
@@ -348,7 +348,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user must have eaten a Berry to use this move."
     },
     "Belly Drum": {
@@ -356,7 +356,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user loses 50 of max HP. Maximizes the user's Attack."
     },
     "Bestow": {
@@ -364,7 +364,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "The user passes its held item to the target."
     },
     "Bide": {
@@ -372,7 +372,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Charges for two turns; returns double the damage received in those turns. Priority +1."
     },
     "Bind": {
@@ -380,7 +380,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "Deals damage to the target at the end of every turn for 4-5 turns."
     },
     "Bite": {
@@ -388,7 +388,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "30 chance of causing the target to flinch."
     },
     "Black Hole Eclipse": {
@@ -404,7 +404,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Blaze Kick": {
@@ -412,7 +412,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "High critical hit rate. 10 chance to burn the target."
     },
     "Blizzard": {
@@ -420,7 +420,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "70",
-        "pp": "5",
+        "pp": "8",
         "desc": "10 chance to freeze the target."
     },
     "Block": {
@@ -428,7 +428,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "The target cannot switch out."
     },
     "Bloom Doom": {
@@ -444,7 +444,7 @@
         "contact": "spec",
         "power": "130",
         "accuracy": "85",
-        "pp": "5",
+        "pp": "8",
         "desc": "20 chance to burn the target."
     },
     "Body Slam": {
@@ -452,7 +452,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance to paralyze the target."
     },
     "Bolt Strike": {
@@ -460,7 +460,7 @@
         "contact": "phys",
         "power": "130",
         "accuracy": "85",
-        "pp": "5",
+        "pp": "8",
         "desc": "20 chance to paralyze the target."
     },
     "Bone Club": {
@@ -468,7 +468,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "10 chance of causing the target to flinch."
     },
     "Bone Rush": {
@@ -476,7 +476,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "80",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits two to five times."
     },
     "Bonemerang": {
@@ -484,7 +484,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits twice."
     },
     "Boomburst": {
@@ -492,7 +492,7 @@
         "contact": "spec",
         "power": "140",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Bounce": {
@@ -500,7 +500,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "85",
-        "pp": "5",
+        "pp": "8",
         "desc": "The user is made invulnerable for one turn, then hits the next turn. 30 chance to paralyze the target."
     },
     "Brave Bird": {
@@ -508,7 +508,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes one-third of damage dealt in recoil."
     },
     "Breakneck Blitz": {
@@ -524,7 +524,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Destroys Light Screen and Reflect, then hits."
     },
     "Brine": {
@@ -532,7 +532,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if the target's HP is 50 or less."
     },
     "Brutal Swing": {
@@ -540,7 +540,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "No additional effect. Hits adjacent Pokemon."
     },
     "Bubble": {
@@ -548,7 +548,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "10 chance to lower the target's Speed by one stage."
     },
     "Bubble Beam": {
@@ -556,7 +556,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "10 chance to lower the target's Speed by one stage."
     },
     "Bug Bite": {
@@ -564,7 +564,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Takes and uses the target's Berry."
     },
     "Bug Buzz": {
@@ -572,7 +572,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to lower the target's Special Defense by one stage."
     },
     "Bulk Up": {
@@ -580,7 +580,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Attack and Defense by one stage each."
     },
     "Bulldoze": {
@@ -588,7 +588,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Speed by one stage."
     },
     "Bullet Punch": {
@@ -596,7 +596,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Priority +1."
     },
     "Bullet Seed": {
@@ -604,7 +604,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Hits two to five times."
     },
     "Burn Up": {
@@ -612,7 +612,7 @@
         "contact": "spec",
         "power": "130",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "User's Fire-type is removed until it switches out."
     },
     "Calm Mind": {
@@ -620,7 +620,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Special Attack and Special Defense by one stage."
     },
     "Camouflage": {
@@ -628,7 +628,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Changes the user's type to Normal in Link Battles."
     },
     "Captivate": {
@@ -636,7 +636,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers a target of the opposite gender's Special Attack by two stages."
     },
     "Catastropika": {
@@ -652,7 +652,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "No in-game effect."
     },
     "Charge": {
@@ -660,7 +660,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Doubles power of an Electric-type move used next turn and raises the user's Special Defense by one stage."
     },
     "Charge Beam": {
@@ -668,7 +668,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "70 chance to boost the user's Special Attack by one stage."
     },
     "Charm": {
@@ -676,7 +676,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Attack by two stages."
     },
     "Chatter": {
@@ -684,7 +684,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Confuses the target."
     },
     "Chip Away": {
@@ -692,7 +692,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores the target's stat changes."
     },
     "Circle Throw": {
@@ -700,7 +700,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Forces the target to switch out and to a random Pokemon. Priority -6."
     },
     "Clamp": {
@@ -708,7 +708,7 @@
         "contact": "phys",
         "power": "35",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "Deals damage to the target at the end of every turn for 4-5 turns."
     },
     "Clanging Scales": {
@@ -716,7 +716,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Defense by 1."
     },
     "Clangorous Soulblaze": {
@@ -732,7 +732,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Eliminates the target's stat changes."
     },
     "Close Combat": {
@@ -740,7 +740,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Defense and Special Defense by one stage each."
     },
     "Coil": {
@@ -748,7 +748,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Attack, Defense, and accuracy by one stage each."
     },
     "Comet Punch": {
@@ -756,7 +756,7 @@
         "contact": "phys",
         "power": "18",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Hits two to five times."
     },
     "Confide": {
@@ -764,7 +764,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Special Attack by one stage."
     },
     "Confuse Ray": {
@@ -772,7 +772,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Confuses the target."
     },
     "Confusion": {
@@ -780,7 +780,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "10 chance to confuse the target."
     },
     "Constrict": {
@@ -788,7 +788,7 @@
         "contact": "phys",
         "power": "10",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "10 chance to lower the target Speed by one stage."
     },
     "Continental Crush": {
@@ -804,7 +804,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Changes the user into the type of the move in its first moveslot."
     },
     "Conversion 2": {
@@ -812,7 +812,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Changes the user into a new type that resists the last attack to hit it."
     },
     "Copycat": {
@@ -820,7 +820,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Uses the last move used in the battle."
     },
     "Core Enforcer": {
@@ -828,7 +828,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Nullifies the foe(s) Ability if the target moves first."
     },
     "Corkscrew Crash": {
@@ -844,7 +844,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Defense and Special Defense by one stage each."
     },
     "Cotton Guard": {
@@ -852,7 +852,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Boosts the user's Defense by three stages."
     },
     "Cotton Spore": {
@@ -860,7 +860,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "40",
+        "pp": "64",
         "desc": "Lowers the target's Speed by two stages."
     },
     "Counter": {
@@ -868,7 +868,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "If hit by a physical attack, deals double the damage taken."
     },
     "Covet": {
@@ -876,7 +876,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "Steals the target's item."
     },
     "Crabhammer": {
@@ -884,7 +884,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "High critical hit rate."
     },
     "Crafty Shield": {
@@ -892,7 +892,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Protects the user and allies from status moves. Priority +3."
     },
     "Cross Chop": {
@@ -900,7 +900,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "80",
-        "pp": "5",
+        "pp": "8",
         "desc": "High critical hit rate."
     },
     "Cross Poison": {
@@ -908,7 +908,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "High critical hit rate. 10 chance to poison the target."
     },
     "Crunch": {
@@ -916,7 +916,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "20 chance to lower the target's Defense by one stage."
     },
     "Crush Claw": {
@@ -924,7 +924,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "50 chance to lower the target's Defense by one stage."
     },
     "Crush Grip": {
@@ -932,7 +932,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Base Power depends on the target's remaining HP."
     },
     "Curse": {
@@ -940,7 +940,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Does 1/4 of max HP damage per turn at the cost of half the user's max HP if the user is a Ghost-type. Boosts the user's Attack and Defense and lowers Speed by one stage each otherwise."
     },
     "Cut": {
@@ -948,7 +948,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "95",
-        "pp": "30",
+        "pp": "48",
         "desc": "No additional effect."
     },
     "Dark Pulse": {
@@ -956,7 +956,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "20 chance of causing the target to flinch."
     },
     "Dark Void": {
@@ -964,7 +964,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "50",
-        "pp": "10",
+        "pp": "16",
         "desc": "Puts the target to sleep. Fails unless used by Darkrai."
     },
     "Darkest Lariat": {
@@ -972,7 +972,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Ignores the target's stat stage changes."
     },
     "Dazzling Gleam": {
@@ -980,7 +980,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Deals damage to all adjacent foes."
     },
     "Defend Order": {
@@ -988,7 +988,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Boosts the user's Defense and Special Defense by one stage each."
     },
     "Defense Curl": {
@@ -996,7 +996,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Boosts the user's Defense by one stage."
     },
     "Defog": {
@@ -1004,7 +1004,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's evasion by one stage. Removes various field effects."
     },
     "Destiny Bond": {
@@ -1012,7 +1012,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "If the user faints before using its next move, the attacker faints."
     },
     "Detect": {
@@ -1020,7 +1020,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Prevents anything from working on the user that turn. Priority +4."
     },
     "Devastating Drake": {
@@ -1036,7 +1036,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "95",
-        "pp": "5",
+        "pp": "8",
         "desc": "50 chance to boost the user's Defense by two stages."
     },
     "Dig": {
@@ -1044,7 +1044,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "User is made invulnerable for one turn, then hits the next turn."
     },
     "Disable": {
@@ -1052,7 +1052,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Prevents the last move used by the target from being used again for 4 turns."
     },
     "Disarming Voice": {
@@ -1060,7 +1060,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Discharge": {
@@ -1068,7 +1068,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance to paralyze the target."
     },
     "Dive": {
@@ -1076,7 +1076,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "User is made invulnerable for one turn, then hits the next turn."
     },
     "Dizzy Punch": {
@@ -1084,7 +1084,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "20 chance to confuse the target."
     },
     "Doom Desire": {
@@ -1092,7 +1092,7 @@
         "contact": "spec",
         "power": "140",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Deals damage at the end of the turn after three turns."
     },
     "Double Hit": {
@@ -1100,7 +1100,7 @@
         "contact": "phys",
         "power": "35",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits twice."
     },
     "Double Kick": {
@@ -1108,7 +1108,7 @@
         "contact": "phys",
         "power": "30",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Hits twice."
     },
     "Double Slap": {
@@ -1116,7 +1116,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits two to five times."
     },
     "Double Team": {
@@ -1124,7 +1124,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Boosts the user's evasion by one stage."
     },
     "Double-Edge": {
@@ -1132,7 +1132,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes one-third of damage dealt in recoil."
     },
     "Draco Meteor": {
@@ -1140,7 +1140,7 @@
         "contact": "spec",
         "power": "130",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Special Attack by two stages."
     },
     "Dragon Ascent": {
@@ -1148,7 +1148,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Defense and Special Defense by one stage each."
     },
     "Dragon Breath": {
@@ -1156,7 +1156,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance to paralyze the target."
     },
     "Dragon Claw": {
@@ -1164,7 +1164,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Dragon Dance": {
@@ -1172,7 +1172,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Attack and Speed by one stage each."
     },
     "Dragon Hammer": {
@@ -1180,7 +1180,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Dragon Pulse": {
@@ -1188,7 +1188,7 @@
         "contact": "spec",
         "power": "85",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Dragon Rage": {
@@ -1196,7 +1196,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Always does 40 HP damage."
     },
     "Dragon Rush": {
@@ -1204,7 +1204,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "75",
-        "pp": "10",
+        "pp": "16",
         "desc": "20 chance of causing the target to flinch."
     },
     "Dragon Tail": {
@@ -1212,7 +1212,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Forces the target to switch to a random Pokemon. Priority -6."
     },
     "Drain Punch": {
@@ -1220,7 +1220,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 50 of the damage dealt."
     },
     "Draining Kiss": {
@@ -1228,7 +1228,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 75 of the damage dealt."
     },
     "Dream Eater": {
@@ -1236,7 +1236,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Leeches 50 of the damage dealt. Only works if the target is asleep."
     },
     "Drill Peck": {
@@ -1244,7 +1244,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "No additional effect."
     },
     "Drill Run": {
@@ -1252,7 +1252,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "High critical hit rate."
     },
     "Dual Chop": {
@@ -1260,7 +1260,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "90",
-        "pp": "15",
+        "pp": "24",
         "desc": "Hits twice."
     },
     "Dynamic Punch": {
@@ -1268,7 +1268,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "50",
-        "pp": "5",
+        "pp": "8",
         "desc": "Confuses the target."
     },
     "Earth Power": {
@@ -1276,7 +1276,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to lower the target's Special Defense by one stage."
     },
     "Earthquake": {
@@ -1284,7 +1284,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles against Pokemon using Dig."
     },
     "Echoed Voice": {
@@ -1292,7 +1292,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Power increases when used consecutively by any ally."
     },
     "Eerie Impulse": {
@@ -1300,7 +1300,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's Special Attack by two stages."
     },
     "Egg Bomb": {
@@ -1308,7 +1308,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "75",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Electric Terrain": {
@@ -1316,7 +1316,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "For five turns, grounded Pokemon cannot fall asleep and will be woken up if already sleeping. Their Electric-type moves are powered up by 50."
     },
     "Electrify": {
@@ -1324,7 +1324,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Changes the type of the target's move to Electric if the user moves before the target."
     },
     "Electro Ball": {
@@ -1332,7 +1332,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Inflicts more damage the faster the user is compared to the target."
     },
     "Electroweb": {
@@ -1340,7 +1340,7 @@
         "contact": "spec",
         "power": "55",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's Speed by one stage."
     },
     "Embargo": {
@@ -1348,7 +1348,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Item use is prevented for five turns."
     },
     "Ember": {
@@ -1356,7 +1356,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "10 chance to burn the target."
     },
     "Encore": {
@@ -1364,7 +1364,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Forces the target to repeat the last move it used for three turns."
     },
     "Endeavor": {
@@ -1372,7 +1372,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the target's HP to the user's HP."
     },
     "Endure": {
@@ -1380,7 +1380,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user survives with at least 1 HP. The chance of failure increases if it, Detect, Protect, Wide Guard, Quick Guard, King's Shield, or Spiky Shield was used successfully the previous turn. Priority +3."
     },
     "Energy Ball": {
@@ -1388,7 +1388,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to lower the target's Special Defense by one stage."
     },
     "Entrainment": {
@@ -1396,7 +1396,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Changes the target's ability to that of the user."
     },
     "Eruption": {
@@ -1404,7 +1404,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Does less damage as the user's HP decreases."
     },
     "Explosion": {
@@ -1412,7 +1412,7 @@
         "contact": "phys",
         "power": "250",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Causes the user to faint."
     },
     "Extrasensory": {
@@ -1420,7 +1420,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "10 chance of causing the target to flinch."
     },
     "Extreme Evoboost": {
@@ -1436,7 +1436,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Priority +2."
     },
     "Facade": {
@@ -1444,7 +1444,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Base Power doubles if the user is burned, paralyzed, or poisoned."
     },
     "Fairy Lock": {
@@ -1452,7 +1452,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "All Pokemon cannot flee the next turn."
     },
     "Fairy Wind": {
@@ -1460,7 +1460,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Deals damage to one adjacent target."
     },
     "Fake Out": {
@@ -1468,7 +1468,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Always causes the target to flinch. Can only be used on the user's first turn out. Priority +3."
     },
     "Fake Tears": {
@@ -1476,7 +1476,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Special Defense by two stages."
     },
     "False Swipe": {
@@ -1484,7 +1484,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "40",
+        "pp": "64",
         "desc": "The target survives with at least 1 HP."
     },
     "Feather Dance": {
@@ -1492,7 +1492,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's Attack by two stages."
     },
     "Feint": {
@@ -1500,7 +1500,7 @@
         "contact": "phys",
         "power": "30",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Nullifies the effects of the target's Detect, Wide Guard, Quick Guard, Spiky Shield, King's Shield, and Protect for the rest of the turn. User does not suffer the adverse affects of Spiky Shield and King's Shield. Priority +2."
     },
     "Feint Attack": {
@@ -1508,7 +1508,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Fell Stinger": {
@@ -1516,7 +1516,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "User's Attack stat increases by three stages if it KOes the target in the same turn."
     },
     "Fiery Dance": {
@@ -1524,7 +1524,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "50 chance to boost the user's Special Attack by one stage."
     },
     "Final Gambit": {
@@ -1532,7 +1532,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Causes the user to faint. Target takes damage equal to the user's HP at the time of use."
     },
     "Fire Blast": {
@@ -1540,7 +1540,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "85",
-        "pp": "5",
+        "pp": "8",
         "desc": "10 chance to burn the target."
     },
     "Fire Fang": {
@@ -1548,7 +1548,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance of causing the target to flinch. 10 chance to burn the target."
     },
     "Fire Lash": {
@@ -1556,7 +1556,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "100 chance to lower the target's Defense by 1."
     },
     "Fire Pledge": {
@@ -1564,7 +1564,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Use with Grass Pledge or Water Pledge for additional effect."
     },
     "Fire Punch": {
@@ -1572,7 +1572,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance to burn the target."
     },
     "Fire Spin": {
@@ -1580,7 +1580,7 @@
         "contact": "spec",
         "power": "35",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Deals damage to the target at the end of every turn for 4-5 turns."
     },
     "First Impression": {
@@ -1588,7 +1588,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "First turn out only. Priority +2."
     },
     "Fissure": {
@@ -1596,7 +1596,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "30",
-        "pp": "5",
+        "pp": "8",
         "desc": "OHKOes the target."
     },
     "Flail": {
@@ -1604,7 +1604,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Does more damage as the user's HP decreases."
     },
     "Flame Burst": {
@@ -1612,7 +1612,7 @@
         "contact": "spec",
         "power": "70",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Damages Pokemon next to the target as well."
     },
     "Flame Charge": {
@@ -1620,7 +1620,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Speed by one stage."
     },
     "Flame Wheel": {
@@ -1628,7 +1628,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "10 chance to burn the target. Thaws the user."
     },
     "Flamethrower": {
@@ -1636,7 +1636,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance to burn the target."
     },
     "Flare Blitz": {
@@ -1644,7 +1644,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes one-third of damage dealt in recoil. 10 chance to burn the target."
     },
     "Flash": {
@@ -1652,7 +1652,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's accuracy by one stage."
     },
     "Flash Cannon": {
@@ -1660,7 +1660,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to lower the target's Special Defense by one stage."
     },
     "Flatter": {
@@ -1668,7 +1668,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Confuses the target and boosts its Special Attack by one stage."
     },
     "Fleur Cannon": {
@@ -1676,7 +1676,7 @@
         "contact": "spec",
         "power": "130",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Sp. Atk by 2."
     },
     "Fling": {
@@ -1684,7 +1684,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Throws the user's item at the target. Base Power and effect depend on the item."
     },
     "Floral Healing": {
@@ -1692,7 +1692,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals the target by 50 of its max HP."
     },
     "Flower Shield": {
@@ -1700,7 +1700,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Raises the Defense of all Grass-types on the field by one stage."
     },
     "Fly": {
@@ -1708,7 +1708,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "User is made invulnerable for one turn, then hits the next turn."
     },
     "Flying Press": {
@@ -1716,7 +1716,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "Both Fighting-type and Flying-type."
     },
     "Focus Blast": {
@@ -1724,7 +1724,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "70",
-        "pp": "5",
+        "pp": "8",
         "desc": "10 chance to lower the target's Special Defense by one stage."
     },
     "Focus Energy": {
@@ -1732,7 +1732,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Boosts the user's critical hit rate by two stages."
     },
     "Focus Punch": {
@@ -1740,7 +1740,7 @@
         "contact": "phys",
         "power": "150",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Fails if the user takes damage in the same turn before moving. Priority -3."
     },
     "Follow Me": {
@@ -1748,7 +1748,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "All moves used by foes subsequently in the turn target the user. Priority +2."
     },
     "Force Palm": {
@@ -1756,7 +1756,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to paralyze the target."
     },
     "Foresight": {
@@ -1764,7 +1764,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Nullifies evasion modifiers. Allows Fighting- and Normal-type moves to hit Ghost-types."
     },
     "Forest's Curse": {
@@ -1772,7 +1772,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Adds Grass to the target's type(s). If the target already has three types, the third is replaced."
     },
     "Foul Play": {
@@ -1780,7 +1780,7 @@
         "contact": "phys",
         "power": "95",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Uses the target's Attack stat in damage calculation."
     },
     "Freeze Shock": {
@@ -1788,7 +1788,7 @@
         "contact": "phys",
         "power": "140",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Hits the turn after being used. 30 chance to paralyze the target."
     },
     "Freeze-Dry": {
@@ -1796,7 +1796,7 @@
         "contact": "spec",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Super effective against Water-type Pokemon. 10 chance to freeze the target."
     },
     "Frenzy Plant": {
@@ -1804,7 +1804,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Frost Breath": {
@@ -1812,7 +1812,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Always results in a critical hit."
     },
     "Frustration": {
@@ -1820,7 +1820,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Base Power decreases proportionally to the user's happiness."
     },
     "Fury Attack": {
@@ -1828,7 +1828,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "Hits two to five times."
     },
     "Fury Cutter": {
@@ -1836,7 +1836,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "95",
-        "pp": "20",
+        "pp": "32",
         "desc": "Power doubles with each consecutive use."
     },
     "Fury Swipes": {
@@ -1844,7 +1844,7 @@
         "contact": "phys",
         "power": "18",
         "accuracy": "80",
-        "pp": "15",
+        "pp": "24",
         "desc": "Hits two to five times."
     },
     "Fusion Bolt": {
@@ -1852,7 +1852,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Base Power doubles if used immediately after Fusion Flare or Blue Flare."
     },
     "Fusion Flare": {
@@ -1860,7 +1860,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Base Power doubles if used immediately after Fusion Bolt or Bolt Strike."
     },
     "Future Sight": {
@@ -1868,7 +1868,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Deals damage at the end of the turn after three turns."
     },
     "Gastro Acid": {
@@ -1876,7 +1876,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Nullifies the target's ability."
     },
     "Gear Grind": {
@@ -1884,7 +1884,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Hits twice."
     },
     "Gear Up": {
@@ -1892,7 +1892,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Raises Atk, Sp. Atk of allies with Plus/Minus by 1."
     },
     "Genesis Supernova": {
@@ -1908,7 +1908,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Charges for one turn, then raises Special Attack, Special Defense, and Speed by two stages each the next turn."
     },
     "Giga Drain": {
@@ -1916,7 +1916,7 @@
         "contact": "spec",
         "power": "75",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 50 of the damage dealt."
     },
     "Giga Impact": {
@@ -1924,7 +1924,7 @@
         "contact": "phys",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Gigavolt Havoc": {
@@ -1940,7 +1940,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the target's Speed by one stage."
     },
     "Glare": {
@@ -1948,7 +1948,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Paralyzes the target."
     },
     "Grass Knot": {
@@ -1956,7 +1956,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Deals damage based on the target's weight."
     },
     "Grass Pledge": {
@@ -1964,7 +1964,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Use with Fire Pledge or Water Pledge for additional effect."
     },
     "Grass Whistle": {
@@ -1972,7 +1972,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "55",
-        "pp": "15",
+        "pp": "24",
         "desc": "Puts the target to sleep."
     },
     "Grassy Terrain": {
@@ -1980,7 +1980,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "For five turns, grounded Pokemon restore 1/16 of their HP each turn. Their Grass-type moves are boosted by 50."
     },
     "Gravity": {
@@ -1988,7 +1988,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "For 5 turns, prevents flying or jumping; also disables immunities to Ground."
     },
     "Growl": {
@@ -1996,7 +1996,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "40",
+        "pp": "64",
         "desc": "Lowers the target's Attack by one stage."
     },
     "Growth": {
@@ -2004,7 +2004,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Boosts the user's Attack and Special Attack by one stage each. Boosts the user's Attack and Special Attack by two stages each in bright sunlight."
     },
     "Grudge": {
@@ -2012,7 +2012,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "If the user faints, the attack that KOed it loses all of its PP."
     },
     "Guard Split": {
@@ -2020,7 +2020,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Averages the user's Defense and Special Defense stats with the target's, ignoring stat changes."
     },
     "Guard Swap": {
@@ -2028,7 +2028,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Swaps the user's stat changes of Defense with those of Special Defense."
     },
     "Guardian of Alola": {
@@ -2044,7 +2044,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "30",
-        "pp": "5",
+        "pp": "8",
         "desc": "OHKOes the target."
     },
     "Gunk Shot": {
@@ -2052,7 +2052,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "80",
-        "pp": "5",
+        "pp": "8",
         "desc": "30 chance to poison the target."
     },
     "Gust": {
@@ -2060,7 +2060,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "Base Power doubles if the target is using Fly."
     },
     "Gyro Ball": {
@@ -2068,7 +2068,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Deals damage based on how slow the user is compared to the target."
     },
     "Hail": {
@@ -2076,7 +2076,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Summons hail for five turns."
     },
     "Hammer Arm": {
@@ -2084,7 +2084,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the user's Speed by one stage."
     },
     "Happy Hour": {
@@ -2092,7 +2092,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "No competitive effect. (Doubles the prize money received after battle.)"
     },
     "Harden": {
@@ -2100,7 +2100,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Boosts the user's Defense by one stage."
     },
     "Haze": {
@@ -2108,7 +2108,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Eliminates all stat changes."
     },
     "Head Charge": {
@@ -2116,7 +2116,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes one quarter of damage dealt in recoil."
     },
     "Head Smash": {
@@ -2124,7 +2124,7 @@
         "contact": "phys",
         "power": "150",
         "accuracy": "80",
-        "pp": "5",
+        "pp": "8",
         "desc": "User takes half of damage dealt in recoil."
     },
     "Headbutt": {
@@ -2132,7 +2132,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance of causing the target to flinch."
     },
     "Heal Bell": {
@@ -2140,7 +2140,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Cures status on the user's team."
     },
     "Heal Block": {
@@ -2148,7 +2148,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Prevents the foes from using healing moves for 5 turns."
     },
     "Heal Order": {
@@ -2156,7 +2156,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 max HP."
     },
     "Heal Pulse": {
@@ -2164,7 +2164,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals the target by 50 its max HP."
     },
     "Healing Wish": {
@@ -2172,7 +2172,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "KOes the user and heals the next Pokemon in."
     },
     "Heart Stamp": {
@@ -2180,7 +2180,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "30 chance of causing the target to flinch."
     },
     "Heart Swap": {
@@ -2188,7 +2188,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Swaps the user's and the target's stat boosts and drops."
     },
     "Heat Crash": {
@@ -2196,7 +2196,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Deals more damage the heavier the user is compared to the target."
     },
     "Heat Wave": {
@@ -2204,7 +2204,7 @@
         "contact": "spec",
         "power": "95",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to burn the target."
     },
     "Heavy Slam": {
@@ -2212,7 +2212,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Deals more damage the heavier the user is compared to the target."
     },
     "Helping Hand": {
@@ -2220,7 +2220,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Increases power of an ally's subsequent move by 50. Priority +5."
     },
     "Hex": {
@@ -2228,7 +2228,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if target has a status ailment."
     },
     "Hidden Power Bug": {
@@ -2236,7 +2236,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Dark": {
@@ -2244,7 +2244,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Dragon": {
@@ -2252,7 +2252,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Electric": {
@@ -2260,7 +2260,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Fighting": {
@@ -2268,7 +2268,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Fire": {
@@ -2276,7 +2276,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Flying": {
@@ -2284,7 +2284,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Ghost": {
@@ -2292,7 +2292,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Grass": {
@@ -2300,7 +2300,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Ground": {
@@ -2308,7 +2308,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Ice": {
@@ -2316,7 +2316,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Poison": {
@@ -2324,7 +2324,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Psychic": {
@@ -2332,7 +2332,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Rock": {
@@ -2340,7 +2340,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Steel": {
@@ -2348,7 +2348,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "Hidden Power Water": {
@@ -2356,7 +2356,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type is based on the user's IVs."
     },
     "High Horsepower": {
@@ -2364,7 +2364,7 @@
         "contact": "phys",
         "power": "95",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "High Jump Kick": {
@@ -2372,7 +2372,7 @@
         "contact": "phys",
         "power": "130",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "If attack misses or fails, user loses half its max HP."
     },
     "Hold Back": {
@@ -2380,7 +2380,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "40",
+        "pp": "64",
         "desc": "Leaves target with at least 1HP."
     },
     "Hold Hands": {
@@ -2388,7 +2388,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "No in-game effect."
     },
     "Hone Claws": {
@@ -2396,7 +2396,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Boosts the user's Attack and accuracy by one stage."
     },
     "Horn Attack": {
@@ -2404,7 +2404,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "No additional effect."
     },
     "Horn Drill": {
@@ -2412,7 +2412,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "30",
-        "pp": "5",
+        "pp": "8",
         "desc": "OHKOes the target."
     },
     "Horn Leech": {
@@ -2420,7 +2420,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 50 of the damage dealt."
     },
     "Howl": {
@@ -2428,7 +2428,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Boosts the user's Attack by one stage."
     },
     "Hurricane": {
@@ -2436,7 +2436,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "70",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to confuse the target."
     },
     "Hydro Cannon": {
@@ -2444,7 +2444,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Hydro Pump": {
@@ -2452,7 +2452,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "80",
-        "pp": "5",
+        "pp": "8",
         "desc": "No additional effect."
     },
     "Hydro Vortex": {
@@ -2468,7 +2468,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Hyper Fang": {
@@ -2476,7 +2476,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "90",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance of causing the target to flinch."
     },
     "Hyper Voice": {
@@ -2484,7 +2484,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Hyperspace Fury": {
@@ -2492,7 +2492,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Ignores the effects of Protect, Detect, King's Shield, Spiky Shield, and Mat Block. Lowers the user's Defense by one stage."
     },
     "Hyperspace Hole": {
@@ -2500,7 +2500,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Ignores the effects of Protect, Detect, King's Shield, Spiky Shield, and Mat Block."
     },
     "Hypnosis": {
@@ -2508,7 +2508,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "60",
-        "pp": "20",
+        "pp": "32",
         "desc": "Puts the foe to sleep."
     },
     "Ice Ball": {
@@ -2516,7 +2516,7 @@
         "contact": "phys",
         "power": "30",
         "accuracy": "90",
-        "pp": "20",
+        "pp": "32",
         "desc": "Power doubles with each use. Locks user in for 5 turns."
     },
     "Ice Beam": {
@@ -2524,7 +2524,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to freeze."
     },
     "Ice Burn": {
@@ -2532,7 +2532,7 @@
         "contact": "spec",
         "power": "140",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Hits the turn after being used. 30 chance to burn the target."
     },
     "Ice Fang": {
@@ -2540,7 +2540,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance of causing the target to flinch. 10 chance to freeze."
     },
     "Ice Hammer": {
@@ -2548,7 +2548,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the user's Speed by 1."
     },
     "Ice Punch": {
@@ -2556,7 +2556,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance to freeze."
     },
     "Ice Shard": {
@@ -2564,7 +2564,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Priority +1."
     },
     "Icicle Crash": {
@@ -2572,7 +2572,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance of causing the target to flinch."
     },
     "Icicle Spear": {
@@ -2580,7 +2580,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Hits two to five times."
     },
     "Icy Wind": {
@@ -2588,7 +2588,7 @@
         "contact": "spec",
         "power": "55",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers foes' Speed by one stage."
     },
     "Imprison": {
@@ -2596,7 +2596,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "No foe can use any of the user's moves."
     },
     "Incinerate": {
@@ -2604,7 +2604,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Removes the target's Berry."
     },
     "Inferno": {
@@ -2612,7 +2612,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "50",
-        "pp": "5",
+        "pp": "8",
         "desc": "Burns the target."
     },
     "Inferno Overdrive": {
@@ -2628,7 +2628,7 @@
         "contact": "spec",
         "power": "20",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Traps and damages target for 4-5 turns."
     },
     "Ingrain": {
@@ -2636,7 +2636,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Heals the user by 1/16 of its max HP each turn and prevents it from switching and being forced to switch."
     },
     "Instruct": {
@@ -2644,7 +2644,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "The target immediately uses its last used move."
     },
     "Ion Deluge": {
@@ -2652,7 +2652,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "25",
+        "pp": "64",
         "desc": "Changes subsequent Normal-type moves to Electric-type moves. Priority +1."
     },
     "Iron Defense": {
@@ -2660,7 +2660,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Boosts the user's Defense by two stages."
     },
     "Iron Head": {
@@ -2668,7 +2668,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance of causing the target to flinch."
     },
     "Iron Tail": {
@@ -2676,7 +2676,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "75",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance to lower the target's Defense by one stage."
     },
     "Judgment": {
@@ -2684,7 +2684,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Type is dependent on the user's held Plate."
     },
     "Jump Kick": {
@@ -2692,7 +2692,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "If attack misses or fails, user loses half its max HP."
     },
     "Karate Chop": {
@@ -2700,7 +2700,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "High critical hit rate."
     },
     "Kinesis": {
@@ -2708,7 +2708,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "80",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's accuracy by one stage."
     },
     "King's Shield": {
@@ -2716,7 +2716,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Protects the user from attacks. Lowers the Attack of contact attackers by two stages. Priority +3."
     },
     "Knock Off": {
@@ -2724,7 +2724,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Power is boosted 1.5x if target is holding a removable item. Removes the the target's item."
     },
     "Land's Wrath": {
@@ -2732,7 +2732,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Laser Focus": {
@@ -2740,7 +2740,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Next turn, the user's attack will be a critical hit."
     },
     "Last Resort": {
@@ -2748,7 +2748,7 @@
         "contact": "phys",
         "power": "140",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Can only be used if all other moves have been used at least once. Fails if the user's only move."
     },
     "Lava Plume": {
@@ -2756,7 +2756,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance to burn the target."
     },
     "Leaf Blade": {
@@ -2764,7 +2764,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "High critical hit rate."
     },
     "Leaf Storm": {
@@ -2772,7 +2772,7 @@
         "contact": "spec",
         "power": "130",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Special Attack by two stages."
     },
     "Leaf Tornado": {
@@ -2780,7 +2780,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "50 chance to lower the target's accuracy by one stage."
     },
     "Leafage": {
@@ -2788,7 +2788,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "40",
+        "pp": "64",
         "desc": "No additional effect."
     },
     "Leech Life": {
@@ -2796,7 +2796,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 50 of the damage dealt."
     },
     "Leech Seed": {
@@ -2804,7 +2804,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 1/8 of the target's HP each turn."
     },
     "Leer": {
@@ -2812,7 +2812,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Lowers the target's Defense by one stage."
     },
     "Let's Snuggle Forever": {
@@ -2828,7 +2828,7 @@
         "contact": "phys",
         "power": "30",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "30 chance to paralyze the target."
     },
     "Light Screen": {
@@ -2836,7 +2836,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Lowers the damage dealt by special attacks for 5 turns."
     },
     "Light That Burns the Sky": {
@@ -2844,7 +2844,7 @@
         "contact": "spec",
         "power": "200",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Physical if user's Atk &gt; SpA. Ignores the target's Ability."
     },
     "Light of Ruin": {
@@ -2852,7 +2852,7 @@
         "contact": "spec",
         "power": "140",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User takes half of damage dealt in recoil."
     },
     "Liquidation": {
@@ -2860,7 +2860,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "20 chance to lower the target's Defense by 1."
     },
     "Lock-On": {
@@ -2868,7 +2868,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "User's next move will always hit."
     },
     "Lovely Kiss": {
@@ -2876,7 +2876,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "75",
-        "pp": "10",
+        "pp": "16",
         "desc": "Puts the target to sleep."
     },
     "Low Kick": {
@@ -2884,7 +2884,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Deals damage based on the foe's weight."
     },
     "Low Sweep": {
@@ -2892,7 +2892,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Speed by one stage."
     },
     "Lucky Chant": {
@@ -2900,7 +2900,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Blocks critical hits for 5 turns."
     },
     "Lunar Dance": {
@@ -2908,7 +2908,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "KOes the user and heals the next Pokemon in."
     },
     "Lunge": {
@@ -2916,7 +2916,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "100 chance to lower the target's Attack by 1."
     },
     "Luster Purge": {
@@ -2924,7 +2924,7 @@
         "contact": "spec",
         "power": "70",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "50 chance to lower the target's Special Defense by one stage."
     },
     "Mach Punch": {
@@ -2932,7 +2932,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Priority +1."
     },
     "Magic Coat": {
@@ -2940,7 +2940,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Bounces back certain non-damaging moves. Priority +4."
     },
     "Magic Room": {
@@ -2948,7 +2948,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Held items have no effect for 5 turns."
     },
     "Magical Leaf": {
@@ -2956,7 +2956,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Magma Storm": {
@@ -2964,7 +2964,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "75",
-        "pp": "5",
+        "pp": "8",
         "desc": "Traps and damages target for 4-5 turns."
     },
     "Magnet Bomb": {
@@ -2972,7 +2972,7 @@
         "contact": " ",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Magnet Rise": {
@@ -2980,7 +2980,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "User becomes immune to Ground-type moves for 5 turns."
     },
     "Magnetic Flux": {
@@ -2988,7 +2988,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Raises the Defense and Special Defense stats of ally Pokemon with the Plus or Minus Ability."
     },
     "Magnitude": {
@@ -2996,7 +2996,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Has variable damage."
     },
     "Malicious Moonsault": {
@@ -3012,7 +3012,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user protects itself and its allies from damaging moves. Only works first turn out."
     },
     "Me First": {
@@ -3020,7 +3020,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Uses the foe's attack at 1.5x power. User must be faster for move to work."
     },
     "Mean Look": {
@@ -3028,7 +3028,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "The target cannot switch out."
     },
     "Meditate": {
@@ -3036,7 +3036,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Boosts the user's Attack by one stage."
     },
     "Mega Drain": {
@@ -3044,7 +3044,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Leeches 50 of the damage dealt."
     },
     "Mega Kick": {
@@ -3052,7 +3052,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "75",
-        "pp": "5",
+        "pp": "8",
         "desc": "No additional effect."
     },
     "Mega Punch": {
@@ -3060,7 +3060,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "No additional effect."
     },
     "Megahorn": {
@@ -3068,7 +3068,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Memento": {
@@ -3076,7 +3076,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "User faints. Lowers the foe's Attack and Special Attack by two stages."
     },
     "Menacing Moonraze Maelstrom": {
@@ -3092,7 +3092,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Counters foe's attack with 1.5x damage, but user must go last."
     },
     "Metal Claw": {
@@ -3100,7 +3100,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "95",
-        "pp": "35",
+        "pp": "56",
         "desc": "10 chance to boost the user's Attack by one stage."
     },
     "Metal Sound": {
@@ -3108,7 +3108,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "85",
-        "pp": "40",
+        "pp": "64",
         "desc": "Lowers the target's Special Defense by two stages."
     },
     "Meteor Mash": {
@@ -3116,7 +3116,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "20 chance to raise the user's Attack by one stage."
     },
     "Metronome": {
@@ -3124,7 +3124,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Uses a random move."
     },
     "Milk Drink": {
@@ -3132,7 +3132,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 of the user's max HP."
     },
     "Mimic": {
@@ -3140,7 +3140,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Copies the last move used by the target."
     },
     "Mind Blown": {
@@ -3148,7 +3148,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "User loses 50 max HP. Hits adjacent Pokemon."
     },
     "Mind Reader": {
@@ -3156,7 +3156,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "The user's next move will always hit."
     },
     "Minimize": {
@@ -3164,7 +3164,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Boosts the user's evasion by two stages."
     },
     "Miracle Eye": {
@@ -3172,7 +3172,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Nullifies evasion boosts. Allows Psychic-type moves to hit Dark-types."
     },
     "Mirror Coat": {
@@ -3180,7 +3180,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Returns double the damage. Priority -5."
     },
     "Mirror Move": {
@@ -3188,7 +3188,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Uses the last move that hit the user."
     },
     "Mirror Shot": {
@@ -3196,7 +3196,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to lower the target's accuracy by one stage."
     },
     "Mist": {
@@ -3204,7 +3204,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Prevents moves that only lower stats from working for 5 turns."
     },
     "Mist Ball": {
@@ -3212,7 +3212,7 @@
         "contact": "spec",
         "power": "70",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "50 chance to lower the target's Special Attack by one stage."
     },
     "Misty Terrain": {
@@ -3220,7 +3220,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Grounded Pokemon immune to status and Dragon-type moves weakened"
     },
     "Moonblast": {
@@ -3228,7 +3228,7 @@
         "contact": "spec",
         "power": "95",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance to lower the target's Special Attack by one stage."
     },
     "Moongeist Beam": {
@@ -3236,7 +3236,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Ignores the Abilities of other Pokemon."
     },
     "Moonlight": {
@@ -3244,7 +3244,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Heals variably depending on the weather."
     },
     "Morning Sun": {
@@ -3252,7 +3252,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Heals variably depending on the weather."
     },
     "Mud Bomb": {
@@ -3260,7 +3260,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to lower the target's accuracy by one stage."
     },
     "Mud Shot": {
@@ -3268,7 +3268,7 @@
         "contact": "spec",
         "power": "55",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's Speed by one stage."
     },
     "Mud Sport": {
@@ -3276,7 +3276,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Electric-type attacks do 50 damage."
     },
     "Mud-Slap": {
@@ -3284,7 +3284,7 @@
         "contact": "spec",
         "power": "20",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the target's accuracy by one stage."
     },
     "Muddy Water": {
@@ -3292,7 +3292,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to lower the target's accuracy by one stage."
     },
     "Multi-Attack": {
@@ -3300,7 +3300,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Type varies based on the held Memory."
     },
     "Mystical Fire": {
@@ -3308,7 +3308,7 @@
         "contact": "spec",
         "power": "75",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the target's Special Attack by one stage."
     },
     "Nasty Plot": {
@@ -3316,7 +3316,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Special Attack by two stages."
     },
     "Natural Gift": {
@@ -3324,7 +3324,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Power and type depend on the user's held Berry."
     },
     "Nature Power": {
@@ -3332,7 +3332,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Attack changes based on terrain."
     },
     "Nature's Madness": {
@@ -3340,7 +3340,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Does damage equal to 1/2 target's current HP."
     },
     "Needle Arm": {
@@ -3348,7 +3348,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance of causing the target to flinch."
     },
     "Never-Ending Nightmare": {
@@ -3364,7 +3364,7 @@
         "contact": "spec",
         "power": "85",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "40 chance to lower the target's accuracy by one stage."
     },
     "Night Shade": {
@@ -3372,7 +3372,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Deals damage equal to the user's level."
     },
     "Night Slash": {
@@ -3380,7 +3380,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Has a high critical hit rate."
     },
     "Nightmare": {
@@ -3388,7 +3388,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Deals 1/4 of a sleeping target's max HP per turn."
     },
     "Noble Roar": {
@@ -3396,7 +3396,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Lowers the target's Attack and Special Attack by one stage. Priority -1."
     },
     "Nuzzle": {
@@ -3404,7 +3404,7 @@
         "contact": "phys",
         "power": "20",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Paralyzes the target."
     },
     "Oblivion Wing": {
@@ -3412,7 +3412,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Leeches 75 of the damage dealt."
     },
     "Oceanic Operetta": {
@@ -3428,7 +3428,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "50 chance to lower the target's accuracy by one stage."
     },
     "Odor Sleuth": {
@@ -3436,7 +3436,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Blocks evasion modifiers. Allows Fighting- and Normal-type moves to hit Ghosts."
     },
     "Ominous Wind": {
@@ -3444,7 +3444,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "10 chance to boost all of the user's stats by one stage."
     },
     "Origin Pulse": {
@@ -3452,7 +3452,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Outrage": {
@@ -3460,7 +3460,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Repeats for two to three turns. Confuses user at the end."
     },
     "Overheat": {
@@ -3468,7 +3468,7 @@
         "contact": "spec",
         "power": "130",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Special Attack by two stages after use."
     },
     "Pain Split": {
@@ -3476,7 +3476,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Averages the user's and the target's HP."
     },
     "Parabolic Charge": {
@@ -3484,7 +3484,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Leeches 50 damage dealt to all targets."
     },
     "Parting Shot": {
@@ -3492,7 +3492,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the all adjacent foes' Attack and Special Attack by one stage, then the user switches out."
     },
     "Pay Day": {
@@ -3500,7 +3500,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "No competitive effect."
     },
     "Payback": {
@@ -3508,7 +3508,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if the user moves after the target."
     },
     "Peck": {
@@ -3516,7 +3516,7 @@
         "contact": "phys",
         "power": "35",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "No additional effect."
     },
     "Perish Song": {
@@ -3524,7 +3524,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "All active Pokemon faint after three turns."
     },
     "Petal Blizzard": {
@@ -3532,7 +3532,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Petal Dance": {
@@ -3540,7 +3540,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Repeats for two to three turns. Confuses the user at the end."
     },
     "Phantom Force": {
@@ -3548,7 +3548,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "User becomes invulnerable, then attacks the next turn. Nullifies Detect and Protect."
     },
     "Photon Geyser": {
@@ -3556,7 +3556,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Physical if user's Atk &gt; SpA. Ignores the target's ability."
     },
     "Pin Missile": {
@@ -3564,7 +3564,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "95",
-        "pp": "20",
+        "pp": "32",
         "desc": "Hits two to five times."
     },
     "Plasma Fists": {
@@ -3572,7 +3572,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Normal-type moves become Electric-type moves instead this turn."
     },
     "Play Nice": {
@@ -3580,7 +3580,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Attack by one stage. Ignores Protect."
     },
     "Play Rough": {
@@ -3588,7 +3588,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to lower the target's Attack stat by one stage."
     },
     "Pluck": {
@@ -3596,7 +3596,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Steals and eats foe's Berry."
     },
     "Poison Fang": {
@@ -3604,7 +3604,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "50 chance to badly poison the target."
     },
     "Poison Gas": {
@@ -3612,7 +3612,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "90",
-        "pp": "40",
+        "pp": "64",
         "desc": "Poisons the target."
     },
     "Poison Jab": {
@@ -3620,7 +3620,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance to poison the target."
     },
     "Poison Powder": {
@@ -3628,7 +3628,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "75",
-        "pp": "35",
+        "pp": "56",
         "desc": "Poisons the target."
     },
     "Poison Sting": {
@@ -3636,7 +3636,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "30 chance to poison the target."
     },
     "Poison Tail": {
@@ -3644,7 +3644,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "High critical hit rate. 10 chance to poison the target."
     },
     "Pollen Puff": {
@@ -3652,7 +3652,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "If the target is an ally, heals 50 of its max HP."
     },
     "Pound": {
@@ -3660,7 +3660,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "No additional effect."
     },
     "Powder": {
@@ -3668,7 +3668,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Damages the target if it uses a Fire-type move. Priority +1."
     },
     "Powder Snow": {
@@ -3676,7 +3676,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "10 chance to freeze."
     },
     "Power Gem": {
@@ -3684,7 +3684,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "No additional effect."
     },
     "Power Split": {
@@ -3692,7 +3692,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Averages Attack and Special Attack with the target, ignoring stat changes."
     },
     "Power Swap": {
@@ -3700,7 +3700,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Swaps Attack and Special Attack boosts and drops with the target."
     },
     "Power Trick": {
@@ -3708,7 +3708,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Swaps the user's Attack and Defense stats, not moving stat changes."
     },
     "Power Trip": {
@@ -3716,7 +3716,7 @@
         "contact": "phys",
         "power": "20",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "+ 20 power for each of the user's stat boosts."
     },
     "Power Whip": {
@@ -3724,7 +3724,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Power-Up Punch": {
@@ -3732,7 +3732,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Raises the user's Attack by one stage after attacking."
     },
     "Precipice Blades": {
@@ -3740,7 +3740,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "No additional effect."
     },
     "Present": {
@@ -3748,7 +3748,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "90",
-        "pp": "15",
+        "pp": "24",
         "desc": "Has random power and a chance to heal the target. Breakneck Blitz Base Power: 100"
     },
     "Prismatic Laser": {
@@ -3756,7 +3756,7 @@
         "contact": "spec",
         "power": "160",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "User cannot move next turn."
     },
     "Protect": {
@@ -3764,7 +3764,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Prevents anything from working on the user that turn. Priority +4."
     },
     "Psybeam": {
@@ -3772,7 +3772,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "10 chance to confuse the target."
     },
     "Psych Up": {
@@ -3780,7 +3780,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Copies the foe's stat changes."
     },
     "Psychic": {
@@ -3788,7 +3788,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to lower the target's Special Defense by one stage."
     },
     "Psychic Fangs": {
@@ -3796,7 +3796,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Destroys screens, unless the target is immune."
     },
     "Psychic Terrain": {
@@ -3804,7 +3804,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "5 turns. Grounded: +Psychic power, priority-safe."
     },
     "Psycho Boost": {
@@ -3812,7 +3812,7 @@
         "contact": "spec",
         "power": "140",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Special Attack by two stages."
     },
     "Psycho Cut": {
@@ -3820,7 +3820,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Has a high critical hit rate."
     },
     "Psycho Shift": {
@@ -3828,7 +3828,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Shifts the user's status effect to the foe."
     },
     "Psyshock": {
@@ -3836,7 +3836,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Damage is based on the target's Defense stat."
     },
     "Psystrike": {
@@ -3844,7 +3844,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Damage is based on the target's Defense stat."
     },
     "Psywave": {
@@ -3852,7 +3852,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Does random damage equal to .5x-1.5x the user's level."
     },
     "Pulverizing Pancake": {
@@ -3868,7 +3868,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Varies in power depending on the number of stat boosts accumulated by the target."
     },
     "Purify": {
@@ -3876,7 +3876,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Cures target's status; heals user 1/2 maxHP if so."
     },
     "Pursuit": {
@@ -3884,7 +3884,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Doubles in power and hits before the switch if the target switches. If the target switches, Priority +7. Otherwise, Priority +0."
     },
     "Quash": {
@@ -3892,7 +3892,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Forces the target to move last."
     },
     "Quick Attack": {
@@ -3900,7 +3900,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Priority +1."
     },
     "Quick Guard": {
@@ -3908,7 +3908,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Protects the user and its allies from all priority attacks, barring Feint. If Quick Guard is broken by Feint, it will no longer protect the user or its allies from priority attacks. Quick Guard can be used consecutively without failing, but use of Quick Guard lowers the chances of Detect, Endure, King's Shield, Protect, and Spiky Shield succeeding for the proceding turn. Priority +3. Z-Effect: +1 Defense"
     },
     "Quiver Dance": {
@@ -3916,7 +3916,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Special Attack, Special Defense, and Speed by one stage."
     },
     "Rage": {
@@ -3924,7 +3924,7 @@
         "contact": "phys",
         "power": "20",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts Attack by one stage if hit."
     },
     "Rage Powder": {
@@ -3932,7 +3932,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "All subsequent moves target the user. Priority +2."
     },
     "Rain Dance": {
@@ -3940,7 +3940,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Summons rain for 5 turns."
     },
     "Rapid Spin": {
@@ -3948,7 +3948,7 @@
         "contact": "phys",
         "power": "20",
         "accuracy": "100",
-        "pp": "40",
+        "pp": "64",
         "desc": "Removes Leech Seed, partial trapping, and entry hazards if the user does not faint from subsequent recoil damage."
     },
     "Razor Leaf": {
@@ -3956,7 +3956,7 @@
         "contact": "phys",
         "power": "55",
         "accuracy": "95",
-        "pp": "25",
+        "pp": "64",
         "desc": "High critical hit rate."
     },
     "Razor Shell": {
@@ -3964,7 +3964,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "50 chance to lower the target's Defense by one stage."
     },
     "Razor Wind": {
@@ -3972,7 +3972,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Charges first turn; attacks on the second. High critical hit rate."
     },
     "Recover": {
@@ -3980,7 +3980,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 of the user's max HP."
     },
     "Recycle": {
@@ -3988,7 +3988,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Restores a used-up item."
     },
     "Reflect": {
@@ -3996,7 +3996,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the damage from physical attacks for 5 turns."
     },
     "Reflect Type": {
@@ -4004,7 +4004,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "User becomes the same type as the target."
     },
     "Refresh": {
@@ -4012,7 +4012,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Removes status from the user."
     },
     "Relic Song": {
@@ -4020,7 +4020,7 @@
         "contact": "spec",
         "power": "75",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to put target to sleep. If used by Meloetta, causes it to change from Aria Forme to Pirouette Forme."
     },
     "Rest": {
@@ -4028,7 +4028,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user goes to sleep for two turns, restoring all HP."
     },
     "Retaliate": {
@@ -4036,7 +4036,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Power doubles if the user's teammate fainted the previous turn."
     },
     "Return": {
@@ -4044,7 +4044,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Base Power increases proportionally to the user's happiness."
     },
     "Revelation Dance": {
@@ -4052,7 +4052,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Type varies based on the user's primary type."
     },
     "Revenge": {
@@ -4060,7 +4060,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Doubles in power if user was damaged. Priority -4."
     },
     "Reversal": {
@@ -4068,7 +4068,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Does more damage as the user's HP decreases."
     },
     "Roar": {
@@ -4076,7 +4076,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Forces a switch to a random Pokemon. Priority -6."
     },
     "Roar of Time": {
@@ -4084,7 +4084,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Rock Blast": {
@@ -4092,7 +4092,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits two to five times."
     },
     "Rock Climb": {
@@ -4100,7 +4100,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "20 chance to confuse the target."
     },
     "Rock Polish": {
@@ -4108,7 +4108,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Speed by two stages."
     },
     "Rock Slide": {
@@ -4116,7 +4116,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance of causing the target to flinch."
     },
     "Rock Smash": {
@@ -4124,7 +4124,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "50 chance to lower the target's Defense by one stage."
     },
     "Rock Throw": {
@@ -4132,7 +4132,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "90",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Rock Tomb": {
@@ -4140,7 +4140,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "95",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the target's Speed by one stage."
     },
     "Rock Wrecker": {
@@ -4148,7 +4148,7 @@
         "contact": "phys",
         "power": "150",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "User cannot move next turn."
     },
     "Role Play": {
@@ -4156,7 +4156,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Copies the foe's ability, overwriting the user's ability."
     },
     "Rolling Kick": {
@@ -4164,7 +4164,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance of causing the target to flinch."
     },
     "Rollout": {
@@ -4172,7 +4172,7 @@
         "contact": "phys",
         "power": "30",
         "accuracy": "90",
-        "pp": "20",
+        "pp": "32",
         "desc": "Power doubles with each use. Locks user in for 5 turns."
     },
     "Roost": {
@@ -4180,7 +4180,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 of the user's max HP. Temporarily removes the user's Flying type and turns it into a Normal-type if it is a pure Flying-type."
     },
     "Rototiller": {
@@ -4188,7 +4188,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Raises the Attack and Special Attack stats of all Grass-type Pokemon on the field by one stage."
     },
     "Round": {
@@ -4196,7 +4196,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Power doubles if a teammate uses Round in the same turn."
     },
     "Sacred Fire": {
@@ -4204,7 +4204,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "95",
-        "pp": "5",
+        "pp": "8",
         "desc": "50 chance to burn the target. Thaws the user."
     },
     "Sacred Sword": {
@@ -4212,7 +4212,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Ignores the target's stat changes."
     },
     "Safeguard": {
@@ -4220,7 +4220,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "25",
+        "pp": "64",
         "desc": "Protects the user's team from status conditions for five turns."
     },
     "Sand Attack": {
@@ -4228,7 +4228,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's accuracy by one stage."
     },
     "Sand Tomb": {
@@ -4236,7 +4236,7 @@
         "contact": "phys",
         "power": "35",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Traps and damages the target for 4-5 turns."
     },
     "Sandstorm": {
@@ -4244,7 +4244,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Summons a sandstorm for five turns."
     },
     "Savage Spin-Out": {
@@ -4260,7 +4260,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "30 chance to burn the target. Thaws the user."
     },
     "Scary Face": {
@@ -4268,7 +4268,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Lowers the target's Speed by two stages."
     },
     "Scratch": {
@@ -4276,7 +4276,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "No additional effect."
     },
     "Screech": {
@@ -4284,7 +4284,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "85",
-        "pp": "40",
+        "pp": "64",
         "desc": "Lowers the target's Defense by two stages."
     },
     "Searing Shot": {
@@ -4292,7 +4292,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "30 chance to burn the target."
     },
     "Searing Sunraze Smash": {
@@ -4308,7 +4308,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Effects vary with the terrain."
     },
     "Secret Sword": {
@@ -4316,7 +4316,7 @@
         "contact": "spec",
         "power": "85",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Damage is based on the target's Defense stat."
     },
     "Seed Bomb": {
@@ -4324,7 +4324,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Seed Flare": {
@@ -4332,7 +4332,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "85",
-        "pp": "5",
+        "pp": "8",
         "desc": "40 chance to lower the target's Special Defense by two stages."
     },
     "Seismic Toss": {
@@ -4340,7 +4340,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Deals damage equal to the user's level."
     },
     "Self-Destruct": {
@@ -4348,7 +4348,7 @@
         "contact": "phys",
         "power": "200",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Causes the user to faint."
     },
     "Shadow Ball": {
@@ -4356,7 +4356,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "20 chance to lower the target's Special Defense by one stage."
     },
     "Shadow Bone": {
@@ -4364,7 +4364,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "20 chance to lower the target's Defense by 1."
     },
     "Shadow Claw": {
@@ -4372,7 +4372,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "High critical hit rate."
     },
     "Shadow Force": {
@@ -4380,7 +4380,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "User becomes invulnerable, then attacks the next turn. Nullifies Detect and Protect."
     },
     "Shadow Punch": {
@@ -4388,7 +4388,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Shadow Sneak": {
@@ -4396,7 +4396,7 @@
         "contact": "phys",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Priority +1."
     },
     "Sharpen": {
@@ -4404,7 +4404,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Boosts the user's Attack by one stage."
     },
     "Shattered Psyche": {
@@ -4420,7 +4420,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "30",
-        "pp": "5",
+        "pp": "8",
         "desc": "OHKOes the target. Fails if the target is an Ice-type. If the user is not an Ice-type, the accuracy is lower."
     },
     "Shell Smash": {
@@ -4428,7 +4428,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Boosts the ser's Attack, Special Attack, and Speed by two stages each and lowers its Defense and Special Defense by one stage each."
     },
     "Shell Trap": {
@@ -4436,7 +4436,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "User must take physical damage before moving."
     },
     "Shift Gear": {
@@ -4444,7 +4444,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Boosts the users Speed by two stages and Attack by one stage."
     },
     "Shock Wave": {
@@ -4452,7 +4452,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Ignores accuracy and evasion modifiers."
     },
     "Shore Up": {
@@ -4460,7 +4460,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals the user by a weather-dependent amount."
     },
     "Signal Beam": {
@@ -4468,7 +4468,7 @@
         "contact": "spec",
         "power": "75",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance to confuse the target."
     },
     "Silver Wind": {
@@ -4476,7 +4476,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "10 chance to boost all the user's stats by one stage."
     },
     "Simple Beam": {
@@ -4484,7 +4484,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Changes the target's ability to Simple."
     },
     "Sing": {
@@ -4492,7 +4492,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "55",
-        "pp": "15",
+        "pp": "24",
         "desc": "Puts the target to sleep."
     },
     "Sinister Arrow Raid": {
@@ -4516,7 +4516,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user and the target trade abilities."
     },
     "Skull Bash": {
@@ -4524,7 +4524,7 @@
         "contact": "phys",
         "power": "130",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Charges and boosts the user's Defense by one stage turn one; attacks turn two."
     },
     "Sky Attack": {
@@ -4532,7 +4532,7 @@
         "contact": "phys",
         "power": "140",
         "accuracy": "90",
-        "pp": "5",
+        "pp": "8",
         "desc": "Hits the turn after being used."
     },
     "Sky Drop": {
@@ -4540,7 +4540,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits the turn after being used. The target cannot move the turn the move is used."
     },
     "Sky Uppercut": {
@@ -4548,7 +4548,7 @@
         "contact": "phys",
         "power": "85",
         "accuracy": "90",
-        "pp": "15",
+        "pp": "24",
         "desc": "Can hit a Bouncing, Flying, or Sky Dropping target."
     },
     "Slack Off": {
@@ -4556,7 +4556,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 of the user's max HP."
     },
     "Slam": {
@@ -4564,7 +4564,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "75",
-        "pp": "20",
+        "pp": "32",
         "desc": "No additional effect."
     },
     "Slash": {
@@ -4572,7 +4572,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "High critical hit rate."
     },
     "Sleep Powder": {
@@ -4580,7 +4580,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "75",
-        "pp": "15",
+        "pp": "24",
         "desc": "Puts the target to sleep."
     },
     "Sleep Talk": {
@@ -4588,7 +4588,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Uses one of the user's moves at random. Can only be used while sleeping."
     },
     "Sludge": {
@@ -4596,7 +4596,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance to poison the target."
     },
     "Sludge Bomb": {
@@ -4604,7 +4604,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to poison the target."
     },
     "Sludge Wave": {
@@ -4612,7 +4612,7 @@
         "contact": "spec",
         "power": "95",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "10 chance to poison the target."
     },
     "Smack Down": {
@@ -4620,7 +4620,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Hits Pokemon in the air and knocks them to the ground."
     },
     "Smart Strike": {
@@ -4628,7 +4628,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "This move does not check accuracy."
     },
     "Smelling Salts": {
@@ -4636,7 +4636,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if used on a paralyzed target but cures it of paralysis."
     },
     "Smog": {
@@ -4644,7 +4644,7 @@
         "contact": "spec",
         "power": "30",
         "accuracy": "70",
-        "pp": "20",
+        "pp": "32",
         "desc": "40 chance to poison the target."
     },
     "Smokescreen": {
@@ -4652,7 +4652,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's accuracy by one stage."
     },
     "Snarl": {
@@ -4660,7 +4660,7 @@
         "contact": "spec",
         "power": "55",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lowers the target's Special Attack by one stage."
     },
     "Snatch": {
@@ -4668,7 +4668,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "If certain moves are used, the user of Snatch uses the moves instead. Priority +4."
     },
     "Snore": {
@@ -4676,7 +4676,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Fails if the user is awake. 30 chance of causing the target to flinch."
     },
     "Soak": {
@@ -4684,7 +4684,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "The target becomes Water-type."
     },
     "Soft-Boiled": {
@@ -4692,7 +4692,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 of the user's max HP."
     },
     "Solar Beam": {
@@ -4700,7 +4700,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Charges turn 1; attacks turn 2."
     },
     "Solar Blade": {
@@ -4708,7 +4708,7 @@
         "contact": "phys",
         "power": "125",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Charges turn 1. Hits turn 2. No charge in sunlight."
     },
     "Sonic Boom": {
@@ -4716,7 +4716,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "90",
-        "pp": "20",
+        "pp": "32",
         "desc": "Does 20 damage."
     },
     "Soul-Stealing 7-Star Strike": {
@@ -4732,7 +4732,7 @@
         "contact": "spec",
         "power": "100",
         "accuracy": "95",
-        "pp": "5",
+        "pp": "8",
         "desc": "High critical hit rate."
     },
     "Spark": {
@@ -4740,7 +4740,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance to paralyze the target."
     },
     "Sparkling Aria": {
@@ -4748,7 +4748,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "The target is cured of its burn."
     },
     "Spectral Thief": {
@@ -4756,7 +4756,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Steals target's boosts before dealing damage."
     },
     "Speed Swap": {
@@ -4764,7 +4764,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Swaps Speed stat with target."
     },
     "Spider Web": {
@@ -4772,7 +4772,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "The target cannot switch out."
     },
     "Spike Cannon": {
@@ -4780,7 +4780,7 @@
         "contact": "phys",
         "power": "20",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Hits two to five times."
     },
     "Spikes": {
@@ -4788,7 +4788,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Damages foes as they switch in."
     },
     "Spiky Shield": {
@@ -4796,7 +4796,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Prevents anything from working on the user that turn. Priority +4."
     },
     "Spirit Shackle": {
@@ -4804,7 +4804,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Prevents the target from switching out."
     },
     "Spit Up": {
@@ -4812,7 +4812,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Varies in power depending on the number of uses of Stockpile."
     },
     "Spite": {
@@ -4820,7 +4820,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Takes away 4 PP from the last move the target used."
     },
     "Splash": {
@@ -4828,7 +4828,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "No effect whatsoever."
     },
     "Splintered Stormshards": {
@@ -4844,7 +4844,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Puts the target to sleep."
     },
     "Spotlight": {
@@ -4852,7 +4852,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Moves redirect to the target on the turn used."
     },
     "Stealth Rock": {
@@ -4860,7 +4860,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Damages foes as they switch in."
     },
     "Steam Eruption": {
@@ -4868,7 +4868,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "95",
-        "pp": "5",
+        "pp": "8",
         "desc": "30 chance to burn the target."
     },
     "Steamroller": {
@@ -4876,7 +4876,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance of causing the target to flinch."
     },
     "Steel Wing": {
@@ -4884,7 +4884,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "90",
-        "pp": "25",
+        "pp": "64",
         "desc": "10 chance to raise the user's Defense by one stage."
     },
     "Sticky Web": {
@@ -4892,7 +4892,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the foes' Speed by one stage as they switch in."
     },
     "Stockpile": {
@@ -4900,7 +4900,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Raises the user's Defense and Special Defense by one stage each. Fails if the user has already used Stockpile three times."
     },
     "Stoked Sparksurfer": {
@@ -4916,7 +4916,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "30 chance of causing the target to flinch."
     },
     "Stomping Tantrum": {
@@ -4924,7 +4924,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Power doubles if the user's last move failed."
     },
     "Stone Edge": {
@@ -4932,7 +4932,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "80",
-        "pp": "5",
+        "pp": "8",
         "desc": "High critical hit rate."
     },
     "Stored Power": {
@@ -4940,7 +4940,7 @@
         "contact": "spec",
         "power": "20",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Varies in power depending on the number of stat boosts accumulated by the user."
     },
     "Storm Throw": {
@@ -4948,7 +4948,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Always results in a critical hit."
     },
     "Strength": {
@@ -4956,7 +4956,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Strength Sap": {
@@ -4964,7 +4964,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "User heals HP by target's Atk stat. Lowers target's Attack one stage."
     },
     "String Shot": {
@@ -4972,7 +4972,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "95",
-        "pp": "40",
+        "pp": "64",
         "desc": "Lowers the target's Speed by two stages. Hits all adjacent foes."
     },
     "Struggle": {
@@ -4988,7 +4988,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Special Attack by one stage."
     },
     "Stun Spore": {
@@ -4996,7 +4996,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "75",
-        "pp": "30",
+        "pp": "48",
         "desc": "Paralyzes the target."
     },
     "Submission": {
@@ -5004,7 +5004,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "80",
-        "pp": "25",
+        "pp": "64",
         "desc": "User takes a quarter of damage dealt in recoil."
     },
     "Substitute": {
@@ -5012,7 +5012,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Takes 1/4 the user's max HP to create a Substitute that takes damage for the user."
     },
     "Subzero Slammer": {
@@ -5028,7 +5028,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Priority +1. Will only work if the foe chose a damaging move and moves after the user."
     },
     "Sunny Day": {
@@ -5036,7 +5036,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Summons sun for five turns."
     },
     "Sunsteel Strike": {
@@ -5044,7 +5044,7 @@
         "contact": "phys",
         "power": "100",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Ignores the Abilities of other Pokemon."
     },
     "Super Fang": {
@@ -5052,7 +5052,7 @@
         "contact": "phys",
         "power": "-",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Deals damage equal to half the target's current HP."
     },
     "Superpower": {
@@ -5060,7 +5060,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Attack and Defense by one stage each."
     },
     "Supersonic": {
@@ -5068,7 +5068,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "55",
-        "pp": "20",
+        "pp": "32",
         "desc": "Confuses the target."
     },
     "Supersonic Skystrike": {
@@ -5084,7 +5084,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Swagger": {
@@ -5092,7 +5092,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Confuses the target and boosts its Attack by two stages."
     },
     "Swallow": {
@@ -5100,7 +5100,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Healing varies based on the number of times the user has used Stockpile. Removes the user's Defense and Special Defense boosts gained through using Stockpile."
     },
     "Sweet Kiss": {
@@ -5108,7 +5108,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "75",
-        "pp": "10",
+        "pp": "16",
         "desc": "Confuses the target."
     },
     "Sweet Scent": {
@@ -5116,7 +5116,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's evasion by two stages. Hits all adjacent foes."
     },
     "Swift": {
@@ -5124,7 +5124,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Always hits."
     },
     "Switcheroo": {
@@ -5132,7 +5132,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "The user switches items with the target."
     },
     "Swords Dance": {
@@ -5140,7 +5140,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Attack by two stages."
     },
     "Synchronoise": {
@@ -5148,7 +5148,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Only damages Pokemon of the same type as the user."
     },
     "Synthesis": {
@@ -5156,7 +5156,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Heals variably depending on the weather."
     },
     "Tackle": {
@@ -5164,7 +5164,7 @@
         "contact": "phys",
         "power": "50",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "No additional effect."
     },
     "Tail Glow": {
@@ -5172,7 +5172,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Boosts the user's Special Attack by three stages."
     },
     "Tail Slap": {
@@ -5180,7 +5180,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "85",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits two to five times."
     },
     "Tail Whip": {
@@ -5188,7 +5188,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Lowers the Defense of all opposing adjacent Pokemon by one stage."
     },
     "Tailwind": {
@@ -5196,7 +5196,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Doubles the Speed of the user and its allies for four turns."
     },
     "Take Down": {
@@ -5204,7 +5204,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "85",
-        "pp": "20",
+        "pp": "32",
         "desc": "User takes a quarter of damage dealt in recoil."
     },
     "Taunt": {
@@ -5212,7 +5212,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "The target cannot use status moves for three turns."
     },
     "Tearful Look": {
@@ -5220,7 +5220,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Attack and Sp. Atk by 1."
     },
     "Techno Blast": {
@@ -5228,7 +5228,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Type will change depending on the user's held Drive."
     },
     "Tectonic Rage": {
@@ -5244,7 +5244,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Confuses all other active Pokemon."
     },
     "Telekinesis": {
@@ -5252,7 +5252,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Lasts for three turns and makes all moves hit the target. Makes the target immune to Ground."
     },
     "Teleport": {
@@ -5260,7 +5260,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "No competitive effect."
     },
     "Thief": {
@@ -5268,7 +5268,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "Steals the target's item."
     },
     "Thousand Arrows": {
@@ -5276,7 +5276,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits Pokemon in the air and knocks them to the ground."
     },
     "Thousand Waves": {
@@ -5284,7 +5284,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Prevents targets from switching."
     },
     "Thrash": {
@@ -5292,7 +5292,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Repeats for two to three turns. Confuses the user at the end."
     },
     "Throat Chop": {
@@ -5300,7 +5300,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "For 2 turns, the target cannot use sound moves."
     },
     "Thunder": {
@@ -5308,7 +5308,7 @@
         "contact": "spec",
         "power": "110",
         "accuracy": "70",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to paralyze the target. Never misses in rain."
     },
     "Thunder Fang": {
@@ -5316,7 +5316,7 @@
         "contact": "phys",
         "power": "65",
         "accuracy": "95",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance of causing the target to flinch. 10 chance to paralyze the target."
     },
     "Thunder Punch": {
@@ -5324,7 +5324,7 @@
         "contact": "phys",
         "power": "75",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance to paralyze the target."
     },
     "Thunder Shock": {
@@ -5332,7 +5332,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "10 chance to paralyze the target."
     },
     "Thunder Wave": {
@@ -5340,7 +5340,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "90",
-        "pp": "20",
+        "pp": "32",
         "desc": "Paralyzes the target."
     },
     "Thunderbolt": {
@@ -5348,7 +5348,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "10 chance to paralyze the target."
     },
     "Tickle": {
@@ -5356,7 +5356,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Attack and Defense by one stage each."
     },
     "Topsy-Turvy": {
@@ -5364,7 +5364,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Inverts the target's stat stages."
     },
     "Torment": {
@@ -5372,7 +5372,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "Prevents the target from using the same move twice in a row, except Struggle."
     },
     "Toxic": {
@@ -5380,7 +5380,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Badly poisons the target."
     },
     "Toxic Spikes": {
@@ -5388,7 +5388,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "20",
+        "pp": "32",
         "desc": "Poisons foes as they switch in."
     },
     "Toxic Thread": {
@@ -5396,7 +5396,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the target's Speed by 1 and poisons it."
     },
     "Transform": {
@@ -5404,7 +5404,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Transforms the user into the target, copying its type, stats, stat changes, moves, and ability."
     },
     "Tri Attack": {
@@ -5412,7 +5412,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "20 chance to burn the target, freeze, or paralyze the target, with an equal chance for each."
     },
     "Trick": {
@@ -5420,7 +5420,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Switches items with the foe."
     },
     "Trick Room": {
@@ -5428,7 +5428,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Slower Pokemon move first for five turns. Priority -7."
     },
     "Trick-or-Treat": {
@@ -5436,7 +5436,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Adds Ghost to the target's type(s). If the target already has three types, the third is replaced."
     },
     "Triple Kick": {
@@ -5444,7 +5444,7 @@
         "contact": "phys",
         "power": "10",
         "accuracy": "90",
-        "pp": "10",
+        "pp": "16",
         "desc": "Hits one to three times."
     },
     "Trop Kick": {
@@ -5452,7 +5452,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "100 chance to lower the target's Attack by 1."
     },
     "Trump Card": {
@@ -5460,7 +5460,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "-",
-        "pp": "5",
+        "pp": "8",
         "desc": "Power increases as PP decreases."
     },
     "Twineedle": {
@@ -5468,7 +5468,7 @@
         "contact": "phys",
         "power": "25",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Hits twice. Each hit has a 20 chance to poison the target."
     },
     "Twinkle Tackle": {
@@ -5484,7 +5484,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "20 chance of causing the target to flinch."
     },
     "U-turn": {
@@ -5492,7 +5492,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "User attacks, then switches."
     },
     "Uproar": {
@@ -5500,7 +5500,7 @@
         "contact": "spec",
         "power": "90",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Repeats for two to five turns. No Pokemon can sleep during these turns."
     },
     "V-create": {
@@ -5508,7 +5508,7 @@
         "contact": "phys",
         "power": "180",
         "accuracy": "95",
-        "pp": "5",
+        "pp": "8",
         "desc": "Lowers the user's Defense, Special Defense, and Speed by one stage each."
     },
     "Vacuum Wave": {
@@ -5516,7 +5516,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "Priority +1."
     },
     "Venom Drench": {
@@ -5524,7 +5524,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Lowers the Attack, Special Attack, and Speed of a poisoned target by one stage each."
     },
     "Venoshock": {
@@ -5532,7 +5532,7 @@
         "contact": "spec",
         "power": "65",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles when used on a poisoned target."
     },
     "Vice Grip": {
@@ -5540,7 +5540,7 @@
         "contact": "phys",
         "power": "55",
         "accuracy": "100",
-        "pp": "30",
+        "pp": "48",
         "desc": "No additional effect."
     },
     "Vine Whip": {
@@ -5548,7 +5548,7 @@
         "contact": "phys",
         "power": "45",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Vital Throw": {
@@ -5556,7 +5556,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Ignores accuracy and evasion modifiers. Priority -1."
     },
     "Volt Switch": {
@@ -5564,7 +5564,7 @@
         "contact": "spec",
         "power": "70",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "User attacks, then switches."
     },
     "Volt Tackle": {
@@ -5572,7 +5572,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes a third of damage dealt in recoil."
     },
     "Wake-Up Slap": {
@@ -5580,7 +5580,7 @@
         "contact": "phys",
         "power": "70",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles if used on a sleeping target. If the target is sleeping, wakes it up."
     },
     "Water Gun": {
@@ -5588,7 +5588,7 @@
         "contact": "spec",
         "power": "40",
         "accuracy": "100",
-        "pp": "25",
+        "pp": "64",
         "desc": "No additional effect."
     },
     "Water Pledge": {
@@ -5596,7 +5596,7 @@
         "contact": "spec",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Use with Fire Pledge or Grass Pledge for additional effects."
     },
     "Water Pulse": {
@@ -5604,7 +5604,7 @@
         "contact": "spec",
         "power": "60",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "20 chance to confuse the target."
     },
     "Water Shuriken": {
@@ -5612,7 +5612,7 @@
         "contact": "spec",
         "power": "15",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Hits two to five times. Priority +1. If the user is Ash-Greninja, the Base Power is boosted to 20 and the move always hits three times."
     },
     "Water Sport": {
@@ -5620,7 +5620,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "15",
+        "pp": "24",
         "desc": "Fire-type attacks do 50 damage."
     },
     "Water Spout": {
@@ -5628,7 +5628,7 @@
         "contact": "spec",
         "power": "150",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Does less damage as the user's HP decreases."
     },
     "Waterfall": {
@@ -5636,7 +5636,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "20 chance of causing the target to flinch."
     },
     "Weather Ball": {
@@ -5644,7 +5644,7 @@
         "contact": "spec",
         "power": "50",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Base Power doubles and changes type based on the weather."
     },
     "Whirlpool": {
@@ -5652,7 +5652,7 @@
         "contact": "spec",
         "power": "35",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Traps and damages the target for 4-5 turns."
     },
     "Whirlwind": {
@@ -5660,7 +5660,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "20",
+        "pp": "32",
         "desc": "Forces a switch to a random Pokemon. Priority -6."
     },
     "Wide Guard": {
@@ -5668,7 +5668,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Protects user and allies from multi-target attacks. Priority +3."
     },
     "Wild Charge": {
@@ -5676,7 +5676,7 @@
         "contact": "phys",
         "power": "90",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes a quarter of damage dealt in recoil."
     },
     "Will-O-Wisp": {
@@ -5684,7 +5684,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "85",
-        "pp": "15",
+        "pp": "24",
         "desc": "Burns the target."
     },
     "Wing Attack": {
@@ -5692,7 +5692,7 @@
         "contact": "phys",
         "power": "60",
         "accuracy": "100",
-        "pp": "35",
+        "pp": "56",
         "desc": "No additional effect."
     },
     "Wish": {
@@ -5700,7 +5700,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Heals 50 of the user's max HP after two turns. Can heal an ally in the user's place."
     },
     "Withdraw": {
@@ -5708,7 +5708,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "40",
+        "pp": "64",
         "desc": "Boosts the user's Defense by one stage."
     },
     "Wonder Room": {
@@ -5716,7 +5716,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Swaps the Defense and Special Defense of all Pokemon, ignoring stat changes."
     },
     "Wood Hammer": {
@@ -5724,7 +5724,7 @@
         "contact": "phys",
         "power": "120",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "User takes a third of damage dealt in recoil."
     },
     "Work Up": {
@@ -5732,7 +5732,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "30",
+        "pp": "48",
         "desc": "Boosts the user's Attack and Special Attack by one stage each."
     },
     "Worry Seed": {
@@ -5740,7 +5740,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "Changes the target's ability to Insomnia."
     },
     "Wrap": {
@@ -5748,7 +5748,7 @@
         "contact": "phys",
         "power": "15",
         "accuracy": "90",
-        "pp": "20",
+        "pp": "32",
         "desc": "Deals damage to the target at the end of every turn for 4-5 turns."
     },
     "Wring Out": {
@@ -5756,7 +5756,7 @@
         "contact": "spec",
         "power": "-",
         "accuracy": "100",
-        "pp": "5",
+        "pp": "8",
         "desc": "Base Power depends on the target's remaining HP."
     },
     "X-Scissor": {
@@ -5764,7 +5764,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "15",
+        "pp": "24",
         "desc": "No additional effect."
     },
     "Yawn": {
@@ -5772,7 +5772,7 @@
         "contact": "status",
         "power": "-",
         "accuracy": "-",
-        "pp": "10",
+        "pp": "16",
         "desc": "Puts the target to sleep after two turns."
     },
     "Zap Cannon": {
@@ -5780,7 +5780,7 @@
         "contact": "spec",
         "power": "120",
         "accuracy": "50",
-        "pp": "5",
+        "pp": "8",
         "desc": "Paralyzes the target."
     },
     "Zen Headbutt": {
@@ -5788,7 +5788,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "90",
-        "pp": "15",
+        "pp": "24",
         "desc": "20 chance of causing the target to flinch."
     },
     "Zing Zap": {
@@ -5796,7 +5796,7 @@
         "contact": "phys",
         "power": "80",
         "accuracy": "100",
-        "pp": "10",
+        "pp": "16",
         "desc": "30 chance to flinch the target."
     }
 }

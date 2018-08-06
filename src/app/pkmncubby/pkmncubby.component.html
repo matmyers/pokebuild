@@ -196,6 +196,25 @@
             </div>
           </div>
         </div>
+        <div class="container-fluid" style="color:#fff; background-color:#000; font-size: 10pt">
+          <div class="row" style="height:25px;">
+            <div class="col-2 text-left">
+              <!-- <p class="ml-1">Name</p> -->
+            </div>
+            <div class="col-2 text-left">
+              <div class="d-inline-flex align-items-start flex-row">
+                <p class="mt-1 ml-1 text-center" style="width:30px;">Type</p>
+                <p class="mt-1 ml-2 text-center" style="width:25px;"> Cat</p>
+                <p class="mt-1 ml-2 text-center" style="width:25px;">Pow</p>
+                <p class="mt-1 ml-2 text-center" style="width:25px;">Acc</p>
+                <p class="mt-1 ml-1 text-center" style="width:25px;">PP</p>
+              </div>
+            </div>
+            <div class="col-8 text-left mt-1">
+              <p>Description</p>
+            </div>
+          </div>
+        </div>
         <div *ngFor="let recmove of recmovelist; let i = index">
           <button attr.id="moveNav{{i}}" class="btn btn-outline-dark btn-sm btn-block" style="height:40px;" (mousedown)="addMove(mo)" (mouseover)="setHoverMove(i)">
             <div class="container">
@@ -204,11 +223,13 @@
                   <p> {{ recmove }}</p>
                 </div>
                 <div class="col-sm-2 text-left">
-                  <img src="../../assets/types/{{ moveData[recmove]['type'] }}.png" class="d-inline">
-                  <img src="../../assets/types/{{ moveData[recmove]['contact'] }}.png" class="d-inline ml-1">
-                  <p class="d-inline"> {{ moveData[recmove]['power'] }}</p>
-                  <p class="d-inline"> {{ moveData[recmove]['accuracy'] }}</p>
-                  <p class="d-inline"> {{ moveData[recmove]['pp'] }}</p>
+                  <div class="d-inline-flex align-items-start flex-row">
+                    <img src="../../assets/types/{{ moveData[recmove]['type'] }}.png" class="mt-2">
+                    <img src="../../assets/types/{{ moveData[recmove]['contact'] }}.png" class="mt-2 ml-1">
+                    <p class="mt-1 ml-1 text-center" style="width:25px;"> {{ moveData[recmove]['power'] }}</p>
+                    <p class="mt-1 ml-1 text-center" style="width:25px;"> {{ moveData[recmove]['accuracy'] }}</p>
+                    <p class="mt-1 ml-1 text-center" style="width:25px;"> {{ moveData[recmove]['pp'] }}</p>
+                  </div>
                 </div>
                 <div class="col-sm-6 text-left mt-1">
                   <p> {{ moveData[recmove]['desc'] }}</p>
@@ -228,6 +249,25 @@
           </div>
         </div>
       </div>
+      <div class="container-fluid" style="color:#fff; background-color:#000; font-size: 10pt">
+        <div class="row" style="height:25px;">
+          <div class="col-2 text-left">
+            <!-- <p class="ml-1">Name</p> -->
+          </div>
+          <div class="col-2 text-left">
+            <div class="d-inline-flex align-items-start flex-row">
+              <p class="mt-1 ml-1 text-center" style="width:30px;">Type</p>
+              <p class="mt-1 ml-2 text-center" style="width:25px;"> Cat</p>
+              <p class="mt-1 ml-2 text-center" style="width:25px;">Pow</p>
+              <p class="mt-1 ml-2 text-center" style="width:25px;">Acc</p>
+              <p class="mt-1 ml-1 text-center" style="width:25px;">PP</p>
+            </div>
+          </div>
+          <div class="col-8 text-left mt-1">
+            <p>Description</p>
+          </div>
+        </div>
+      </div>
       <div *ngFor="let mo of movelist; let i = index">
         <button attr.id="moveNav{{i + recmovelist.length}}" class="btn btn-outline-dark btn-sm btn-block" style="height:40px;" (mousedown)="addMove(mo)" (mouseover)="setHoverMove(i + recmovelist.length)">
           <div class="container">
@@ -236,11 +276,13 @@
                 <p> {{ mo }}</p>
               </div>
               <div class="col-sm-2 text-left">
-                <img src="../../assets/types/{{ moveData[mo]['type'] }}.png" class="d-inline">
-                <img src="../../assets/types/{{ moveData[mo]['contact'] }}.png" class="d-inline">
-                <p class="d-inline"> {{ moveData[mo]['power'] }}</p>
-                <p class="d-inline"> {{ moveData[mo]['accuracy'] }}</p>
-                <p class="d-inline"> {{ moveData[mo]['pp'] }}</p>
+                <div class="d-inline-flex align-items-start flex-row">
+                  <img src="../../assets/types/{{ moveData[mo]['type'] }}.png" class="mt-2">
+                  <img src="../../assets/types/{{ moveData[mo]['contact'] }}.png" class="mt-2 ml-1">
+                  <p class="mt-1 ml-1 text-center" style="width:25px;"> {{ moveData[mo]['power'] }}</p>
+                  <p class="mt-1 ml-1 text-center" style="width:25px;"> {{ moveData[mo]['accuracy'] }}</p>
+                  <p class="mt-1 ml-1 text-center" style="width:25px;"> {{ moveData[mo]['pp'] }}</p>
+                </div>
               </div>
               <div class="col-sm-8 text-left mt-1">
                 <p> {{ moveData[mo]['desc'] }}</p>
@@ -254,113 +296,178 @@
   		</div> -->
   	</div>
     <div *ngIf="displayStats" class="mt-3 mb-3">
-      <div>Points remaining: <p id="pts{{ index }}" class="d-inline">{{ ptsRemaining }}</p></div>
-      <form>
-        <div class="form-group row">
-          <label for="hpInput" class="col-sm-2 col-form-label col-form-label-sm">HP:</label>
-          <div class="col-sm-6">
-            <input type="range" class="custom-range" min="0" max="252" step="4" id="hpInput" [value]="ev[0]" (input)="setStats($event, 'hp')">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="container-fluid" style="font-size: 10pt">
+              <div class="row" style="height:25px;">
+                <!-- <div class="col-sm-1"></div> -->
+                <div class="col-sm-2 pl-5">
+                  <p>Base</p>
+                </div>
+                <div class="col-sm-6 text-left ml-2">
+                  <p>EVs</p>
+                </div>
+                <div class="col-sm-3 text-left ml-3">
+                  <p>IVs</p>
+                </div>
+              </div>
+            </div>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-1 mr-2">
+                  <label for="hpInput" class="col-sm-2 col-form-label col-form-label-sm">HP:</label>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <p class="d-inline">{{allData[name]['baseStats'][0]}}</p>
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control form-control-sm d-inline mr-2" min="0" max="252" step="4" [value]="ev[0]" (input)="setStats($event, 'hp')" (click)="$event.target.select()" style="width:21%">
+                  <input type="range" class="custom-range d-inline" min="0" max="252" step="4" id="hpInput" [value]="ev[0]" (input)="setStats($event, 'hp')" style="width:76%">
+                </div>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm d-inline mr-4" min="0" max="31" [value]="iv[0]" (input)="setIV($event, 'hp')" (click)="$event.target.select()" style="width:40%">
+                  <p class="d-inline">{{ stats[0] }}</p>
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-1 mr-2">
+                  <label for="atkInput" class="col-sm-2 col-form-label col-form-label-sm">Atk:</label>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <p class="d-inline">{{allData[name]['baseStats'][1]}}</p>
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control form-control-sm d-inline mr-2" min="0" max="252" step="4" [value]="ev[1]" (input)="setStats($event, 'atk')" (click)="$event.target.select()" style="width:21%">
+                  <input type="range" class="custom-range d-inline" min="0" max="252" step="4" id="atkInput" [value]="ev[1]" (input)="setStats($event, 'atk')" style="width:76%">
+                </div>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm d-inline mr-4" min="0" max="31" [value]="iv[1]" (input)="setIV($event, 'atk')" (click)="$event.target.select()" style="width:40%">
+                  <p class="d-inline">{{ stats[1] }}</p>
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-1 mr-2">
+                  <label for="defInput" class="col-sm-2 col-form-label col-form-label-sm">Def:</label>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <p class="d-inline">{{allData[name]['baseStats'][2]}}</p>
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control form-control-sm d-inline mr-2" min="0" max="252" step="4" [value]="ev[2]" (input)="setStats($event, 'def')" (click)="$event.target.select()" style="width:21%">
+                  <input type="range" class="custom-range d-inline" min="0" max="252" step="4" id="defInput" [value]="ev[2]" (input)="setStats($event, 'def')" style="width:76%">
+                </div>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm d-inline mr-4" min="0" max="31" [value]="iv[2]" (input)="setIV($event, 'def')" (click)="$event.target.select()" style="width:40%">
+                  <p class="d-inline">{{ stats[2] }}</p>
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-1 mr-2">
+                  <label for="spaInput" class="col-sm-2 col-form-label col-form-label-sm">SpA:</label>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <p class="d-inline">{{allData[name]['baseStats'][3]}}</p>
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control form-control-sm d-inline mr-2" min="0" max="252" step="4" [value]="ev[3]" (input)="setStats($event, 'spa')" (click)="$event.target.select()" style="width:21%">
+                  <input type="range" class="custom-range d-inline" min="0" max="252" step="4" id="spaInput" [value]="ev[3]" (input)="setStats($event, 'spa')" style="width:76%">
+                </div>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm d-inline mr-4" min="0" max="31" [value]="iv[3]" (input)="setIV($event, 'spa')" (click)="$event.target.select()" style="width:40%">
+                  <p class="d-inline">{{ stats[3] }}</p>
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-1 mr-2">
+                  <label for="spdInput" class="col-sm-2 col-form-label col-form-label-sm">SpD:</label>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <p class="d-inline">{{allData[name]['baseStats'][4]}}</p>
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control form-control-sm d-inline mr-2" min="0" max="252" step="4" [value]="ev[4]" (input)="setStats($event, 'spd')" (click)="$event.target.select()" style="width:21%">
+                  <input type="range" class="custom-range d-inline" min="0" max="252" step="4" id="spdInput" [value]="ev[4]" (input)="setStats($event, 'spd')" style="width:76%">
+                </div>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm d-inline mr-4" min="0" max="31" [value]="iv[4]" (input)="setIV($event, 'spd')" (click)="$event.target.select()" style="width:40%">
+                  <p class="d-inline">{{ stats[4] }}</p>
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-1 mr-2">
+                  <label for="speInput" class="col-sm-2 col-form-label col-form-label-sm">Spe:</label>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <p class="d-inline">{{allData[name]['baseStats'][5]}}</p>
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control form-control-sm d-inline mr-2" min="0" max="252" step="4" [value]="ev[5]" (input)="setStats($event, 'spe')" (click)="$event.target.select()" style="width:21%">
+                  <input type="range" class="custom-range d-inline" min="0" max="252" step="4" id="speInput" [value]="ev[5]" (input)="setStats($event, 'spe')" style="width:76%">
+                </div>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm d-inline mr-4" min="0" max="31" [value]="iv[5]" (input)="setIV($event, 'spe')" (click)="$event.target.select()" style="width:40%">
+                  <p class="d-inline">{{ stats[5] }}</p>
+                </div>
+              </div>
+            </form>
+            <div class="container-fluid" style="font-size: 10pt">
+              <div class="row" style="height:25px;">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11 text-left">Points remaining: 
+                  <p id="pts{{ index }}" class="d-inline">{{ ptsRemaining }}</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[0]" (input)="setStats($event, 'hp')" (click)="$event.target.select()">
+          <div class="col-sm-5 text-left">
+            <!-- perhaps use flexbox here -->
+            <button class="btn btn-success">View Speed Comparison</button>
           </div>
-          <p class="col-sm-1">{{ stats[0] }}</p>
         </div>
-      </form>
-      <form>
-        <div class="form-group row">
-          <label for="atkInput" class="col-sm-2 col-form-label col-form-label-sm">Atk:</label>
-          <div class="col-sm-6">
-            <input type="range" class="custom-range" min="0" max="252" step="4" id="atkInput" [value]="ev[1]" (input)="setStats($event, 'atk')">
-          </div>
-          <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[1]" (input)="setStats($event, 'atk')" (click)="$event.target.select()">
-          </div>
-          <p class="col-sm-1">{{ stats[1] }}</p>
-        </div>
-      </form>
-      <form>
-        <div class="form-group row">
-          <label for="defInput" class="col-sm-2 col-form-label col-form-label-sm">Def:</label>
-          <div class="col-sm-6">
-            <input type="range" class="custom-range" min="0" max="252" step="4" id="defInput" [value]="ev[2]" (input)="setStats($event, 'def')">
-          </div>
-          <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[2]" (input)="setStats($event, 'def')" (click)="$event.target.select()">
-          </div>
-          <p class="col-sm-1">{{ stats[2] }}</p>
-        </div>
-      </form>
-      <form>
-        <div class="form-group row">
-          <label for="spaInput" class="col-sm-2 col-form-label col-form-label-sm">SpA:</label>
-          <div class="col-sm-6">
-            <input type="range" class="custom-range" min="0" max="252" step="4" id="spaInput" [value]="ev[3]" (input)="setStats($event, 'spa')">
-          </div>
-          <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[3]" (input)="setStats($event, 'spa')" (click)="$event.target.select()">
-          </div>
-          <p class="col-sm-1">{{ stats[3] }}</p>
-        </div>
-      </form>
-      <form>
-        <div class="form-group row">
-          <label for="spdInput" class="col-sm-2 col-form-label col-form-label-sm">SpD:</label>
-          <div class="col-sm-6">
-            <input type="range" class="custom-range" min="0" max="252" step="4" id="spdInput" [value]="ev[4]" (input)="setStats($event, 'spd')">
-          </div>
-          <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[4]" (input)="setStats($event, 'spd')" (click)="$event.target.select()">
-          </div>
-          <p class="col-sm-1">{{ stats[4] }}</p>
-        </div>
-      </form>
-      <form>
-        <div class="form-group row">
-          <label for="speInput" class="col-sm-2 col-form-label col-form-label-sm">Spe:</label>
-          <div class="col-sm-6">
-            <input type="range" class="custom-range" min="0" max="252" step="4" id="speInput" [value]="ev[5]" (input)="setStats($event, 'spe')">
-          </div>
-          <div class="col-sm-3">
-            <input type="number" class="form-control form-control-sm" min="0" max="252" step="4" [value]="ev[5]" (input)="setStats($event, 'spe')" (click)="$event.target.select()">
-          </div>
-          <p class="col-sm-1">{{ stats[5] }}</p>
-        </div>
-      </form>
-      <!-- nature -->
-      <div class="btn-toolbar">
-        <div class="dropdown">
-          <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown">{{ nature }}</button>
-          <div class="dropdown-menu">
-            <button class="dropdown-item" (click)="setNature('Adamant')">Adamant (+Atk, -SpA)</button>
-            <button class="dropdown-item" (click)="setNature('Bashful')">Bashful</button>
-            <button class="dropdown-item" (click)="setNature('Bold')">Bold (+Def, -Atk)</button>
-            <button class="dropdown-item" (click)="setNature('Brave')">Brave (+Atk, -Spe)</button>
-            <button class="dropdown-item" (click)="setNature('Calm')">Calm (+SpD, -Atk)</button>
-            <button class="dropdown-item" (click)="setNature('Careful')">Careful (+SpD, -SpA)</button>
-            <button class="dropdown-item" (click)="setNature('Docile')">Docile</button>
-            <button class="dropdown-item" (click)="setNature('Gentle')">Gentle (+SpD, -Def)</button>
-            <button class="dropdown-item" (click)="setNature('Hardy')">Hardy</button>
-            <button class="dropdown-item" (click)="setNature('Hasty')">Hasty (+Spe, -Def)</button>
-            <button class="dropdown-item" (click)="setNature('Impish')">Impish (+Def, -SpA)</button>
-            <button class="dropdown-item" (click)="setNature('Jolly')">Jolly (+Spe, -SpA)</button>
-            <button class="dropdown-item" (click)="setNature('Lax')">Lax (+Def, -SpD)</button>
-            <button class="dropdown-item" (click)="setNature('Lonely')">Lonely (+Atk, -Def)</button>
-            <button class="dropdown-item" (click)="setNature('Mild')">Mild (+SpA, -Def)</button>
-            <button class="dropdown-item" (click)="setNature('Modest')">Modest (+SpA, -Atk)</button>
-            <button class="dropdown-item" (click)="setNature('Naive')">Naive (+Spe, -SpD)</button>
-            <button class="dropdown-item" (click)="setNature('Naughty')">Naughty (+Atk, -SpD)</button>
-            <button class="dropdown-item" (click)="setNature('Quiet')">Quiet (+SpA, -Spe)</button>
-            <button class="dropdown-item" (click)="setNature('Quirky')">Quirky</button>
-            <button class="dropdown-item" (click)="setNature('Rash')">Rash (+SpA, -SpD)</button>
-            <button class="dropdown-item" (click)="setNature('Relaxed')">Relaxed (+Def, -Spe)</button>
-            <button class="dropdown-item" (click)="setNature('Sassy')">Sassy (+SpD, -Spe)</button>
-            <button class="dropdown-item" (click)="setNature('Serious')">Serious</button>
-            <button class="dropdown-item" (click)="setNature('Timid')">Timid (+Spe, -Atk)</button>
-          </div>
-        </div>
-
       </div>
+      <br>
+      <!-- nature -->
+      <form>
+        <label for="natureSelect" class="col-sm-2 col-form-label col-form-label-sm">Nature: </label>
+        <select id="natureSelect" class="custom-select-sm" (change)="setNature()">
+          <option type="button">Adamant (+Atk, -SpA)</option>
+          <option type="button">Bashful</option>
+          <option type="button">Bold (+Def, -Atk)</option>
+          <option type="button">Brave (+Atk, -Spe)</option>
+          <option type="button">Calm (+SpD, -Atk)</option>
+          <option type="button">Careful (+SpD, -SpA)</option>
+          <option type="button">Docile</option>
+          <option type="button">Gentle (+SpD, -Def)</option>
+          <option type="button">Hardy</option>
+          <option type="button">Hasty (+Spe, -Def)</option>
+          <option type="button">Impish (+Def, -SpA)</option>
+          <option type="button">Jolly (+Spe, -SpA)</option>
+          <option type="button">Lax (+Def, -SpD)</option>
+          <option type="button">Lonely (+Atk, -Def)</option>
+          <option type="button">Mild (+SpA, -Def)</option>
+          <option type="button">Modest (+SpA, -Atk)</option>
+          <option type="button">Naive (+Spe, -SpD)</option>
+          <option type="button">Naughty (+Atk, -SpD)</option>
+          <option type="button">Quiet (+SpA, -Spe)</option>
+          <option type="button">Quirky</option>
+          <option type="button">Rash (+SpA, -SpD)</option>
+          <option type="button">Relaxed (+Def, -Spe)</option>
+          <option type="button">Sassy (+SpD, -Spe)</option>
+          <option type="button" selected>Serious</option>
+          <option type="button">Timid (+Spe, -Atk)</option>
+        </select>
+      </form>
     </div>
   </div>
   <!-- end display lists of stuff -->

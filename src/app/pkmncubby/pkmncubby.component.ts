@@ -387,8 +387,48 @@ export class PkmncubbyComponent implements OnInit {
     if (this.ev[5] > 0) {this.statsLabel += this.ev[5] + ' Spe ';}
   }
 
-  setNature(natureSelected: string) {
-    this.nature = natureSelected;
+  setIV(event: Event, statChanged: string) {
+    if (event.target.value.length === 0) {
+      event.target.value = 0;
+    }
+    if (event.target.value > 31) {
+      event.target.value = 31;
+    }
+    switch(statChanged) {
+      case "hp":
+        this.iv[0] = parseInt(event.target.value);
+        this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
+        break;
+      case "atk":
+        this.iv[1] = parseInt(event.target.value);
+        this.stats[1] = 2 * allPkmnData[this.name]["baseStats"][1] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
+        break;
+      case "def":
+        this.iv[2] = parseInt(event.target.value);
+        this.stats[2] = 2 * allPkmnData[this.name]["baseStats"][2] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
+        break;
+      case "spa":
+        this.iv[3] = parseInt(event.target.value);
+        this.stats[3] = 2 * allPkmnData[this.name]["baseStats"][3] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
+        break;
+      case "spd":
+        this.iv[4] = parseInt(event.target.value);
+        this.stats[4] = 2 * allPkmnData[this.name]["baseStats"][4] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
+        break;
+      case "spe":
+        this.iv[5] = parseInt(event.target.value);
+        this.stats[5] = 2 * allPkmnData[this.name]["baseStats"][5] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
+        break;
+      default:
+        console.log("stat type error");
+    }
+  }
+
+  setNature() {
+    this.nature = document.getElementById('natureSelect').value;
+
+    let parenIndex = this.nature.indexOf('(');
+    let natureSelected = this.nature.substring(0, parenIndex-1);
 
     // reset stats to neutral nature
     this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
@@ -481,7 +521,7 @@ export class PkmncubbyComponent implements OnInit {
         this.stats[1] = Math.floor(this.stats[1] * 0.9);
         break;
       default:
-        console.log("unknown nature");
+        console.log("unknown or neutral nature");
     }
 
     this.scrollToDisplay();
