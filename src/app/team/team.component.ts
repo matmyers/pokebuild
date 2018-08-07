@@ -127,7 +127,10 @@ export class TeamComponent implements OnInit {
       this.exportText += "Ability: " + this.teamCubbies[i].ability + "\n";
       this.exportText += "EVs: " + this.teamCubbies[i].ev[0] + " HP / " + this.teamCubbies[i].ev[1] + " Atk / " + this.teamCubbies[i].ev[2] + " Def / " + this.teamCubbies[i].ev[3] + " SpA / " + this.teamCubbies[i].ev[4] + " SpD / " + this.teamCubbies[i].ev[5] + " Spe\n";
       if (this.teamCubbies[i].nature !== "Select nature") {
-        this.exportText += this.teamCubbies[i].nature + " Nature\n";
+        let parenIndex = this.teamCubbies[i].nature.indexOf('(');
+        let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
+        
+        this.exportText += natureSelected + " Nature\n";
       }
       for (var j = 0; j < this.teamCubbies[i].moves.length; ++j) {
         if (this.teamCubbies[i].moves[j]) {

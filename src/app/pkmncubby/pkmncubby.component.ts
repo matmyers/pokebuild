@@ -35,17 +35,31 @@ export class PkmncubbyComponent implements OnInit {
   recmovelist = [];
   moveIndex = 0;
   moveNavIndex = 0;
+  recspreadlist = [];
+  spreadIndex = 0;
+  statModifiers = [1, 1, 1, 1, 1, 1];
   stats = [0, 0, 0, 0, 0, 0];
   statsLabel = "";
   ptsRemaining = 508;
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [31, 31, 31, 31, 31, 31];
 	nature = "Select nature";
+  speedBoost = 0;
+  boostLevel = 1;
   displayItems = false;
   displayAbilities = false;
   displayMoves = false;
   displayStats = false;
+  displaySpeedComparison = false;
+  opponentSelected = false;
+  opponent = "";
+  opponentSprite = "";
+  opponentEv = 0;
+  opponentIv = 31;
+  opponentModifier = 1;
+  opponentSpeed = 0;
   allData = allPkmnData;
+  allDataArray = Object.keys(allPkmnData);
   itemData = itemData;
   abilityData = abilityData;
   moveData = moveData;
@@ -79,6 +93,23 @@ export class PkmncubbyComponent implements OnInit {
       }
     }
 
+    if (allPkmnData[this.name]["statUsage"][this.tier]) {
+      for (var k = 0; k < allPkmnData[this.name]["statUsage"][this.tier].length; ++k) {
+        var key = Object.keys(allPkmnData[this.name]["statUsage"][this.tier][k]);
+
+        var colonIndex = key[0].indexOf(':');
+        var natureSelected = key[0].substring(0, colonIndex);
+        // parse statUsage data
+        var slash1 = key[0].indexOf('/');
+        var slash2 = key[0].substring(slash1).indexOf('/', 1) + slash1;
+        var slash3 = key[0].substring(slash2).indexOf('/', 1) + slash2;
+        var slash4 = key[0].substring(slash3).indexOf('/', 1) + slash3;
+        var slash5 = key[0].substring(slash4).indexOf('/', 1) + slash4;
+
+        this.recspreadlist.push({nature:natureSelected, hp:key[0].substring(colonIndex+1, slash1), atk:key[0].substring(slash1+1, slash2), def:key[0].substring(slash2+1, slash3), spa:key[0].substring(slash3+1, slash4), spd:key[0].substring(slash4+1, slash5), spe:key[0].substring(slash5+1)});
+      }
+    }
+
     if (allPkmnData[this.name]["specialItem"]) {
       // this.item = allPkmnData[this.name]["specialItem"];
       // this.searchAbi.nativeElement.focus();
@@ -87,12 +118,11 @@ export class PkmncubbyComponent implements OnInit {
       this.searchIte.nativeElement.focus();
     }
 
-    this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
-    this.stats[1] = 2 * allPkmnData[this.name]["baseStats"][1] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
-    this.stats[2] = 2 * allPkmnData[this.name]["baseStats"][2] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
-    this.stats[3] = 2 * allPkmnData[this.name]["baseStats"][3] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
-    this.stats[4] = 2 * allPkmnData[this.name]["baseStats"][4] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
-    this.stats[5] = 2 * allPkmnData[this.name]["baseStats"][5] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
+    this.allDataArray.splice(-1,1);
+
+    this.setAllStats();
+
+    this.speedBoost = this.stats[5];
   }
 
   removeMe() {
@@ -102,6 +132,13 @@ export class PkmncubbyComponent implements OnInit {
   scrollToDisplay() {
     setTimeout(()=>{
       var displayArea = document.getElementById('displayArea' + this.index);
+      displayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }, 10);
+  }
+
+  scrollToSpreads() {
+    setTimeout(()=>{
+      var displayArea = document.getElementById('displaySpreadArea' + this.index);
       displayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }, 10);
   }
@@ -278,6 +315,14 @@ export class PkmncubbyComponent implements OnInit {
     nextHoverMove.classList.add('myHover');
   }
 
+  setHoverSpread(newHoverIndex: number) {
+    var prevHoverSpread = document.getElementById('popSpread' + this.spreadIndex);
+    prevHoverSpread.classList.remove('myHover');
+    this.spreadIndex = newHoverIndex;
+    var nextHoverSpread = document.getElementById('popSpread' + this.spreadIndex);
+    nextHoverSpread.classList.add('myHover');
+  }
+
   addAbility(abilitySelected: string) {
     this.ability = abilitySelected;
     this.displayAbilities = false;
@@ -332,6 +377,29 @@ export class PkmncubbyComponent implements OnInit {
     }
   }
 
+  addSpread(spreadSelected: string) {
+    let natureSelected = spreadSelected.nature;
+
+    this.ev[0] = parseInt(spreadSelected.hp);
+    this.ev[1] = parseInt(spreadSelected.atk);
+    this.ev[2] = parseInt(spreadSelected.def);
+    this.ev[3] = parseInt(spreadSelected.spa);
+    this.ev[4] = parseInt(spreadSelected.spd);
+    this.ev[5] = parseInt(spreadSelected.spe);
+
+    this.setAllStats();
+
+    this.ptsRemaining = 508 - (this.ev[0] + this.ev[1] + this.ev[2] + this.ev[3] + this.ev[4] + this.ev[5]);
+    if (this.ptsRemaining < 0) {
+      document.getElementById('pts' + this.index).style.color = 'red';
+    } else {
+      document.getElementById('pts' + this.index).style.color = 'black';
+    }
+
+    this.setNature(natureSelected);
+    this.displaySpreads = false
+  }
+
   setStats(event: Event, statChanged: string) {
     if (event.target.value.length === 0) {
       event.target.value = 0;
@@ -342,31 +410,27 @@ export class PkmncubbyComponent implements OnInit {
     switch(statChanged) {
       case "hp":
         this.ev[0] = parseInt(event.target.value);
-        this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
         break;
       case "atk":
         this.ev[1] = parseInt(event.target.value);
-        this.stats[1] = 2 * allPkmnData[this.name]["baseStats"][1] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
         break;
       case "def":
         this.ev[2] = parseInt(event.target.value);
-        this.stats[2] = 2 * allPkmnData[this.name]["baseStats"][2] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
         break;
       case "spa":
         this.ev[3] = parseInt(event.target.value);
-        this.stats[3] = 2 * allPkmnData[this.name]["baseStats"][3] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
         break;
       case "spd":
         this.ev[4] = parseInt(event.target.value);
-        this.stats[4] = 2 * allPkmnData[this.name]["baseStats"][4] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
         break;
       case "spe":
         this.ev[5] = parseInt(event.target.value);
-        this.stats[5] = 2 * allPkmnData[this.name]["baseStats"][5] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
         break;
       default:
         console.log("stat type error");
     }
+
+    this.setAllStats();
 
     this.ptsRemaining = 508 - (this.ev[0] + this.ev[1] + this.ev[2] + this.ev[3] + this.ev[4] + this.ev[5]);
     //var ptsDisplay = document.getElementById('pts');
@@ -397,134 +461,279 @@ export class PkmncubbyComponent implements OnInit {
     switch(statChanged) {
       case "hp":
         this.iv[0] = parseInt(event.target.value);
-        this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
         break;
       case "atk":
         this.iv[1] = parseInt(event.target.value);
-        this.stats[1] = 2 * allPkmnData[this.name]["baseStats"][1] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
         break;
       case "def":
         this.iv[2] = parseInt(event.target.value);
-        this.stats[2] = 2 * allPkmnData[this.name]["baseStats"][2] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
         break;
       case "spa":
         this.iv[3] = parseInt(event.target.value);
-        this.stats[3] = 2 * allPkmnData[this.name]["baseStats"][3] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
         break;
       case "spd":
         this.iv[4] = parseInt(event.target.value);
-        this.stats[4] = 2 * allPkmnData[this.name]["baseStats"][4] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
         break;
       case "spe":
         this.iv[5] = parseInt(event.target.value);
-        this.stats[5] = 2 * allPkmnData[this.name]["baseStats"][5] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
         break;
       default:
         console.log("stat type error");
     }
+
+    this.setAllStats();
   }
 
-  setNature() {
+  setNature(preset: string) {
+    //console.log(document.getElementById('natureSelect').options);
+    var natureSelected = "";
+
+    if (preset === undefined) {
+      this.nature = document.getElementById('natureSelect').value;
+
+      let parenIndex = this.nature.indexOf('(');
+      natureSelected = this.nature.substring(0, parenIndex-1);
+    } else {
+      for (var m = 0; m < document.getElementById('natureSelect').options.length; ++m) {
+        if (document.getElementById('natureSelect').options[m].value.includes(preset)) {
+          document.getElementById('natureSelect').value = document.getElementById('natureSelect').options[m].value;
+        }
+      }
+      natureSelected = preset;
+    }
+
     this.nature = document.getElementById('natureSelect').value;
-
-    let parenIndex = this.nature.indexOf('(');
-    let natureSelected = this.nature.substring(0, parenIndex-1);
-
-    // reset stats to neutral nature
-    this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
-    this.stats[1] = 2 * allPkmnData[this.name]["baseStats"][1] + this.iv[1] + Math.floor(this.ev[1]/4) + 5;
-    this.stats[2] = 2 * allPkmnData[this.name]["baseStats"][2] + this.iv[2] + Math.floor(this.ev[2]/4) + 5;
-    this.stats[3] = 2 * allPkmnData[this.name]["baseStats"][3] + this.iv[3] + Math.floor(this.ev[3]/4) + 5;
-    this.stats[4] = 2 * allPkmnData[this.name]["baseStats"][4] + this.iv[4] + Math.floor(this.ev[4]/4) + 5;
-    this.stats[5] = 2 * allPkmnData[this.name]["baseStats"][5] + this.iv[5] + Math.floor(this.ev[5]/4) + 5;
     
+    // reset modifiers to neutral nature
+    this.statModifiers = [1, 1, 1, 1, 1, 1];
+
     // add modifier for non-neutral natures
     switch(natureSelected) {
       case "Adamant":
-        this.stats[1] = Math.floor(this.stats[1] * 1.1);
-        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        this.statModifiers[1] = 1.1;
+        this.statModifiers[3] = 0.9;
         break;
       case "Bold":
-        this.stats[2] = Math.floor(this.stats[2] * 1.1);
-        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        this.statModifiers[2] = 1.1;
+        this.statModifiers[1] = 0.9;
         break;
       case "Brave":
-        this.stats[1] = Math.floor(this.stats[1] * 1.1);
-        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        this.statModifiers[1] = 1.1;
+        this.statModifiers[5] = 0.9;
         break;
       case "Calm":
-        this.stats[4] = Math.floor(this.stats[4] * 1.1);
-        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        this.statModifiers[4] = 1.1;
+        this.statModifiers[1] = 0.9;
         break;
       case "Careful":
-        this.stats[4] = Math.floor(this.stats[4] * 1.1);
-        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        this.statModifiers[4] = 1.1;
+        this.statModifiers[3] = 0.9;
         break;
       case "Gentle":
-        this.stats[4] = Math.floor(this.stats[4] * 1.1);
-        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        this.statModifiers[4] = 1.1;
+        this.statModifiers[2] = 0.9;
         break;
       case "Hasty":
-        this.stats[5] = Math.floor(this.stats[5] * 1.1);
-        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        this.statModifiers[5] = 1.1;
+        this.statModifiers[2] = 0.9;
         break;
       case "Impish":
-        this.stats[2] = Math.floor(this.stats[2] * 1.1);
-        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        this.statModifiers[2] = 1.1;
+        this.statModifiers[3] = 0.9;
         break;
       case "Jolly":
-        this.stats[5] = Math.floor(this.stats[5] * 1.1);
-        this.stats[3] = Math.floor(this.stats[3] * 0.9);
+        this.statModifiers[5] = 1.1;
+        this.statModifiers[3] = 0.9;
         break;
       case "Lax":
-        this.stats[2] = Math.floor(this.stats[2] * 1.1);
-        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        this.statModifiers[2] = 1.1;
+        this.statModifiers[4] = 0.9;
         break;
       case "Lonely":
-        this.stats[1] = Math.floor(this.stats[1] * 1.1);
-        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        this.statModifiers[1] = 1.1;
+        this.statModifiers[2] = 0.9;
         break;
       case "Mild":
-        this.stats[3] = Math.floor(this.stats[3] * 1.1);
-        this.stats[2] = Math.floor(this.stats[2] * 0.9);
+        this.statModifiers[3] = 1.1;
+        this.statModifiers[2] = 0.9;
         break;
       case "Modest":
-        this.stats[3] = Math.floor(this.stats[3] * 1.1);
-        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        this.statModifiers[3] = 1.1;
+        this.statModifiers[1] = 0.9;
         break;
       case "Naive":
-        this.stats[5] = Math.floor(this.stats[5] * 1.1);
-        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        this.statModifiers[5] = 1.1;
+        this.statModifiers[4] = 0.9;
         break;
       case "Naughty":
-        this.stats[1] = Math.floor(this.stats[1] * 1.1);
-        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        this.statModifiers[1] = 1.1;
+        this.statModifiers[4] = 0.9;
         break;
       case "Quiet":
-        this.stats[3] = Math.floor(this.stats[3] * 1.1);
-        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        this.statModifiers[3] = 1.1;
+        this.statModifiers[5] = 0.9;
         break;
       case "Rash":
-        this.stats[3] = Math.floor(this.stats[3] * 1.1);
-        this.stats[4] = Math.floor(this.stats[4] * 0.9);
+        this.statModifiers[3] = 1.1;
+        this.statModifiers[4] = 0.9;
         break;
       case "Relaxed":
-        this.stats[2] = Math.floor(this.stats[2] * 1.1);
-        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        this.statModifiers[2] = 1.1;
+        this.statModifiers[5] = 0.9;
         break;
       case "Sassy":
-        this.stats[4] = Math.floor(this.stats[4] * 1.1);
-        this.stats[5] = Math.floor(this.stats[5] * 0.9);
+        this.statModifiers[4] = 1.1;
+        this.statModifiers[5] = 0.9;
         break;
       case "Timid":
-        this.stats[5] = Math.floor(this.stats[5] * 1.1);
-        this.stats[1] = Math.floor(this.stats[1] * 0.9);
+        this.statModifiers[5] = 1.1;
+        this.statModifiers[1] = 0.9;
         break;
       default:
         console.log("unknown or neutral nature");
     }
 
+    this.setAllStats();
     this.scrollToDisplay();
+  }
+
+  setAllStats() {
+    this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
+    for (var k = 1; k < 6; ++k) {
+      this.stats[k] = Math.floor((2 * allPkmnData[this.name]["baseStats"][k] + this.iv[k] + Math.floor(this.ev[k]/4) + 5) * this.statModifiers[k]);
+    }
+    this.speedBoost = Math.floor(this.stats[5] * this.boostLevel);
+  }
+
+  setSpeedBoost() {
+    switch(document.getElementById('speedBoostSelect').value) {
+      case "+6":
+        this.boostLevel = 4;
+        break;
+      case "+5":
+        this.boostLevel = 3.5;
+        break;
+      case "+4":
+        this.boostLevel = 3;
+        break;
+      case "+3":
+        this.boostLevel = 2.5;
+        break;
+      case "+2":
+        this.boostLevel = 2;
+        break;
+      case "+1":
+        this.boostLevel = 1.5;
+        break;
+      case "0":
+        this.boostLevel = 1;
+        break;
+      case "-1":
+        this.boostLevel = (2.0/3.0);
+        break;
+      case "-2":
+        this.boostLevel = 0.5;
+        break;
+      case "-3":
+        this.boostLevel = 0.4;
+        break;
+      case "-4":
+        this.boostLevel = (1.0/3.0);
+        break;
+      case "-5":
+        this.boostLevel = (2.0/7.0);
+        break;
+      case "-6":
+        this.boostLevel = 0.25;
+        break;
+      default:
+        console.log("speed boost type error");
+    }
+
+    this.speedBoost = Math.floor(this.stats[5] * this.boostLevel);
+  }
+
+  setOpponentSpeedBoost() {
+    switch(document.getElementById('opponentSpeedBoostSelect').value) {
+      case "+6":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 4);
+        break;
+      case "+5":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 3.5);
+        break;
+      case "+4":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 3);
+        break;
+      case "+3":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 2.5);
+        break;
+      case "+2":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 2);
+        break;
+      case "+1":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 1.5);
+        break;
+      case "0":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+        break;
+      case "-1":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * (2.0/3.0));
+        break;
+      case "-2":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 0.5);
+        break;
+      case "-3":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 0.4);
+        break;
+      case "-4":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * (1.0/3.0));
+        break;
+      case "-5":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * (2.0/7.0));
+        break;
+      case "-6":
+        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 0.25);
+        break;
+      default:
+        console.log("opp speed boost type error");
+    }
+  }
+
+  setOpponent() {
+    this.opponent = document.getElementById('opponentSelect').value;
+    this.opponentSprite = "../../assets/sprites/" + this.opponent.toLowerCase().replace(/['%:.]/g,'') + ".png";
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+    this.opponentSelected = true;
+  }
+
+  setOpponentModifier() {
+    if (document.getElementById('opponentModSelect').value === "+Speed") {
+      this.opponentModifier = 1.1;
+    } else if (document.getElementById('opponentModSelect').value === "-Speed") {
+      this.opponentModifier = 0.9;
+    } else {
+      this.opponentModifier = 1;
+    }
+
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+  }  
+
+  setOpponentStats(event: Event, evOrIv: string) {
+    if (event.target.value.length === 0) {
+      event.target.value = 0;
+    }
+
+    if (evOrIv === "ev") {
+      if (event.target.value > 252) {event.target.value = 252;}
+      this.opponentEv = parseInt(event.target.value);
+    } else if (evOrIv === "iv") {
+      if (event.target.value > 31) {event.target.value = 31;}
+      this.opponentIv = parseInt(event.target.value);
+    } else {
+      console.log("opponent stat selection error");
+    }
+
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
   }
 
 }
