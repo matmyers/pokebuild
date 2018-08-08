@@ -1,4 +1,4 @@
-<div class="btn-toolbar">
+<div id="top" class="btn-toolbar">
 	<div class="dropdown">
 		<button type="button" class="btn btn-secondary dropdown-toggle mr-2" data-toggle="dropdown">{{ tier }}</button>
 		<div class="dropdown-menu">
@@ -13,6 +13,16 @@
 	</div>
 	<button *ngIf="teamMembers.length < 6" class="btn btn-success mr-2" [disabled]="!tierSelected" (click)="printPokemon()">Add Pok&eacute;mon</button>
 	<button *ngIf="teamMembers.length != 0" class="btn btn-primary mr-2" (click)="exportShowdown()">Export to Showdown</button>
+	<div *ngIf="singlePokemonView[0]">
+		<button class="btn btn-warning mr-2" (click)="enterTeamView()">&lt; Team View</button>
+		<div class="d-inline">
+			<div *ngFor="let member of teamMembers; let i = index" class="d-inline">
+				<button (click)="editPoke(i)">
+					<img src="{{teamSprites[i]}}">
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 <br>
 <div *ngIf="exportClicked">
@@ -21,8 +31,10 @@
 </div>
 <p *ngIf="teamMembers.length == 0; else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
-	<div *ngFor="let member of teamMembers; let i = index" class="border border-dark rounded">
-		<app-pkmncubby [team]="teamMembers" [name]="member" [tier]="tier" [index]=i></app-pkmncubby>
+	<div *ngFor="let member of teamMembers; let j = index">
+		<div id="cubby{{j}}" class="border border-dark rounded">
+			<app-pkmncubby [team]="teamMembers" [teamSprites]="teamSprites" [singleDisplay]="singlePokemonView" [name]="member" [tier]="tier" [index]=j></app-pkmncubby>
+		</div>
 	</div>
 </ng-template>
 <div id="searchDisplayArea">

@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChild, ViewChildren, ElementRef } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
 import * as pkmnData from "../../assets/tierList.json"
 import * as allPkmnData from "../../assets/dataTest3.json"
@@ -16,6 +16,7 @@ export class TeamComponent implements OnInit {
   teamCubbies = [];
 
   teamMembers = [];
+  teamSprites = [];
   tier = "Select tier";
   tierpkmn = [];
   allData = allPkmnData;
@@ -27,9 +28,10 @@ export class TeamComponent implements OnInit {
   exportText = "";
   exportClicked = false;
   exportRows = 0;
+  singlePokemonView = [false];
 
 
-  constructor() { }
+  constructor(private cd : ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -38,6 +40,13 @@ export class TeamComponent implements OnInit {
     setTimeout(()=>{
       var searchDisplayArea = document.getElementById('searchDisplayArea');
       searchDisplayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }, 10);
+  }
+
+  scrollToTop() {
+    setTimeout(()=>{
+      var top = document.getElementById('top');
+      top.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }, 10);
   }
 
@@ -95,11 +104,39 @@ export class TeamComponent implements OnInit {
 
   addTeamMember(poke: string) {
   	this.teamMembers.push(poke);
+    this.teamSprites.push("../../assets/sprites/" + poke.toLowerCase().replace(/['%:.]/g,'') + ".png");
     this.displayPokemon = false;
+    setTimeout(()=>{
+      this.teamCubbies = this.pkmnCubbies.toArray();
+      this.teamCubbies[this.teamCubbies.length-1].enterSinglePokemonView();
+    },10);
+    this.singlePokemonView[0] = true;
   }
 
-  removeTeamMember(index: number) {
-  	this.teamMembers.splice(index, 1);
+  // removeTeamMember(index: number) {
+  // 	this.teamMembers.splice(index, 1);
+  //   this.teamSprites.splice(index, 1);
+  //   this.singlePokemonView[0] = false;
+  // }
+
+  editPoke(index: number) {
+    // this.enterTeamView();
+    this.teamCubbies = this.pkmnCubbies.toArray();
+    this.teamCubbies[index].enterSinglePokemonView();
+  }
+
+  enterTeamView() {
+    for (var i = 0; i < this.teamMembers.length; ++i) {
+      document.getElementById("cubby" + i).style.display = "block";
+    }
+    this.singlePokemonView[0] = false;
+
+    this.cd.detectChanges();
+
+    setTimeout(()=>{
+      document.activeElement.blur();
+      this.scrollToTop();
+    },10);
   }
 
   printPokemon() {
@@ -129,7 +166,7 @@ export class TeamComponent implements OnInit {
       if (this.teamCubbies[i].nature !== "Select nature") {
         let parenIndex = this.teamCubbies[i].nature.indexOf('(');
         let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
-        
+
         this.exportText += natureSelected + " Nature\n";
       }
       for (var j = 0; j < this.teamCubbies[i].moves.length; ++j) {

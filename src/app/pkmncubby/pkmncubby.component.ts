@@ -17,6 +17,8 @@ export class PkmncubbyComponent implements OnInit {
   //@ViewChild('searchMove') searchMov: ElementRef;
 
 	@Input() team : string[];
+  @Input() teamSprites : string[];
+  @Input() singleDisplay : boolean[];
   @Input() name : string;
   @Input() tier : string;
   @Input() index : number;
@@ -39,7 +41,6 @@ export class PkmncubbyComponent implements OnInit {
   spreadIndex = 0;
   statModifiers = [1, 1, 1, 1, 1, 1];
   stats = [0, 0, 0, 0, 0, 0];
-  statsLabel = "";
   ptsRemaining = 508;
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [31, 31, 31, 31, 31, 31];
@@ -106,7 +107,7 @@ export class PkmncubbyComponent implements OnInit {
         var slash4 = key[0].substring(slash3).indexOf('/', 1) + slash3;
         var slash5 = key[0].substring(slash4).indexOf('/', 1) + slash4;
 
-        this.recspreadlist.push({nature:natureSelected, hp:key[0].substring(colonIndex+1, slash1), atk:key[0].substring(slash1+1, slash2), def:key[0].substring(slash2+1, slash3), spa:key[0].substring(slash3+1, slash4), spd:key[0].substring(slash4+1, slash5), spe:key[0].substring(slash5+1)});
+        this.recspreadlist.push({nature:natureSelected, hp:key[0].substring(colonIndex+1, slash1), atk:key[0].substring(slash1+1, slash2), def:key[0].substring(slash2+1, slash3), spa:key[0].substring(slash3+1, slash4), spd:key[0].substring(slash4+1, slash5), spe:key[0].substring(slash5+1), usage:allPkmnData[this.name]["statUsage"][this.tier][k][key[0]]});
       }
     }
 
@@ -127,12 +128,15 @@ export class PkmncubbyComponent implements OnInit {
 
   removeMe() {
     this.team.splice(this.index, 1);
+    this.teamSprites.splice(this.index, 1);
   }
 
   scrollToDisplay() {
     setTimeout(()=>{
       var displayArea = document.getElementById('displayArea' + this.index);
-      displayArea.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      if (displayArea !== null) {
+        displayArea.scrollIntoView({ block: 'start', behavior: 'auto' });
+      }
     }, 10);
   }
 
@@ -254,13 +258,28 @@ export class PkmncubbyComponent implements OnInit {
     }
   }
 
+  enterSinglePokemonView() {
+    for (var i = 0; i < this.team.length; ++i) {
+      if (i != this.index) {
+        // this.displayArray[i] = false;
+        document.getElementById("cubby" + i).style.display = "none";
+      } else {
+        document.getElementById("cubby" + i).style.display = "block";
+      }
+    }
+
+    this.singleDisplay[0] = true;
+  }
+
   highlightItems(index: number) {
     this.itemIndex = index;
 
     if (this.itemlist.length > 0) {
       setTimeout(()=>{
         var hoverItem = document.getElementById('item' + this.itemIndex);
-        hoverItem.classList.add('myHover');
+        if (hoverItem !== null) {
+          hoverItem.classList.add('myHover');
+        }
       }, 10);
     }
 
@@ -272,7 +291,9 @@ export class PkmncubbyComponent implements OnInit {
 
     setTimeout(()=>{
       var hoverAbility = document.getElementById('ability' + this.abilityIndex);
-      hoverAbility.classList.add('myHover');
+      if (hoverAbility !== null) {
+        hoverAbility.classList.add('myHover');
+      }
     }, 10);
 
     this.scrollToDisplay();
@@ -284,7 +305,9 @@ export class PkmncubbyComponent implements OnInit {
     if (this.movelist.length > 0) {
       setTimeout(()=>{
         var hoverMove = document.getElementById('moveNav' + this.moveNavIndex);
-        hoverMove.classList.add('myHover');
+        if (hoverMove !== null) {
+          hoverMove.classList.add('myHover');
+        }
       }, 10);
     }
 
@@ -439,16 +462,6 @@ export class PkmncubbyComponent implements OnInit {
     } else {
       document.getElementById('pts' + this.index).style.color = 'black';
     }
-
-    // set stats label
-    // REMOVE LATER AND REPLACE WITH LIST VIEW OF EVs AND NATURE +-
-    this.statsLabel = "";
-    if (this.ev[0] > 0) {this.statsLabel += this.ev[0] + ' HP ';}
-    if (this.ev[1] > 0) {this.statsLabel += this.ev[1] + ' Atk ';}
-    if (this.ev[2] > 0) {this.statsLabel += this.ev[2] + ' Def ';}
-    if (this.ev[3] > 0) {this.statsLabel += this.ev[3] + ' SpA ';}
-    if (this.ev[4] > 0) {this.statsLabel += this.ev[4] + ' SpD ';}
-    if (this.ev[5] > 0) {this.statsLabel += this.ev[5] + ' Spe ';}
   }
 
   setIV(event: Event, statChanged: string) {
