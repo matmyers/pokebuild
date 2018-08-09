@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
+
 import { AppComponent } from './app.component';
 import { TbselectComponent } from './tbselect/tbselect.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -24,7 +26,8 @@ import { SearchresultpkmnComponent } from './searchresultpkmn/searchresultpkmn.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    VirtualScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@
 			<button class="dropdown-item" (click)="setTier('RU')">RU</button>
 			<button class="dropdown-item" (click)="setTier('NU')">NU</button>
 			<button class="dropdown-item" (click)="setTier('PU')">PU</button>
+			<button class="dropdown-item" (click)="setTier('LC')">LC</button>
 			<button class="dropdown-item" (click)="setTier('Ubers')">Ubers</button>
 			<button class="dropdown-item" (click)="setTier('VGC')">VGC</button>
 		</div>
@@ -65,8 +66,80 @@
 		    </div>
 			</div>
 		</div>
-		<div *ngFor="let poke of tierpkmn; let i = index;">
-			<!-- <app-searchresultpkmn attr.id="listedpkmn{{i}}" [name]="poke" (click)="addTeamMember(poke)"></app-searchresultpkmn> -->
+		<virtual-scroll [items]="tierpkmn" (update)="updateViewPort($event)">
+	    <div *ngFor="let poke of viewPortItems; let i = index;">
+				<button attr.id="listedpkmn{{i}}" class="btn btn-outline-dark btn-sm btn-block" style="height:50px;" (click)="addTeamMember(poke)" (mouseover)="setHover(i)">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-2 text-left">
+					      <img src="{{ sprites[i] }}">
+					      <p class="d-inline"> {{ poke }}</p>
+					    </div>
+					    <div class="col-sm-2 text-left">
+					      <img *ngFor="let type of allData[poke].types" src="../../assets/types/{{ type }}.png">
+					    </div>
+					    <div class="col-sm-1 text-left mt-2" style="line-height:4px">
+					      <p> {{ allData[poke]['abilities'][0] }}</p>
+					      <p> {{ allData[poke]['abilities'][1] }}</p>
+					    </div>
+					    <div class="col-sm-2 mt-2" style="line-height:4px">
+					      <p> {{ allData[poke]['abilities'][2] }}</p>
+					      <p> {{ allData[poke]['abilities'][3] }}</p>
+					    </div>
+					    <div class="col-sm-5">
+					    	<div class="container-fluid">
+					    		<div class="row row-bottom-margin">
+					    			<div class="col-sm-3 d-none d-lg-block"></div>
+					    			<div class="col-sm-1">
+					    				<p>HP</p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p>Atk</p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p>Def</p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p>SpA</p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p>SpD</p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p>Spe</p>
+					    			</div>
+					    			<div class="col-sm-3 d-none d-lg-block"></div>
+					    		</div>
+					    		<div class="row">
+					    			<div class="col-sm-3 d-none d-lg-block"></div>
+					    			<div class="col-sm-1">
+					    				<p> {{ allData[poke]['baseStats'][0] }} </p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p> {{ allData[poke]['baseStats'][1] }} </p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p> {{ allData[poke]['baseStats'][2] }} </p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p> {{ allData[poke]['baseStats'][3] }} </p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p> {{ allData[poke]['baseStats'][4] }} </p>
+					    			</div>
+					    			<div class="col-sm-1">
+					    				<p> {{ allData[poke]['baseStats'][5] }} </p>
+					    			</div>
+					    			<div class="col-sm-3 d-none d-lg-block"></div>
+					    		</div>
+					    	</div>
+					    </div>
+						</div>
+					</div>
+				</button>
+			</div>
+		</virtual-scroll>
+		<!-- <div *ngFor="let poke of tierpkmn; let i = index;">
 			<button attr.id="listedpkmn{{i}}" class="btn btn-outline-dark btn-sm btn-block" style="height:50px;" (click)="addTeamMember(poke)" (mouseover)="setHover(i)">
 				<div class="container">
 					<div class="row">
@@ -136,6 +209,6 @@
 					</div>
 				</div>
 			</button>
-		</div>
+		</div> -->
 	</div>
 </div>

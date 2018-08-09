@@ -3,6 +3,19 @@ import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
 import * as pkmnData from "../../assets/tierList.json"
 import * as allPkmnData from "../../assets/dataTest3.json"
 
+enum Tier {
+  Ubers = 0,
+  OU,
+  UUBL,
+  UU,
+  RUBL,
+  RU,
+  NUBL,
+  NU,
+  PUBL,
+  PU,
+  LC,
+}
 
 @Component({
   selector: 'app-team',
@@ -17,8 +30,12 @@ export class TeamComponent implements OnInit {
 
   teamMembers = [];
   teamSprites = [];
+  viewPortItems = [];
   tier = "Select tier";
   tierpkmn = [];
+  legalpkmn = [];
+  tierKeys = Object.keys(pkmnData);
+  tierEnum = Tier;
   allData = allPkmnData;
   sprites = [];
   listedpkmnIndex = 0;
@@ -34,6 +51,7 @@ export class TeamComponent implements OnInit {
   constructor(private cd : ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.tierKeys.splice(-1,1);
   }
 
   scrollToSearch() {
@@ -51,8 +69,18 @@ export class TeamComponent implements OnInit {
   }
 
   setTier(tierInput: string) {
+    this.tierpkmn = [];
+    this.legalpkmn = [];
   	this.tier = tierInput;
-  	this.tierpkmn = pkmnData[this.tier];
+    for (var k = 0; k < this.tierKeys.length; ++k) {
+      if (this.tierKeys[k] !== 'VGC') {
+        if (this.tierEnum[this.tierKeys[k]] >= this.tierEnum[this.tier]) {
+          this.tierpkmn.push.apply(this.tierpkmn, pkmnData[this.tierKeys[k]]);
+          this.legalpkmn.push.apply(this.legalpkmn, pkmnData[this.tierKeys[k]]);
+        }
+      }
+    }
+  	//this.tierpkmn = pkmnData[this.tier];
     for (var i = 0; i < this.tierpkmn.length; ++i) {
       this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
     }
@@ -61,6 +89,15 @@ export class TeamComponent implements OnInit {
     setTimeout(()=>{
       this.searchBar.nativeElement.focus();
     },10);
+    //console.log(this.tierpkmn);
+  }
+
+  updateViewPort(event: Event) {
+    this.viewPortItems = event;
+
+    for (var i = 0; i < this.viewPortItems.length; ++i) {
+      this.sprites[i] = "../../assets/sprites/" + this.viewPortItems[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+    }
   }
 
   navigatePokemon(event: Event) {
@@ -88,7 +125,9 @@ export class TeamComponent implements OnInit {
   highlightPokemon() {
     setTimeout(()=>{
       var hoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
-      hoverPkmn.classList.add('myHover');
+      if (hoverPkmn !== null) {
+        hoverPkmn.classList.add('myHover');
+      }
     }, 10);
 
     this.scrollToSearch();
@@ -121,6 +160,7 @@ export class TeamComponent implements OnInit {
 
   editPoke(index: number) {
     // this.enterTeamView();
+    this.displayPokemon = false;
     this.teamCubbies = this.pkmnCubbies.toArray();
     this.teamCubbies[index].enterSinglePokemonView();
   }
@@ -132,6 +172,7 @@ export class TeamComponent implements OnInit {
     this.singlePokemonView[0] = false;
 
     this.cd.detectChanges();
+    this.displayPokemon = false;
 
     setTimeout(()=>{
       document.activeElement.blur();
@@ -182,6 +223,7 @@ export class TeamComponent implements OnInit {
   }
 
   onUpdateSearchPokemon(event: Event) {
+    // NEED TO FIX, CURRENTLY ONLY SEARCHES WITHIN SELECTED TIER
     this.searchInput = event.target.value;
 
     if (this.tierpkmn.length > 0) {
@@ -192,9 +234,9 @@ export class TeamComponent implements OnInit {
 
     this.tierpkmn = [];
     // search by name
-    for (var i = 0; i < pkmnData[this.tier].length; ++i) {
-      if (pkmnData[this.tier][i].toLowerCase().includes(this.searchInput.toLowerCase())) {
-        this.tierpkmn.push(pkmnData[this.tier][i]);
+    for (var i = 0; i < this.legalpkmn.length; ++i) {
+      if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase())) {
+        this.tierpkmn.push(this.legalpkmn[i]);
       }
     }
 
