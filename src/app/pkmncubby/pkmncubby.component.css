@@ -7,3 +7,9 @@
 .negPtsRemaining {
 	color:#f00;
 }
+
+virtual-scroll {
+  display: block;
+  width: 100%;
+  height: 1000px;
+}

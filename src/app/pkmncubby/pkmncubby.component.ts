@@ -373,7 +373,7 @@ export class PkmncubbyComponent implements OnInit {
     this.movelist = [];
     // search by name
     for (var i = 0; i < allPkmnData[this.name]["moves"].length; ++i) {
-      if (allPkmnData[this.name]["moves"][i].toLowerCase().includes(event.target.value.toLowerCase())) {
+      if (allPkmnData[this.name]["moves"][i].toLowerCase().includes(event.target.value.toLowerCase()) || moveData[allPkmnData[this.name]["moves"][i]]['type'].includes(event.target.value.toLowerCase()) {
         this.movelist.push(allPkmnData[this.name]["moves"][i]);
       }
     }

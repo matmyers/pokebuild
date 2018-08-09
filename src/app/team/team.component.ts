@@ -89,7 +89,6 @@ export class TeamComponent implements OnInit {
     setTimeout(()=>{
       this.searchBar.nativeElement.focus();
     },10);
-    //console.log(this.tierpkmn);
   }
 
   updateViewPort(event: Event) {
@@ -104,11 +103,15 @@ export class TeamComponent implements OnInit {
     if (event.keyCode == 13) {
       this.addTeamMember(this.tierpkmn[this.listedpkmnIndex]);
     } else if (event.keyCode == 38) {
-      if (this.listedpkmnIndex > 0) {
+      if (this.listedpkmnIndex > 1) {
         var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
         prevHoverPkmn.classList.remove('myHover');
         this.listedpkmnIndex--;
         var nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        while (nextHoverPkmn === null) {
+          this.listedpkmnIndex--;
+          nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        }
         nextHoverPkmn.classList.add('myHover');
       }
     } else if (event.keyCode == 40) {
@@ -117,6 +120,10 @@ export class TeamComponent implements OnInit {
         prevHoverPkmn.classList.remove('myHover');
         this.listedpkmnIndex++;
         var nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        while (nextHoverPkmn === null) {
+          this.listedpkmnIndex++;
+          nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
+        }
         nextHoverPkmn.classList.add('myHover');
       }
     }
@@ -125,9 +132,14 @@ export class TeamComponent implements OnInit {
   highlightPokemon() {
     setTimeout(()=>{
       var hoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
-      if (hoverPkmn !== null) {
-        hoverPkmn.classList.add('myHover');
+      while (hoverPkmn === null) {
+        this.listedpkmnIndex++;
+        hoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
       }
+      // if (hoverPkmn !== null) {
+      //   hoverPkmn.classList.add('myHover');
+      // }
+      hoverPkmn.classList.add('myHover');
     }, 10);
 
     this.scrollToSearch();
@@ -135,10 +147,14 @@ export class TeamComponent implements OnInit {
 
   setHover(newHoverIndex: number) {
     var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
-    prevHoverPkmn.classList.remove('myHover');
+    if (prevHoverPkmn !== null) {
+      prevHoverPkmn.classList.remove('myHover');
+    }
     this.listedpkmnIndex = newHoverIndex;
     var nextHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
-    nextHoverPkmn.classList.add('myHover');
+    if (nextHoverPkmn !== null) {
+      nextHoverPkmn.classList.add('myHover');
+    }
   }
 
   addTeamMember(poke: string) {
@@ -182,7 +198,8 @@ export class TeamComponent implements OnInit {
 
   printPokemon() {
     this.listedpkmnIndex = 0;
-    this.tierpkmn = pkmnData[this.tier];
+    //this.tierpkmn = pkmnData[this.tier];
+    this.tierpkmn = this.legalpkmn;
     for (var i = 0; i < this.tierpkmn.length; ++i) {
       this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
     }
@@ -224,18 +241,29 @@ export class TeamComponent implements OnInit {
 
   onUpdateSearchPokemon(event: Event) {
     // NEED TO FIX, CURRENTLY ONLY SEARCHES WITHIN SELECTED TIER
+    if (event.target.value.length === 0) {
+      this.tierpkmn = this.legalpkmn;
+      for (var i = 0; i < this.tierpkmn.length; ++i) {
+        this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      }
+      this.highlightPokemon();
+      return;
+    }
+
     this.searchInput = event.target.value;
 
     if (this.tierpkmn.length > 0) {
       // remove hover class only if there was something to hover over before
       var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
-      prevHoverPkmn.classList.remove('myHover');
+      if (prevHoverPkmn !== null) {
+        prevHoverPkmn.classList.remove('myHover');
+      }
     }
 
     this.tierpkmn = [];
     // search by name
     for (var i = 0; i < this.legalpkmn.length; ++i) {
-      if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase())) {
+      if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase()) && this.tierKeys.indexOf(this.legalpkmn[i]) == -1) {
         this.tierpkmn.push(this.legalpkmn[i]);
       }
     }
