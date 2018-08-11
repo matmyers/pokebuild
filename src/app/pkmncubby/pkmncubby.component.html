@@ -15,7 +15,7 @@
     <div class="col-sm-2 text-left mt-1">
     	<!-- item -->
       <label for="searchItem">Item:</label><img src="{{ itemSprite }}">
-    	<input #searchItem class="form-control" placeholder="Select item" [value]="item" (input)="onUpdateSearchItem($event)" (focus)="displayItems = true; displayStats = false; highlightItems(itemIndex);" (blur)="displayItems = false;" (click)="$event.target.select()" (keydown)="navigateItem($event)">
+    	<input #searchItem class="form-control" placeholder="Select item" [value]="item" (input)="onUpdateSearchItem($event)" (focus)="displayItems = true; displayStats = false; isSearching = false; highlightItems(itemIndex);" (blur)="displayItems = false;" (click)="$event.target.select()" (keydown)="navigateItem($event)">
     </div>
     <div class="col-sm-2 text-left mt-1">
     	<!-- ability -->
@@ -26,7 +26,7 @@
     	<!-- moves -->
       <label>Moves:</label>
       <div *ngFor="let m of moves; let i = index">
-      	<input attr.id="searchMov{{index}}-{{i}}" class="form-control mb-1" placeholder="Select move" [value]="m" (input)="onUpdateSearchMove($event)" (focus)="displayMoves = true; displayStats = false; moveIndex = i; highlightMoves(moveNavIndex);" (blur)="displayMoves = false;" (click)="$event.target.select()" (keydown)="navigateMove($event)">
+      	<input attr.id="searchMov{{index}}-{{i}}" class="form-control mb-1" placeholder="Select move" [value]="m" (input)="onUpdateSearchMove($event)" (focus)="displayMoves = true; displayStats = false; moveIndex = i; isSearching = false; highlightMoves(moveNavIndex);" (blur)="displayMoves = false;" (click)="$event.target.select()" (keydown)="navigateMove($event)">
       </div>
     </div>
     <div class="col-sm-4 text-left mt-1">
@@ -41,7 +41,7 @@
           <p *ngIf="ev[3] > 0">{{ev[3]}} SpA</p>
           <p *ngIf="ev[4] > 0">{{ev[4]}} SpD</p>
           <p *ngIf="ev[5] > 0">{{ev[5]}} Spe</p>
-          <p *ngIf="nature !== 'Select nature'">{{nature}}</p>
+          <p *ngIf="nature.indexOf('(') != -1">{{nature}}</p>
         </div>
       </div>
       <ng-template #hideStats>
@@ -207,9 +207,9 @@
           </div>
         </div>
       </div>
-      <virtual-scroll [items]="movelist" (update)="viewPortItems = $event">
-        <div *ngFor="let mo of viewPortItems; let i = index;">
-          <button attr.id="moveNav{{i + recmovelist.length}}" class="btn btn-outline-dark btn-sm btn-block" style="height:40px;" (mousedown)="addMove(mo)" (mouseover)="setHoverMove(i + recmovelist.length)">
+      <virtual-scroll [items]="movelist" (update)="viewPortMoves = $event">
+        <div *ngFor="let mo of viewPortMoves; let i = index;">
+          <button *ngIf="moveData[mo] != null" attr.id="moveNav{{i + recmovelist.length}}" class="btn btn-outline-dark btn-sm btn-block" style="height:40px;" (mousedown)="addMove(mo)" (mouseover)="setHoverMove(i + recmovelist.length)">
             <div class="container">
               <div class="row">
                 <div class="col-sm-2 text-left mt-1">
@@ -471,7 +471,7 @@
       <!-- nature -->
       <form class="d-inline">
         <label for="natureSelect" class="col-sm-2 col-form-label col-form-label-sm">Nature: </label>
-        <select id="natureSelect" class="custom-select-sm" (change)="setNature()">
+        <select id="natureSelect" [value]="nature" class="custom-select-sm" (change)="setNature()">
           <option>Adamant (+Atk, -SpA)</option>
           <option>Bashful</option>
           <option>Bold (+Def, -Atk)</option>
@@ -495,7 +495,7 @@
           <option>Rash (+SpA, -SpD)</option>
           <option>Relaxed (+Def, -Spe)</option>
           <option>Sassy (+SpD, -Spe)</option>
-          <option selected>Serious</option>
+          <option>Serious</option>
           <option>Timid (+Spe, -Atk)</option>
         </select>
       </form>

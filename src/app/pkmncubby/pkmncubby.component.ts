@@ -44,7 +44,7 @@ export class PkmncubbyComponent implements OnInit {
   ptsRemaining = 508;
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [31, 31, 31, 31, 31, 31];
-	nature = "Select nature";
+	nature = "Serious";
   speedBoost = 0;
   boostLevel = 1;
   displayItems = false;
@@ -58,6 +58,7 @@ export class PkmncubbyComponent implements OnInit {
   opponentEv = 0;
   opponentIv = 31;
   opponentModifier = 1;
+  opponentBoostLevel = 1;
   opponentSpeed = 0;
   allData = allPkmnData;
   allDataArray = Object.keys(allPkmnData);
@@ -184,6 +185,14 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   navigateItem(event: Event) {
+    if (this.isSearching) {
+      let minValue = this.recitemlist.length;
+      let maxValue = this.itemlist.length-1 + this.recitemlist.length;
+    } else {
+      let minValue = 0;
+      let maxValue = this.itemlist.length-1;
+    }
+
     if (event.keyCode == 13) {
       if (this.itemIndex < this.recitemlist.length) {
         this.addItem(this.recitemlist[this.itemIndex]);
@@ -191,7 +200,7 @@ export class PkmncubbyComponent implements OnInit {
         this.addItem(this.itemlist[this.itemIndex - this.recitemlist.length]);
       }
     } else if (event.keyCode == 38) {
-      if (this.itemIndex > 0) {
+      if (this.itemIndex > minValue) {
         var prevHoverItem = document.getElementById('item' + this.itemIndex);
         prevHoverItem.classList.remove('myHover');
         this.itemIndex--;
@@ -199,7 +208,7 @@ export class PkmncubbyComponent implements OnInit {
         nextHoverItem.classList.add('myHover');
       }
     } else if (event.keyCode == 40) {
-      if (this.itemIndex < (this.itemlist.length-1)) {
+      if (this.itemIndex < maxValue) {
         var prevHoverItem = document.getElementById('item' + this.itemIndex);
         prevHoverItem.classList.remove('myHover');
         this.itemIndex++;
@@ -232,6 +241,14 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   navigateMove(event: Event) {
+    if (this.isSearching) {
+      let minValue = this.recmovelist.length;
+      let maxValue = this.movelist.length-1 + this.recmovelist.length;
+    } else {
+      let minValue = 0;
+      let maxValue = this.movelist.length-1;
+    }
+
     if (event.keyCode == 13) {
       if (this.moveNavIndex < this.recmovelist.length) {
         this.addMove(this.recmovelist[this.moveNavIndex]);
@@ -240,7 +257,7 @@ export class PkmncubbyComponent implements OnInit {
       }
       // this.addMove(this.movelist[this.moveNavIndex]);
     } else if (event.keyCode == 38) {
-      if (this.moveNavIndex > 0) {
+      if (this.moveNavIndex > minValue) {
         var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
         prevHoverMove.classList.remove('myHover');
         this.moveNavIndex--;
@@ -248,7 +265,7 @@ export class PkmncubbyComponent implements OnInit {
         nextHoverMove.classList.add('myHover');
       }
     } else if (event.keyCode == 40) {
-      if (this.moveNavIndex < (this.movelist.length-1)) {
+      if (this.moveNavIndex < maxValue) {
         var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
         prevHoverMove.classList.remove('myHover');
         this.moveNavIndex++;
@@ -316,10 +333,14 @@ export class PkmncubbyComponent implements OnInit {
 
   setHoverItem(newHoverIndex: number) {
     var prevHoverItem = document.getElementById('item' + this.itemIndex);
-    prevHoverItem.classList.remove('myHover');
+    if (prevHoverItem !== null) {
+      prevHoverItem.classList.remove('myHover');
+    }
     this.itemIndex = newHoverIndex;
     var nextHoverItem = document.getElementById('item' + this.itemIndex);
-    nextHoverItem.classList.add('myHover');
+    if (nextHoverItem !== null) {
+      nextHoverItem.classList.add('myHover');
+    }
   }
 
   setHoverAbility(newHoverIndex: number) {
@@ -359,7 +380,9 @@ export class PkmncubbyComponent implements OnInit {
 
     if (this.movelist.length > 0) {
       var prevHoverMove = document.getElementById('moveNav' + this.moveNavIndex);
-      prevHoverMove.classList.remove('myHover');  
+      if (prevHoverMove != null) {
+        prevHoverMove.classList.remove('myHover');
+      }
     }
 
     if (event.target.value.length === 0) {
@@ -373,7 +396,7 @@ export class PkmncubbyComponent implements OnInit {
     this.movelist = [];
     // search by name
     for (var i = 0; i < allPkmnData[this.name]["moves"].length; ++i) {
-      if (allPkmnData[this.name]["moves"][i].toLowerCase().includes(event.target.value.toLowerCase()) || moveData[allPkmnData[this.name]["moves"][i]]['type'].includes(event.target.value.toLowerCase()) {
+      if (allPkmnData[this.name]["moves"][i].toLowerCase().includes(event.target.value.toLowerCase()) || moveData[allPkmnData[this.name]["moves"][i]]['type'].includes(event.target.value.toLowerCase())) {
         this.movelist.push(allPkmnData[this.name]["moves"][i]);
       }
     }
@@ -669,53 +692,55 @@ export class PkmncubbyComponent implements OnInit {
   setOpponentSpeedBoost() {
     switch(document.getElementById('opponentSpeedBoostSelect').value) {
       case "+6":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 4);
+        this.opponentBoostLevel = 4;
         break;
       case "+5":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 3.5);
+        this.opponentBoostLevel = 3.5;
         break;
       case "+4":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 3);
+        this.opponentBoostLevel = 3;
         break;
       case "+3":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 2.5);
+        this.opponentBoostLevel = 2.5;
         break;
       case "+2":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 2);
+        this.opponentBoostLevel = 2;
         break;
       case "+1":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 1.5);
+        this.opponentBoostLevel = 1.5;
         break;
       case "0":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+        this.opponentBoostLevel = 1;
         break;
       case "-1":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * (2.0/3.0));
+        this.opponentBoostLevel = (2.0/3.0);
         break;
       case "-2":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 0.5);
+        this.opponentBoostLevel = 0.5;
         break;
       case "-3":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 0.4);
+        this.opponentBoostLevel = 0.4;
         break;
       case "-4":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * (1.0/3.0));
+        this.opponentBoostLevel = (1.0/3.0);
         break;
       case "-5":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * (2.0/7.0));
+        this.opponentBoostLevel = (2.0/7.0);
         break;
       case "-6":
-        this.speedBoost = this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * 0.25);
+        this.opponentBoostLevel = 0.25;
         break;
       default:
         console.log("opp speed boost type error");
     }
+
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * this.opponentBoostLevel);
   }
 
   setOpponent() {
     this.opponent = document.getElementById('opponentSelect').value;
     this.opponentSprite = "../../assets/sprites/" + this.opponent.toLowerCase().replace(/['%:.]/g,'') + ".png";
-    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * this.opponentBoostLevel);
     this.opponentSelected = true;
   }
 
@@ -728,7 +753,7 @@ export class PkmncubbyComponent implements OnInit {
       this.opponentModifier = 1;
     }
 
-    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * this.opponentBoostLevel);
   }  
 
   setOpponentStats(event: Event, evOrIv: string) {
@@ -746,7 +771,7 @@ export class PkmncubbyComponent implements OnInit {
       console.log("opponent stat selection error");
     }
 
-    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier);
+    this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * this.opponentBoostLevel);
   }
 
 }

@@ -80,6 +80,7 @@ export class TeamComponent implements OnInit {
         }
       }
     }
+
   	//this.tierpkmn = pkmnData[this.tier];
     for (var i = 0; i < this.tierpkmn.length; ++i) {
       this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
@@ -103,7 +104,7 @@ export class TeamComponent implements OnInit {
     if (event.keyCode == 13) {
       this.addTeamMember(this.tierpkmn[this.listedpkmnIndex]);
     } else if (event.keyCode == 38) {
-      if (this.listedpkmnIndex > 1) {
+      if (this.listedpkmnIndex > 0) {
         var prevHoverPkmn = document.getElementById('listedpkmn' + this.listedpkmnIndex);
         prevHoverPkmn.classList.remove('myHover');
         this.listedpkmnIndex--;
@@ -221,12 +222,15 @@ export class TeamComponent implements OnInit {
       }
       this.exportText += "Ability: " + this.teamCubbies[i].ability + "\n";
       this.exportText += "EVs: " + this.teamCubbies[i].ev[0] + " HP / " + this.teamCubbies[i].ev[1] + " Atk / " + this.teamCubbies[i].ev[2] + " Def / " + this.teamCubbies[i].ev[3] + " SpA / " + this.teamCubbies[i].ev[4] + " SpD / " + this.teamCubbies[i].ev[5] + " Spe\n";
-      if (this.teamCubbies[i].nature !== "Select nature") {
-        let parenIndex = this.teamCubbies[i].nature.indexOf('(');
-        let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
 
-        this.exportText += natureSelected + " Nature\n";
+      let parenIndex = this.teamCubbies[i].nature.indexOf('(');
+      if (parenIndex == -1) {
+        let natureSelected = this.teamCubbies[i].nature;
+      } else {
+        let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
       }
+      this.exportText += natureSelected + " Nature\n";
+
       for (var j = 0; j < this.teamCubbies[i].moves.length; ++j) {
         if (this.teamCubbies[i].moves[j]) {
           this.exportText += "- " + this.teamCubbies[i].moves[j] + "\n";
@@ -240,12 +244,14 @@ export class TeamComponent implements OnInit {
   }
 
   onUpdateSearchPokemon(event: Event) {
-    // NEED TO FIX, CURRENTLY ONLY SEARCHES WITHIN SELECTED TIER
+    this.tierpkmn = [];
     if (event.target.value.length === 0) {
       this.tierpkmn = this.legalpkmn;
+
       for (var i = 0; i < this.tierpkmn.length; ++i) {
         this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
       }
+
       this.highlightPokemon();
       return;
     }
@@ -263,8 +269,10 @@ export class TeamComponent implements OnInit {
     this.tierpkmn = [];
     // search by name
     for (var i = 0; i < this.legalpkmn.length; ++i) {
-      if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase()) && this.tierKeys.indexOf(this.legalpkmn[i]) == -1) {
-        this.tierpkmn.push(this.legalpkmn[i]);
+      if (this.tierKeys.indexOf(this.legalpkmn[i]) == -1) {
+        if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase()) || allPkmnData[this.legalpkmn[i]]['types'].includes(this.searchInput.toLowerCase())) {
+          this.tierpkmn.push(this.legalpkmn[i]);
+        }
       }
     }
 
@@ -277,6 +285,59 @@ export class TeamComponent implements OnInit {
       this.listedpkmnIndex = 0;
       this.highlightPokemon();
     }
+  }
+
+  checkBoxInsideDiv(index: number, filterSelected: string, prop: string) {
+    if(prop === 'propBad') {
+      event.stopPropagation();
+    }
+    if (filterSelected === 'tier') {
+      document.getElementById('tierFilterInput' + index).checked = !document.getElementById('tierFilterInput' + index).checked;
+      this.applyFilter();
+    }
+  }
+
+  setHoverFilter(index: number, filterSelected: string) {
+    if (filterSelected === 'tier') {
+      var clickableDiv = document.getElementById('tierFilterDiv' + index);
+      clickableDiv.classList.add('filterHover');
+    } else if (filterSelected === 'tierNo') {
+      var clickableDiv = document.getElementById('tierFilterDiv' + index);
+      clickableDiv.classList.remove('filterHover');
+    }
+  }
+
+  //pseudocode for now
+
+  applyFilter() {
+    var pkmnSearchArray = []
+    for (var h = 0; h < this.tierKeys.length; ++h) {
+      var checkbox = document.getElementById('tierFilterInput' + h);
+      if (checkbox.checked) {
+        pkmnSearchArray.push.apply(pkmnSearchArray, pkmnData[this.tierKeys[h]]);
+      }
+    }
+
+    if (pkmnSearchArray.length == 0) {
+      pkmnSearchArray = this.legalpkmn;
+    }
+
+    // for (var i = 0; i < numTypes; ++i) {
+    //   checkbox{i} = document.getElementById('typeFilterInput' + i);
+    //   if (checkbox{i}.checked) {do stuff}
+    // }
+
+    // for (var j = 0; j < numAbilities; ++j) {
+    //   checkbox{j} = document.getElementById('abilityFilterInput' + j);
+    //   if (checkbox{j}.checked) {do stuff}
+    // }
+
+    // for (var k = 0; k < numMoves; ++k) {
+    //   checkbox{k} = document.getElementById('moveFilterInput' + k);
+    //   if (checkbox{k}.checked) {do stuff}
+    // }
+
+    this.tierpkmn = pkmnSearchArray;
   }
 
 }

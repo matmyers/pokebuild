@@ -17,5 +17,11 @@
 virtual-scroll {
   display: block;
   width: 100%;
-  height: 1000px;
+  height: 650px;
+}
+
+.filterHover {
+  color:#16181b;
+  text-decoration:none;
+  background-color:#f8f9fa;
 }
