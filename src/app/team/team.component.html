@@ -42,60 +42,34 @@
 	<br><br>
 	<div *ngIf="displayPokemon && teamMembers.length < 6">
 		<input #searchPoke class="form-control" placeholder="Search for pokemon" (input)="onUpdateSearchPokemon($event)" (focus)="highlightPokemon();" (keydown)="navigatePokemon($event)" (click)="$event.target.select()">
-
-		<div class="mt-2">
-			<p class="d-inline mr-2">Apply Filters:</p>
-			<button type="button" class="btn btn-primary dropdown-toggle mr-2" data-toggle="dropdown">Tier</button>
-			<div class="dropdown-menu">
-				<div *ngFor="let tier of tierKeys; let k = index" attr.id="tierFilterDiv{{k}}" (mouseover)="setHoverFilter(k, 'tier')" (mouseout)="setHoverFilter(k, 'tierNo')" (click)="checkBoxInsideDiv(k, 'tier', 'propBad')">
-					<div class="container"><input attr.id="tierFilterInput{{k}}" type="checkbox" (click)="checkBoxInsideDiv(k, 'tier', 'propOk')"> {{tier}}</div>
+		<div class="row">
+			<div class="ml-3 mt-2">
+				<p class="d-inline mr-2">Apply Filters:</p>
+				<button type="button" class="btn btn-sm btn-primary dropdown-toggle mr-2" data-toggle="dropdown">Tier</button>
+				<div class="dropdown-menu">
+					<div *ngFor="let tier of tierKeys; let k = index" attr.id="tierFilterDiv{{k}}" (mouseover)="setHoverFilter(k, 'tier')" (mouseout)="setHoverFilter(k, 'tierNo')" (click)="checkBoxInsideDiv(k, 'propBad')">
+						<div class="container"><input attr.id="tierFilterInput{{k}}" type="checkbox" (click)="checkBoxInsideDiv(k, 'propOk')"> {{tier}}</div>
+					</div>
 				</div>
 			</div>
-			<!-- <button type="button" class="btn btn-danger dropdown-toggle mr-2" data-toggle="dropdown">Type</button>
-			<div class="dropdown-menu">
-				<button class="dropdown-item"><input type="checkbox"> Ubers</button>
-				<button class="dropdown-item"><input type="checkbox"> OU</button>
-				<button class="dropdown-item"><input type="checkbox"> UUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> UU</button>
-				<button class="dropdown-item"><input type="checkbox"> RUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> RU</button>
-				<button class="dropdown-item"><input type="checkbox"> NUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> NU</button>
-				<button class="dropdown-item"><input type="checkbox"> PUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> PU</button>
-				<button class="dropdown-item"><input type="checkbox"> LC</button>
-				<button class="dropdown-item"><input type="checkbox"> VGC</button>
+			<div class="mt-2">
+				<select id="typeFilterInput" class="btn btn-danger custom-select-sm mr-2" style="width:70px" (change)="applyFilter()">
+		      <option selected>Type</option>
+		      <option *ngFor="let type of typeKeys">{{ type }}</option>
+		    </select>
 			</div>
-			<button type="button" class="btn btn-success dropdown-toggle mr-2" data-toggle="dropdown">Ability</button>
-			<div class="dropdown-menu">
-				<button class="dropdown-item"><input type="checkbox"> Ubers</button>
-				<button class="dropdown-item"><input type="checkbox"> OU</button>
-				<button class="dropdown-item"><input type="checkbox"> UUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> UU</button>
-				<button class="dropdown-item"><input type="checkbox"> RUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> RU</button>
-				<button class="dropdown-item"><input type="checkbox"> NUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> NU</button>
-				<button class="dropdown-item"><input type="checkbox"> PUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> PU</button>
-				<button class="dropdown-item"><input type="checkbox"> LC</button>
-				<button class="dropdown-item"><input type="checkbox"> VGC</button>
+			<div class="mt-2">
+				<select id="abilityFilterInput" class="btn btn-success custom-select-sm mr-2" style="width:100px" (change)="applyFilter()">
+		      <option selected>Ability</option>
+		      <option *ngFor="let ability of abilityKeys">{{ ability }}</option>
+		    </select>
 			</div>
-			<button type="button" class="btn btn-dark dropdown-toggle mr-2" data-toggle="dropdown">Move</button>
-			<div class="dropdown-menu">
-				<button class="dropdown-item"><input type="checkbox"> Ubers</button>
-				<button class="dropdown-item"><input type="checkbox"> OU</button>
-				<button class="dropdown-item"><input type="checkbox"> UUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> UU</button>
-				<button class="dropdown-item"><input type="checkbox"> RUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> RU</button>
-				<button class="dropdown-item"><input type="checkbox"> NUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> NU</button>
-				<button class="dropdown-item"><input type="checkbox"> PUBL</button>
-				<button class="dropdown-item"><input type="checkbox"> PU</button>
-				<button class="dropdown-item"><input type="checkbox"> LC</button>
-				<button class="dropdown-item"><input type="checkbox"> VGC</button>
-			</div> -->
+			<div class="mt-2">
+				<select id="moveFilterInput" class="btn btn-dark custom-select-sm" style="width:100px" (change)="applyFilter()">
+		      <option selected>Move</option>
+		      <option *ngFor="let move of moveKeys">{{ move }}</option>
+		    </select>
+			</div>
 		</div>
 
 

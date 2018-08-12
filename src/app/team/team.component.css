@@ -25,3 +25,7 @@ virtual-scroll {
   text-decoration:none;
   background-color:#f8f9fa;
 }
+
+.mySelect {
+  border-color:#28a745;
+}

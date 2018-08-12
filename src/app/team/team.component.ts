@@ -2,6 +2,9 @@ import { Component, OnInit, QueryList, ViewChild, ViewChildren, ElementRef, Chan
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
 import * as pkmnData from "../../assets/tierList.json"
 import * as allPkmnData from "../../assets/dataTest3.json"
+import * as abilityData from "../../assets/abilities.json"
+import * as moveData from "../../assets/moves.json"
+
 
 enum Tier {
   Ubers = 0,
@@ -46,6 +49,9 @@ export class TeamComponent implements OnInit {
   exportClicked = false;
   exportRows = 0;
   singlePokemonView = [false];
+  typeKeys = ["Bug", "Dark", "Dragon", "Electric", "Fairy", "Fire", "Fighting", "Flying", "Ghost", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock", "Steel", "Water"];
+  abilityKeys = Object.keys(abilityData);
+  moveKeys = Object.keys(moveData);
 
 
   constructor(private cd : ChangeDetectorRef) { }
@@ -270,7 +276,7 @@ export class TeamComponent implements OnInit {
     // search by name
     for (var i = 0; i < this.legalpkmn.length; ++i) {
       if (this.tierKeys.indexOf(this.legalpkmn[i]) == -1) {
-        if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase()) || allPkmnData[this.legalpkmn[i]]['types'].includes(this.searchInput.toLowerCase())) {
+        if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase())) {
           this.tierpkmn.push(this.legalpkmn[i]);
         }
       }
@@ -287,14 +293,13 @@ export class TeamComponent implements OnInit {
     }
   }
 
-  checkBoxInsideDiv(index: number, filterSelected: string, prop: string) {
+  checkBoxInsideDiv(index: number, prop: string) {
     if(prop === 'propBad') {
       event.stopPropagation();
     }
-    if (filterSelected === 'tier') {
-      document.getElementById('tierFilterInput' + index).checked = !document.getElementById('tierFilterInput' + index).checked;
-      this.applyFilter();
-    }
+
+    document.getElementById('tierFilterInput' + index).checked = !document.getElementById('tierFilterInput' + index).checked;
+    this.applyFilter();
   }
 
   setHoverFilter(index: number, filterSelected: string) {
@@ -322,20 +327,64 @@ export class TeamComponent implements OnInit {
       pkmnSearchArray = this.legalpkmn;
     }
 
-    // for (var i = 0; i < numTypes; ++i) {
-    //   checkbox{i} = document.getElementById('typeFilterInput' + i);
-    //   if (checkbox{i}.checked) {do stuff}
-    // }
+    var tempArray = [];
+    var typeSelected = document.getElementById('typeFilterInput').value;
+    if (typeSelected !== 'Type') {
 
-    // for (var j = 0; j < numAbilities; ++j) {
-    //   checkbox{j} = document.getElementById('abilityFilterInput' + j);
-    //   if (checkbox{j}.checked) {do stuff}
-    // }
+      for (var i = 0; i < pkmnSearchArray.length; ++i) {
+        if (this.tierKeys.indexOf(pkmnSearchArray[i]) != -1 || allPkmnData[pkmnSearchArray[i]]['types'].includes(typeSelected.toLowerCase())) {
+          tempArray.push(pkmnSearchArray[i]);
+        }
+        if (this.tierKeys.indexOf(tempArray[tempArray.length-1]) != -1 && this.tierKeys.indexOf(tempArray[tempArray.length-2]) != -1) {
+          tempArray.splice(tempArray.length-2, 1);
+        }
+        if (i == pkmnSearchArray.length-1 && this.tierKeys.indexOf(tempArray[tempArray.length-1]) != -1) {
+          tempArray.splice(tempArray.length-1, 1);
+        }
+      }
 
-    // for (var k = 0; k < numMoves; ++k) {
-    //   checkbox{k} = document.getElementById('moveFilterInput' + k);
-    //   if (checkbox{k}.checked) {do stuff}
-    // }
+      pkmnSearchArray = tempArray;
+    }
+
+    var abilitySelected = document.getElementById('abilityFilterInput').value;
+    if (abilitySelected !== 'Ability') {
+      tempArray = [];
+
+      for (var m = 0; m < pkmnSearchArray.length; ++m) {
+        if (this.tierKeys.indexOf(pkmnSearchArray[m]) != -1 || allPkmnData[pkmnSearchArray[m]]['abilities'].includes(abilitySelected)) {
+          tempArray.push(pkmnSearchArray[m]);
+        }
+        if (this.tierKeys.indexOf(tempArray[tempArray.length-1]) != -1 && this.tierKeys.indexOf(tempArray[tempArray.length-2]) != -1) {
+          tempArray.splice(tempArray.length-2, 1);
+        }
+        if (m == pkmnSearchArray.length-1 && this.tierKeys.indexOf(tempArray[tempArray.length-1]) != -1) {
+          tempArray.splice(tempArray.length-1, 1);
+        }
+      }
+
+      pkmnSearchArray = tempArray;
+    }
+
+    var moveSelected = document.getElementById('moveFilterInput').value;
+    if (moveSelected !== 'Move') {
+      tempArray = [];
+
+      for (var n = 0; n < pkmnSearchArray.length; ++n) {
+        if (this.tierKeys.indexOf(pkmnSearchArray[n]) != -1 || allPkmnData[pkmnSearchArray[n]]['moves'].includes(moveSelected)) {
+          tempArray.push(pkmnSearchArray[n]);
+        }
+        if (this.tierKeys.indexOf(tempArray[tempArray.length-1]) != -1 && this.tierKeys.indexOf(tempArray[tempArray.length-2]) != -1) {
+          tempArray.splice(tempArray.length-2, 1);
+        }
+        if (n == pkmnSearchArray.length-1 && this.tierKeys.indexOf(tempArray[tempArray.length-1]) != -1) {
+          tempArray.splice(tempArray.length-1, 1);
+        }
+      }
+
+      pkmnSearchArray = tempArray;
+    }
+
+
 
     this.tierpkmn = pkmnSearchArray;
   }
