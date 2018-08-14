@@ -13,3 +13,9 @@ virtual-scroll {
   width: 100%;
   height: 650px;
 }
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 98%;
+  }
+}

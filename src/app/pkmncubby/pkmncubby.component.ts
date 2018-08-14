@@ -71,7 +71,7 @@ export class PkmncubbyComponent implements OnInit {
 
   ngOnInit() {
   	// initialize everything using this.name
-  	this.tier = this.tier.toLowerCase();
+  	// this.tier = this.tier.toLowerCase();
     this.sprite = "../../assets/sprites/" + this.name.toLowerCase().replace(/['%:.]/g,'') + ".png";
 
     this.abilitylist = allPkmnData[this.name]["abilities"];
@@ -81,6 +81,7 @@ export class PkmncubbyComponent implements OnInit {
     this.recitemlist = [];// allPkmnData[this.name]["itemUsage"][this.tier];
     // var obj = { first: 'someVal' };
     // obj[Object.keys(obj)[0]]; //returns 'someVal'
+    
     if (allPkmnData[this.name]["itemUsage"][this.tier]) {
       for (var j = 0; j < allPkmnData[this.name]["itemUsage"][this.tier].length; ++j) {
         var key = Object.keys(allPkmnData[this.name]["itemUsage"][this.tier][j]);

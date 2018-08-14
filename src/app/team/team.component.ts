@@ -54,6 +54,8 @@ export class TeamComponent implements OnInit {
   abilityKeys = Object.keys(abilityData);
   moveKeys = Object.keys(moveData);
   roleKeys = ["Setup Sweeper", "Physical Wallbreaker", "Special Wallbreaker", "Mixed Wallbreaker", "Stallbreaker", "Physically Defensive Wall", "Specially Defensive Wall", "Mixed Defensive Wall", "Offensive Pivot", "Defensive Pivot", "Cleric", "Hazard Setter", "Hazard Removal", "Dedicated Lead", "Choice Band User", "Choice Specs User", "Choice Scarf User", "Trapper", "Priority", "Trick Room Setter", "Trick Room Abuser", "Rain", "Sun", "Sand", "Hail"];
+  displayRecommended = false;
+  recpokelist = [];
 
 
   constructor(private cd : ChangeDetectorRef) { }
@@ -91,7 +93,11 @@ export class TeamComponent implements OnInit {
 
   	//this.tierpkmn = pkmnData[this.tier];
     for (var i = 0; i < this.tierpkmn.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+        this.sprites[i] = "";
+      } else {
+        this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      }
     }
     this.tierSelected = true;
   	this.displayPokemon = true;
@@ -104,7 +110,11 @@ export class TeamComponent implements OnInit {
     this.viewPortItems = event;
 
     for (var i = 0; i < this.viewPortItems.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.viewPortItems[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      if (this.tierKeys.indexOf(this.viewPortItems[i]) != -1) {
+        this.sprites[i] = "";
+      } else {
+        this.sprites[i] = "../../assets/sprites/" + this.viewPortItems[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      }
     }
   }
 
@@ -175,6 +185,236 @@ export class TeamComponent implements OnInit {
       this.teamCubbies[this.teamCubbies.length-1].enterSinglePokemonView();
     },10);
     this.singlePokemonView[0] = true;
+    this.displayRecommended = false;
+  }
+
+  updateRecommended() {
+    // get recommendations
+    this.recpokelist = [];
+    for (var i = 0; i < this.teamMembers.length; ++i) {
+      if (allPkmnData[this.teamMembers[i]]["teammates"][this.tier]) {
+        for (var j = 0; j < allPkmnData[this.teamMembers[i]]["teammates"][this.tier].length; ++j) {
+          var key = Object.keys(allPkmnData[this.teamMembers[i]]["teammates"][this.tier][j]);
+          // check if already in, if not, push
+          var poke = {name:key[0], sprite:"../../assets/sprites/" + key[0].toLowerCase().replace(/['%:.]/g,'') + ".png", usage:[allPkmnData[this.teamMembers[i]]["teammates"][this.tier][j][key[0]]], partner:[this.teamMembers[i]]};
+          var alreadyIn = false;
+          for (var k = 0; k < this.recpokelist.length; ++k) {
+            if (this.recpokelist[k].name === key[0]) {
+              this.recpokelist[k].usage.push(poke.usage);
+              this.recpokelist[k].partner.push(poke.partner);
+              alreadyIn = true;
+            }
+          }
+          if (!alreadyIn && this.teamMembers.indexOf(poke.name) == -1) {
+            this.recpokelist.push(poke);
+          }
+        }
+      }
+    }
+
+    // sort by length of teammates, then by usage percentage
+    this.recpokelist.sort(function(a,b) {
+      if (a.partner.length !== b.partner.length) {
+        return b.partner.length - a.partner.length;
+      } else {
+        var totalUsageA = 0;
+        var totalUsageB = 0;
+        for (var i = 0; i < a.partner.length; ++i) {
+          totalUsageA += parseFloat(a.usage[i]);
+          totalUsageB += parseFloat(b.usage[i]);
+        }
+        return totalUsageB - totalUsageA;
+      }
+    });
+
+    this.displayRecommended = true;
+  }
+
+  sortPokeList() {
+    var sortSelected = document.getElementById('sortInput').value;
+
+    switch(sortSelected) {
+      case "Alphabetical":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort()).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort());
+        break;
+      case "Highest HP":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[b]['baseStats'][0] - allPkmnData[a]['baseStats'][0];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[b]['baseStats'][0] - allPkmnData[a]['baseStats'][0];
+        }));
+        break;
+      case "Lowest HP":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[a]['baseStats'][0] - allPkmnData[b]['baseStats'][0];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[a]['baseStats'][0] - allPkmnData[b]['baseStats'][0];
+        }));
+        break;
+      case "Highest Atk":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[b]['baseStats'][1] - allPkmnData[a]['baseStats'][1];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[b]['baseStats'][1] - allPkmnData[a]['baseStats'][1];
+        }));
+        break;
+      case "Lowest Atk":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[a]['baseStats'][1] - allPkmnData[b]['baseStats'][1];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[a]['baseStats'][1] - allPkmnData[b]['baseStats'][1];
+        }));
+        break;
+      case "Highest Def":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[b]['baseStats'][2] - allPkmnData[a]['baseStats'][2];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[b]['baseStats'][2] - allPkmnData[a]['baseStats'][2];
+        }));
+        break;
+      case "Lowest Def":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[a]['baseStats'][2] - allPkmnData[b]['baseStats'][2];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[a]['baseStats'][2] - allPkmnData[b]['baseStats'][2];
+        }));
+        break;
+      case "Highest SpA":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[b]['baseStats'][3] - allPkmnData[a]['baseStats'][3];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[b]['baseStats'][3] - allPkmnData[a]['baseStats'][3];
+        }));
+        break;
+      case "Lowest SpA":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[a]['baseStats'][3] - allPkmnData[b]['baseStats'][3];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[a]['baseStats'][3] - allPkmnData[b]['baseStats'][3];
+        }));
+        break;
+      case "Highest SpD":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[b]['baseStats'][4] - allPkmnData[a]['baseStats'][4];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[b]['baseStats'][4] - allPkmnData[a]['baseStats'][4];
+        }));
+        break;
+      case "Lowest SpD":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[a]['baseStats'][4] - allPkmnData[b]['baseStats'][4];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[a]['baseStats'][4] - allPkmnData[b]['baseStats'][4];
+        }));
+        break;
+      case "Highest Spe":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[b]['baseStats'][5] - allPkmnData[a]['baseStats'][5];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[b]['baseStats'][5] - allPkmnData[a]['baseStats'][5];
+        }));
+        break;
+      case "Lowest Spe":
+        var startIndex = 1;
+        for (var i = 1; i < this.tierpkmn.length; ++i) {
+          if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+            this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,i).sort(function(a,b) {
+              return allPkmnData[a]['baseStats'][5] - allPkmnData[b]['baseStats'][5];
+            })).concat(this.tierpkmn.slice(i,this.tierpkmn.length));
+            startIndex = i+1;
+          }
+        }
+        this.tierpkmn = this.tierpkmn.slice(0,startIndex).concat(this.tierpkmn.slice(startIndex,this.tierpkmn.length).sort(function(a,b) {
+          return allPkmnData[a]['baseStats'][5] - allPkmnData[b]['baseStats'][5];
+        }));
+        break;
+      default:
+        console.log("sort input error");
+    }
   }
 
   // removeTeamMember(index: number) {
@@ -210,7 +450,11 @@ export class TeamComponent implements OnInit {
     //this.tierpkmn = pkmnData[this.tier];
     this.tierpkmn = this.legalpkmn;
     for (var i = 0; i < this.tierpkmn.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+        this.sprites[i] = "";
+      } else {
+        this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      }
     }
   	this.displayPokemon = true;
     setTimeout(()=>{
@@ -257,9 +501,14 @@ export class TeamComponent implements OnInit {
       this.tierpkmn = this.legalpkmn;
 
       for (var i = 0; i < this.tierpkmn.length; ++i) {
-        this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+          this.sprites[i] = "";
+        } else {
+          this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        }
       }
 
+      this.applyFilter();
       this.highlightPokemon();
       return;
     }
@@ -285,7 +534,11 @@ export class TeamComponent implements OnInit {
     }
 
     for (var i = 0; i < this.tierpkmn.length; ++i) {
-      this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
+        this.sprites[i] = "";
+      } else {
+        this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+      }
     }
 
     if (this.tierpkmn.length > 0) {
@@ -402,8 +655,8 @@ export class TeamComponent implements OnInit {
     }
 
 
-
     this.tierpkmn = pkmnSearchArray;
+    this.sortPokeList();
   }
 
 }
