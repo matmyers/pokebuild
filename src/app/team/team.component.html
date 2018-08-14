@@ -65,9 +65,15 @@
 		    </select>
 			</div>
 			<div class="mt-2">
-				<select id="moveFilterInput" class="btn btn-dark custom-select-sm" style="width:100px" (change)="applyFilter()">
+				<select id="moveFilterInput" class="btn btn-dark custom-select-sm mr-2" style="width:100px" (change)="applyFilter()">
 		      <option selected>Move</option>
 		      <option *ngFor="let move of moveKeys">{{ move }}</option>
+		    </select>
+			</div>
+			<div class="mt-2">
+				<select id="roleFilterInput" class="btn btn-info custom-select-sm" style="width:100px" (change)="applyFilter()">
+		      <option selected>Role</option>
+		      <option *ngFor="let role of roleKeys">{{ role }}</option>
 		    </select>
 			</div>
 		</div>

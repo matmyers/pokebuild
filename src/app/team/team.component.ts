@@ -4,6 +4,7 @@ import * as pkmnData from "../../assets/tierList.json"
 import * as allPkmnData from "../../assets/dataTest3.json"
 import * as abilityData from "../../assets/abilities.json"
 import * as moveData from "../../assets/moves.json"
+import * as roleData from "../../assets/roles.json"
 
 
 enum Tier {
@@ -52,6 +53,7 @@ export class TeamComponent implements OnInit {
   typeKeys = ["Bug", "Dark", "Dragon", "Electric", "Fairy", "Fire", "Fighting", "Flying", "Ghost", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock", "Steel", "Water"];
   abilityKeys = Object.keys(abilityData);
   moveKeys = Object.keys(moveData);
+  roleKeys = ["Setup Sweeper", "Physical Wallbreaker", "Special Wallbreaker", "Mixed Wallbreaker", "Stallbreaker", "Physically Defensive Wall", "Specially Defensive Wall", "Mixed Defensive Wall", "Offensive Pivot", "Defensive Pivot", "Cleric", "Hazard Setter", "Hazard Removal", "Dedicated Lead", "Choice Band User", "Choice Specs User", "Choice Scarf User", "Trapper", "Priority", "Trick Room Setter", "Trick Room Abuser", "Rain", "Sun", "Sand", "Hail"];
 
 
   constructor(private cd : ChangeDetectorRef) { }
@@ -315,16 +317,31 @@ export class TeamComponent implements OnInit {
   //pseudocode for now
 
   applyFilter() {
-    var pkmnSearchArray = []
+    var roleSelected = document.getElementById('roleFilterInput').value;
+    var pkmnSearchArray = [];
     for (var h = 0; h < this.tierKeys.length; ++h) {
       var checkbox = document.getElementById('tierFilterInput' + h);
       if (checkbox.checked) {
-        pkmnSearchArray.push.apply(pkmnSearchArray, pkmnData[this.tierKeys[h]]);
+        if (roleSelected === 'Role') {
+          pkmnSearchArray.push.apply(pkmnSearchArray, pkmnData[this.tierKeys[h]]);
+        } else {
+          var endIndex = h+1;
+          while (roleData[roleSelected].indexOf(this.tierKeys[endIndex]) == -1) {
+            endIndex++;
+          }
+          pkmnSearchArray.push.apply(pkmnSearchArray, roleData[roleSelected].slice(roleData[roleSelected].indexOf(this.tierKeys[h]), roleData[roleSelected].indexOf(this.tierKeys[endIndex])));
+        }
+        
       }
     }
 
     if (pkmnSearchArray.length == 0) {
-      pkmnSearchArray = this.legalpkmn;
+      if (roleSelected === 'Role') {
+        pkmnSearchArray = this.legalpkmn;
+      } else {
+        pkmnSearchArray = roleData[roleSelected];
+      }
+      
     }
 
     var tempArray = [];
