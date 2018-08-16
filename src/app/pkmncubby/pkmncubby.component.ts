@@ -52,6 +52,7 @@ export class PkmncubbyComponent implements OnInit {
 	ev = [0, 0, 0, 0, 0, 0];
 	iv = [31, 31, 31, 31, 31, 31];
 	nature = "Serious";
+  level = 100;
   speedBoost = 0;
   boostLevel = 1;
   displayItems = false;
@@ -77,27 +78,14 @@ export class PkmncubbyComponent implements OnInit {
   constructor() {
   }
 
-  // constructor(name: string, item: string, ability: string, evs: number[], nature: string, ivs: number[], moves: string[]) {
-  //   this.name = name;
-  //   this.item = item;
-  //   this.ability = ability;
-  //   this.ev = evs;
-  //   this.nature = nature;
-  //   this.iv = ivs;
-  //   this.moves = moves;
-  //   console.log('hi :)')
-  // }
-
   ngOnInit() {
     this.abilitylist = allPkmnData[this.name]["abilities"];
-    
+
     if (this.itemImport) {
       this.item = this.itemImport;
       this.itemSprite = "../../assets/items/" + this.itemImport + ".png";
     } else {
       if (allPkmnData[this.name]["specialItem"]) {
-        // this.item = allPkmnData[this.name]["specialItem"];
-        // this.searchAbi.nativeElement.focus();
         this.addItem(allPkmnData[this.name]["specialItem"]);
       } else {
         this.searchIte.nativeElement.focus();
@@ -113,8 +101,6 @@ export class PkmncubbyComponent implements OnInit {
       this.ptsRemaining = 508 - (this.ev[0] + this.ev[1] + this.ev[2] + this.ev[3] + this.ev[4] + this.ev[5]);
     }
     if (this.natureImport && this.natureImport.length > 0) {
-      //this.nature = this.natureImport;
-      //console.log(this.natureImport);
       this.setNature(this.natureImport, 'import');
     }
     if (this.ivsImport) {
@@ -129,13 +115,9 @@ export class PkmncubbyComponent implements OnInit {
   	// this.tier = this.tier.toLowerCase();
     this.sprite = "../../assets/sprites/" + this.name.toLowerCase().replace(/['%:.]/g,'') + ".png";
 
-    // this.abilitylist = allPkmnData[this.name]["abilities"];
-    // this.ability = this.abilitylist[0];
     this.movelist = allPkmnData[this.name]["moves"];
     this.itemlist.splice(-1,1);
-    this.recitemlist = [];// allPkmnData[this.name]["itemUsage"][this.tier];
-    // var obj = { first: 'someVal' };
-    // obj[Object.keys(obj)[0]]; //returns 'someVal'
+    this.recitemlist = [];
 
     if (allPkmnData[this.name]["itemUsage"][this.tier]) {
       for (var j = 0; j < allPkmnData[this.name]["itemUsage"][this.tier].length; ++j) {
@@ -168,16 +150,14 @@ export class PkmncubbyComponent implements OnInit {
       }
     }
 
-    // if (allPkmnData[this.name]["specialItem"]) {
-    //   // this.item = allPkmnData[this.name]["specialItem"];
-    //   // this.searchAbi.nativeElement.focus();
-    //   this.addItem(allPkmnData[this.name]["specialItem"]);
-    // } else {
-    //   this.searchIte.nativeElement.focus();
-    // }
-
     this.allDataArray.splice(-1,1);
 
+    if (this.tier === "LC") {
+      this.level = 5;
+    }
+    if (this.tier === "VGC") {
+      this.level = 50;
+    }
     this.setAllStats();
 
     this.speedBoost = this.stats[5];
@@ -700,9 +680,13 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   setAllStats() {
-    this.stats[0] = 2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4) + 110;
+    if (this.name === "Shedinja") {
+      this.stats[0] = 1;
+    } else {
+      this.stats[0] = Math.floor((2 * allPkmnData[this.name]["baseStats"][0] + this.iv[0] + Math.floor(this.ev[0]/4)) * this.level / 100) + this.level + 10;
+    }
     for (var k = 1; k < 6; ++k) {
-      this.stats[k] = Math.floor((2 * allPkmnData[this.name]["baseStats"][k] + this.iv[k] + Math.floor(this.ev[k]/4) + 5) * this.statModifiers[k]);
+      this.stats[k] = Math.floor((Math.floor((2 * allPkmnData[this.name]["baseStats"][k] + this.iv[k] + Math.floor(this.ev[k]/4)) * this.level / 100) + 5) * this.statModifiers[k]);
     }
     this.speedBoost = Math.floor(this.stats[5] * this.boostLevel);
   }

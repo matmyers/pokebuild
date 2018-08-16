@@ -83,11 +83,19 @@ export class TeamComponent implements OnInit {
     this.tierpkmn = [];
     this.legalpkmn = [];
   	this.tier = tierInput;
-    for (var k = 0; k < this.tierKeys.length; ++k) {
-      if (this.tierKeys[k] !== 'VGC') {
-        if (this.tierEnum[this.tierKeys[k]] >= this.tierEnum[this.tier]) {
-          this.tierpkmn.push.apply(this.tierpkmn, pkmnData[this.tierKeys[k]]);
-          this.legalpkmn.push.apply(this.legalpkmn, pkmnData[this.tierKeys[k]]);
+
+    if (tierInput === "VGC") {
+      this.tierpkmn = pkmnData[tierInput];
+      this.tierpkmn = this.tierpkmn.slice(0,1).concat(this.tierpkmn.slice(1,this.tierpkmn.length).sort());
+      this.legalpkmn = pkmnData[tierInput];
+      this.legalpkmn = this.legalpkmn.slice(0,1).concat(this.legalpkmn.slice(1,this.legalpkmn.length).sort());
+    } else {
+      for (var k = 0; k < this.tierKeys.length; ++k) {
+        if (this.tierKeys[k] !== 'VGC') {
+          if (this.tierEnum[this.tierKeys[k]] >= this.tierEnum[this.tier]) {
+            this.tierpkmn.push.apply(this.tierpkmn, pkmnData[this.tierKeys[k]]);
+            this.legalpkmn.push.apply(this.legalpkmn, pkmnData[this.tierKeys[k]]);
+          }
         }
       }
     }
@@ -447,7 +455,6 @@ export class TeamComponent implements OnInit {
   // }
 
   editPoke(index: number) {
-    // this.enterTeamView();
     this.displayPokemon = false;
     this.teamCubbies = this.pkmnCubbies.toArray();
     this.teamCubbies[index].enterSinglePokemonView();
@@ -470,7 +477,6 @@ export class TeamComponent implements OnInit {
 
   printPokemon() {
     this.listedpkmnIndex = 0;
-    //this.tierpkmn = pkmnData[this.tier];
     this.tierpkmn = this.legalpkmn;
     for (var i = 0; i < this.tierpkmn.length; ++i) {
       if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
@@ -489,10 +495,8 @@ export class TeamComponent implements OnInit {
     this.teamMembers = [];
     this.teamSprites = [];
     let importLines = document.getElementById("importTextArea").value.split("\n");
-    // console.log(importLines);
 
     for (var i = 0; i < importLines.length; ++i) {
-      //console.log('i = ' + i);
       if (importLines[i].length == 0) {
         break;
       }
@@ -506,18 +510,15 @@ export class TeamComponent implements OnInit {
           var name = importLines[i].trim();
         }
       }
-      //console.log(name);
 
       if (importLines[i].indexOf('@') != -1) {
         var item = importLines[i].slice(importLines[i].indexOf('@')+2,importLines[i].length).trim();
       } else {
         var item = "";
       }
-      //console.log(item);
       i += 1;
 
       var ability = importLines[i].slice(importLines[i].indexOf(':')+2,importLines[i].length).trim();
-      //console.log(ability);
       i += 1;
 
       while (importLines[i].slice(0,3) !== "EVs" && !importLines[i].includes('Nature')) {
@@ -574,7 +575,6 @@ export class TeamComponent implements OnInit {
 
         i += 1;
       }
-      //console.log(evs);
 
       if (importLines[i].includes('Nature')) {
         var nature = importLines[i].slice(0,importLines[i].indexOf('Nature')-1).trim();
@@ -582,7 +582,6 @@ export class TeamComponent implements OnInit {
       } else {
         var nature = "Serious";
       }
-      //onsole.log(nature);
 
       var ivs = [31,31,31,31,31,31];
       if (importLines[i].slice(0,3) === "IVs") {
@@ -634,29 +633,17 @@ export class TeamComponent implements OnInit {
 
         i += 1;
       }
-      //console.log(ivs);
 
       var moves = [];
       while (importLines[i].length > 0) {
         moves.push(importLines[i].slice(importLines[i].indexOf('-')+2,importLines[i].length).trim());
         i += 1;
       }
-      //console.log(moves);
 
-      // set teamMember
-      // console.log(typeof name);
-      // console.log(typeof item);
-      // console.log(typeof ability);
-      // console.log(typeof evs);
-      // console.log(typeof nature);
-      // console.log(typeof ivs);
-      // console.log(typeof moves);
-      //this.teamCubbies.push(new PkmncubbyComponent(name, item, ability, evs, nature, ivs, moves));
       this.teamMembers.push({nameImport:name, itemImport:item, abilityImport:ability, evsImport:evs, natureImport:nature, ivsImport:ivs, movesImport:moves});
       this.teamSprites.push("../../assets/sprites/" + name.toLowerCase().replace(/['%:.]/g,'') + ".png");
     }
 
-    //this.teamCubbies = this.pkmnCubbies.toArray();
 
     this.importClicked = false;
     setTimeout(()=>{
@@ -774,19 +761,30 @@ export class TeamComponent implements OnInit {
   applyFilter() {
     var roleSelected = document.getElementById('roleFilterInput').value;
     var pkmnSearchArray = [];
-    for (var h = 0; h < this.tierKeys.length; ++h) {
-      var checkbox = document.getElementById('tierFilterInput' + h);
-      if (checkbox.checked) {
-        if (roleSelected === 'Role') {
-          pkmnSearchArray.push.apply(pkmnSearchArray, pkmnData[this.tierKeys[h]]);
-        } else {
-          var endIndex = h+1;
-          while (roleData[roleSelected].indexOf(this.tierKeys[endIndex]) == -1) {
-            endIndex++;
+    // check if 'all tiers' selected
+    if (document.getElementById('tierFilterInput12').checked) {
+      pkmnSearchArray = ['All Pokemon'].concat(Object.keys(allPkmnData));
+      pkmnSearchArray.splice(-1,1);
+    } else {
+      for (var h = 0; h < this.tierKeys.length; ++h) {
+        var checkbox = document.getElementById('tierFilterInput' + h);
+        if (checkbox.checked) {
+          if (roleSelected === 'Role') {
+            pkmnSearchArray.push.apply(pkmnSearchArray, pkmnData[this.tierKeys[h]]);
+          } else if (roleSelected !== 'Role' && h < this.tierKeys.length-2) {
+            var endIndex = h+1;
+            while (roleData[roleSelected].indexOf(this.tierKeys[endIndex]) == -1) {
+              endIndex++;
+              if (endIndex > this.tierKeys.length-3) {break;}
+            }
+            if (endIndex > this.tierKeys.length-3) {
+              pkmnSearchArray.push.apply(pkmnSearchArray, roleData[roleSelected].slice(roleData[roleSelected].indexOf(this.tierKeys[h]), roleData[roleSelected].length));
+            } else {
+              pkmnSearchArray.push.apply(pkmnSearchArray, roleData[roleSelected].slice(roleData[roleSelected].indexOf(this.tierKeys[h]), roleData[roleSelected].indexOf(this.tierKeys[endIndex])));
+            }
           }
-          pkmnSearchArray.push.apply(pkmnSearchArray, roleData[roleSelected].slice(roleData[roleSelected].indexOf(this.tierKeys[h]), roleData[roleSelected].indexOf(this.tierKeys[endIndex])));
+          
         }
-        
       }
     }
 
@@ -859,6 +857,17 @@ export class TeamComponent implements OnInit {
 
     this.tierpkmn = pkmnSearchArray;
     this.sortPokeList();
+  }
+
+  resetFilters() {
+    for (var i = 0; i < this.tierKeys.length+1; ++i) {
+      document.getElementById('tierFilterInput' + i).checked = false;
+    }
+    document.getElementById('typeFilterInput').value = "Type";
+    document.getElementById('abilityFilterInput').value = "Ability";
+    document.getElementById('moveFilterInput').value = "Move";
+    document.getElementById('roleFilterInput').value = "Role";
+    this.applyFilter();
   }
 
 }
