@@ -13,6 +13,7 @@
 		</div>
 	</div>
 	<button *ngIf="teamMembers.length < 6" class="btn btn-success mr-2" [disabled]="!tierSelected" (click)="printPokemon()">Add Pok&eacute;mon</button>
+	<button *ngIf="!importClicked" class="btn btn-primary mr-2" [disabled]="!tierSelected" (click)="importClicked = true">Import from Showdown</button>
 	<button *ngIf="teamMembers.length != 0" class="btn btn-primary mr-2" (click)="exportShowdown()">Export to Showdown</button>
 	<div *ngIf="singlePokemonView[0]">
 		<button class="btn btn-warning mr-2" (click)="enterTeamView()">&lt; Team View</button>
@@ -26,6 +27,12 @@
 	</div>
 </div>
 <br>
+<div *ngIf="importClicked">
+	<p style="color:#f00">*Warning: clicking the save button will overwrite your current team</p><br>
+	<textarea id="importTextArea" class="w-100" rows="10" autofocus></textarea><br><br>
+	<button class="btn btn-danger mr-2" (click)="importClicked = false;">Hide Import</button>
+	<button class="btn btn-primary" (click)="importShowdown()">Save</button><br><br>
+</div>
 <div *ngIf="exportClicked">
 	<textarea class="w-100" rows="{{exportRows}}" autofocus>{{ exportText }}</textarea><br><br>
 	<button class="btn btn-danger" (click)="exportClicked = false;">Hide Export Text</button><br><br>
@@ -34,7 +41,10 @@
 <ng-template #teamNotEmpty>
 	<div *ngFor="let member of teamMembers; let j = index">
 		<div id="cubby{{j}}" class="border border-dark rounded">
-			<app-pkmncubby [team]="teamMembers" [teamSprites]="teamSprites" [singleDisplay]="singlePokemonView" [name]="member" [tier]="tier" [index]=j></app-pkmncubby>
+			<app-pkmncubby *ngIf="member.nameImport != null; else notImported" [team]="teamMembers" [teamSprites]="teamSprites" [singleDisplay]="singlePokemonView" [name]="member.nameImport" [tier]="tier" [index]=j [itemImport]="member.itemImport" [abilityImport]="member.abilityImport" [evsImport]="member.evsImport" [natureImport]="member.natureImport" [ivsImport]="member.ivsImport" [movesImport]="member.movesImport"></app-pkmncubby>
+			<ng-template #notImported>
+				<app-pkmncubby [team]="teamMembers" [teamSprites]="teamSprites" [singleDisplay]="singlePokemonView" [name]="member" [tier]="tier" [index]=j></app-pkmncubby>
+			</ng-template>
 		</div>
 	</div>
 </ng-template>

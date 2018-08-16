@@ -49,6 +49,7 @@ export class TeamComponent implements OnInit {
   exportText = "";
   exportClicked = false;
   exportRows = 0;
+  importClicked = false;
   singlePokemonView = [false];
   typeKeys = ["Bug", "Dark", "Dragon", "Electric", "Fairy", "Fire", "Fighting", "Flying", "Ghost", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock", "Steel", "Water"];
   abilityKeys = Object.keys(abilityData);
@@ -192,20 +193,42 @@ export class TeamComponent implements OnInit {
     // get recommendations
     this.recpokelist = [];
     for (var i = 0; i < this.teamMembers.length; ++i) {
-      if (allPkmnData[this.teamMembers[i]]["teammates"][this.tier]) {
-        for (var j = 0; j < allPkmnData[this.teamMembers[i]]["teammates"][this.tier].length; ++j) {
-          var key = Object.keys(allPkmnData[this.teamMembers[i]]["teammates"][this.tier][j]);
+      if (this.teamMembers[i].nameImport == null) {
+        var memberName = this.teamMembers[i];
+      } else {
+        var memberName = this.teamMembers[i].nameImport;
+      }
+
+      if (allPkmnData[memberName]["teammates"][this.tier]) {
+        for (var j = 0; j < allPkmnData[memberName]["teammates"][this.tier].length; ++j) {
+          var key = Object.keys(allPkmnData[memberName]["teammates"][this.tier][j]);
           // check if already in, if not, push
-          var poke = {name:key[0], sprite:"../../assets/sprites/" + key[0].toLowerCase().replace(/['%:.]/g,'') + ".png", usage:[allPkmnData[this.teamMembers[i]]["teammates"][this.tier][j][key[0]]], partner:[this.teamMembers[i]]};
+          var poke = {name:key[0], sprite:"../../assets/sprites/" + key[0].toLowerCase().replace(/['%:.]/g,'') + ".png", usage:[allPkmnData[memberName]["teammates"][this.tier][j][key[0]]], partner:[memberName]};
           var alreadyIn = false;
           for (var k = 0; k < this.recpokelist.length; ++k) {
             if (this.recpokelist[k].name === key[0]) {
               this.recpokelist[k].usage.push(poke.usage);
               this.recpokelist[k].partner.push(poke.partner);
               alreadyIn = true;
+              break;
             }
           }
-          if (!alreadyIn && this.teamMembers.indexOf(poke.name) == -1) {
+
+          var alreadyOnTeam = false;
+          for (var m = 0; m < this.teamMembers.length; ++m) {
+            if (this.teamMembers[m].nameImport == null) {
+              if (this.teamMembers[m] === poke.name) {
+                alreadyOnTeam = true;
+                break;
+              }
+            } else {
+              if (this.teamMembers[m].nameImport === poke.name) {
+                alreadyOnTeam = true;
+                break;
+              }
+            }
+          }
+          if (!alreadyIn && !alreadyOnTeam) {
             this.recpokelist.push(poke);
           }
         }
@@ -459,6 +482,185 @@ export class TeamComponent implements OnInit {
   	this.displayPokemon = true;
     setTimeout(()=>{
       this.searchBar.nativeElement.focus();
+    },10);
+  }
+
+  importShowdown() {
+    this.teamMembers = [];
+    this.teamSprites = [];
+    let importLines = document.getElementById("importTextArea").value.split("\n");
+    // console.log(importLines);
+
+    for (var i = 0; i < importLines.length; ++i) {
+      //console.log('i = ' + i);
+      if (importLines[i].length == 0) {
+        break;
+      }
+
+      if (importLines[i].indexOf('(') != -1) {
+        var name = importLines[i].slice(0,importLines[i].indexOf('(')-1).trim();
+      } else {
+        if (importLines[i].indexOf('@') != -1) {
+          var name = importLines[i].slice(0,importLines[i].indexOf('@')-1).trim();
+        } else {
+          var name = importLines[i].trim();
+        }
+      }
+      //console.log(name);
+
+      if (importLines[i].indexOf('@') != -1) {
+        var item = importLines[i].slice(importLines[i].indexOf('@')+2,importLines[i].length).trim();
+      } else {
+        var item = "";
+      }
+      //console.log(item);
+      i += 1;
+
+      var ability = importLines[i].slice(importLines[i].indexOf(':')+2,importLines[i].length).trim();
+      //console.log(ability);
+      i += 1;
+
+      while (importLines[i].slice(0,3) !== "EVs" && !importLines[i].includes('Nature')) {
+        i += 1;
+      }
+
+      var evs = [0,0,0,0,0,0];
+      if (importLines[i].slice(0,3) === "EVs") {
+        // get EVs
+        var newEVstring = "";
+        if (importLines[i].includes('HP')) {
+          evs[0] = parseInt(importLines[i].slice(5,importLines[i].indexOf('H')-1).trim());
+          if (importLines[i].indexOf('/') != -1) {
+            newEVstring = importLines[i].slice(importLines[i].indexOf('/')+2,importLines[i].length);
+          }
+        } else {
+          newEVstring = importLines[i].slice(5,importLines[i].length);
+        }
+
+        if (newEVstring.includes('Atk')) {
+          evs[1] = parseInt(newEVstring.slice(0,newEVstring.indexOf('A')-1).trim());
+          if (newEVstring.indexOf('/') != -1) {
+            newEVstring = newEVstring.slice(newEVstring.indexOf('/')+2,newEVstring.length);
+          }
+        }
+
+        if (newEVstring.includes('Def')) {
+          evs[2] = parseInt(newEVstring.slice(0,newEVstring.indexOf('D')-1).trim());
+          if (newEVstring.indexOf('/') != -1) {
+            newEVstring = newEVstring.slice(newEVstring.indexOf('/')+2,newEVstring.length);
+          }
+        }
+
+        if (newEVstring.includes('SpA')) {
+          evs[3] = parseInt(newEVstring.slice(0,newEVstring.indexOf('S')-1).trim());
+          if (newEVstring.indexOf('/') != -1) {
+            newEVstring = newEVstring.slice(newEVstring.indexOf('/')+2,newEVstring.length);
+          }
+        }
+
+        if (newEVstring.includes('SpD')) {
+          evs[4] = parseInt(newEVstring.slice(0,newEVstring.indexOf('S')-1).trim());
+          if (newEVstring.indexOf('/') != -1) {
+            newEVstring = newEVstring.slice(newEVstring.indexOf('/')+2,newEVstring.length);
+          }
+        }
+
+        if (newEVstring.includes('Spe')) {
+          evs[5] = parseInt(newEVstring.slice(0,newEVstring.indexOf('S')-1).trim());
+          if (newEVstring.indexOf('/') != -1) {
+            newEVstring = newEVstring.slice(newEVstring.indexOf('/')+2,newEVstring.length);
+          }
+        }
+
+        i += 1;
+      }
+      //console.log(evs);
+
+      if (importLines[i].includes('Nature')) {
+        var nature = importLines[i].slice(0,importLines[i].indexOf('Nature')-1).trim();
+        i += 1;
+      } else {
+        var nature = "Serious";
+      }
+      //onsole.log(nature);
+
+      var ivs = [31,31,31,31,31,31];
+      if (importLines[i].slice(0,3) === "IVs") {
+        // get IVs
+        var newIVstring = "";
+        if (importLines[i].includes('HP')) {
+          ivs[0] = parseInt(importLines[i].slice(5,importLines[i].indexOf('H')-1).trim());
+          if (importLines[i].indexOf('/') != -1) {
+            newIVstring = importLines[i].slice(importLines[i].indexOf('/')+2,importLines[i].length);
+          }
+        } else {
+          newIVstring = importLines[i].slice(5,importLines[i].length);
+        }
+
+        if (newIVstring.includes('Atk')) {
+          ivs[1] = parseInt(newIVstring.slice(0,newIVstring.indexOf('A')-1).trim());
+          if (newIVstring.indexOf('/') != -1) {
+            newIVstring = newIVstring.slice(newIVstring.indexOf('/')+2,newIVstring.length);
+          }
+        }
+
+        if (newIVstring.includes('Def')) {
+          ivs[2] = parseInt(newIVstring.slice(0,newIVstring.indexOf('D')-1).trim());
+          if (newIVstring.indexOf('/') != -1) {
+            newIVstring = newIVstring.slice(newIVstring.indexOf('/')+2,newIVstring.length);
+          }
+        }
+
+        if (newIVstring.includes('SpA')) {
+          ivs[3] = parseInt(newIVstring.slice(0,newIVstring.indexOf('S')-1).trim());
+          if (newIVstring.indexOf('/') != -1) {
+            newIVstring = newIVstring.slice(newIVstring.indexOf('/')+2,newIVstring.length);
+          }
+        }
+
+        if (newIVstring.includes('SpD')) {
+          ivs[4] = parseInt(newIVstring.slice(0,newIVstring.indexOf('S')-1).trim());
+          if (newIVstring.indexOf('/') != -1) {
+            newIVstring = newIVstring.slice(newIVstring.indexOf('/')+2,newIVstring.length);
+          }
+        }
+
+        if (newIVstring.includes('Spe')) {
+          ivs[5] = parseInt(newIVstring.slice(0,newIVstring.indexOf('S')-1).trim());
+          if (newIVstring.indexOf('/') != -1) {
+            newIVstring = newIVstring.slice(newIVstring.indexOf('/')+2,newIVstring.length);
+          }
+        }
+
+        i += 1;
+      }
+      //console.log(ivs);
+
+      var moves = [];
+      while (importLines[i].length > 0) {
+        moves.push(importLines[i].slice(importLines[i].indexOf('-')+2,importLines[i].length).trim());
+        i += 1;
+      }
+      //console.log(moves);
+
+      // set teamMember
+      // console.log(typeof name);
+      // console.log(typeof item);
+      // console.log(typeof ability);
+      // console.log(typeof evs);
+      // console.log(typeof nature);
+      // console.log(typeof ivs);
+      // console.log(typeof moves);
+      //this.teamCubbies.push(new PkmncubbyComponent(name, item, ability, evs, nature, ivs, moves));
+      this.teamMembers.push({nameImport:name, itemImport:item, abilityImport:ability, evsImport:evs, natureImport:nature, ivsImport:ivs, movesImport:moves});
+      this.teamSprites.push("../../assets/sprites/" + name.toLowerCase().replace(/['%:.]/g,'') + ".png");
+    }
+
+    //this.teamCubbies = this.pkmnCubbies.toArray();
+
+    this.importClicked = false;
+    setTimeout(()=>{
+      this.enterTeamView();
     },10);
   }
 

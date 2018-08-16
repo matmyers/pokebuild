@@ -16,6 +16,13 @@ export class PkmncubbyComponent implements OnInit {
   @ViewChild('searchAbility') searchAbi: ElementRef;
   //@ViewChild('searchMove') searchMov: ElementRef;
 
+  @Input() itemImport? : string;
+  @Input() abilityImport? : string;
+  @Input() evsImport? : number[];
+  @Input() natureImport? : string;
+  @Input() ivsImport? : number[];
+  @Input() movesImport? : string[];
+
 	@Input() team : string[];
   @Input() teamSprites : string[];
   @Input() singleDisplay : boolean[];
@@ -65,23 +72,71 @@ export class PkmncubbyComponent implements OnInit {
   itemData = itemData;
   abilityData = abilityData;
   moveData = moveData;
+  natureKeys = ["Adamant (+Atk, -SpA)", "Bashful", "Bold (+Def, -Atk)", "Brave (+Atk, -Spe)", "Calm (+SpD, -Atk)", "Careful (+SpD, -SpA)", "Docile", "Gentle (+SpD, -Def)", "Hardy", "Hasty (+Spe, -Def)", "Impish (+Def, -SpA)", "Jolly (+Spe, -SpA)", "Lax (+Def, -SpD)", "Lonely (+Atk, -Def)", "Mild (+SpA, -Def)", "Modest (+SpA, -Atk)", "Naive (+Spe, -SpD)", "Naughty (+Atk, -SpD)", "Quiet (+SpA, -Spe)", "Quirky", "Rash (+SpA, -SpD)", "Relaxed (+Def, -Spe)", "Sassy (+SpD, -Spe)", "Serious", "Timid (+Spe, -Atk)"]
 
   constructor() {
   }
 
+  // constructor(name: string, item: string, ability: string, evs: number[], nature: string, ivs: number[], moves: string[]) {
+  //   this.name = name;
+  //   this.item = item;
+  //   this.ability = ability;
+  //   this.ev = evs;
+  //   this.nature = nature;
+  //   this.iv = ivs;
+  //   this.moves = moves;
+  //   console.log('hi :)')
+  // }
+
   ngOnInit() {
+    this.abilitylist = allPkmnData[this.name]["abilities"];
+    
+    if (this.itemImport) {
+      this.item = this.itemImport;
+      this.itemSprite = "../../assets/items/" + this.itemImport + ".png";
+    } else {
+      if (allPkmnData[this.name]["specialItem"]) {
+        // this.item = allPkmnData[this.name]["specialItem"];
+        // this.searchAbi.nativeElement.focus();
+        this.addItem(allPkmnData[this.name]["specialItem"]);
+      } else {
+        this.searchIte.nativeElement.focus();
+      }
+    }
+    if (this.abilityImport && this.abilityImport.length > 0) {
+      this.ability = this.abilityImport;
+    } else {
+      this.ability = this.abilitylist[0];
+    }
+    if (this.evsImport) {
+      this.ev = this.evsImport;
+      this.ptsRemaining = 508 - (this.ev[0] + this.ev[1] + this.ev[2] + this.ev[3] + this.ev[4] + this.ev[5]);
+    }
+    if (this.natureImport && this.natureImport.length > 0) {
+      //this.nature = this.natureImport;
+      //console.log(this.natureImport);
+      this.setNature(this.natureImport, 'import');
+    }
+    if (this.ivsImport) {
+      this.iv = this.ivsImport;
+    }
+    if (this.movesImport) {
+      for (var i = 0; i < this.movesImport.length; ++i) {
+        this.moves[i] = this.movesImport[i];
+      }
+    }
   	// initialize everything using this.name
   	// this.tier = this.tier.toLowerCase();
     this.sprite = "../../assets/sprites/" + this.name.toLowerCase().replace(/['%:.]/g,'') + ".png";
 
-    this.abilitylist = allPkmnData[this.name]["abilities"];
-    this.ability = this.abilitylist[0];
+    // this.abilitylist = allPkmnData[this.name]["abilities"];
+    // this.ability = this.abilitylist[0];
     this.movelist = allPkmnData[this.name]["moves"];
     this.itemlist.splice(-1,1);
     this.recitemlist = [];// allPkmnData[this.name]["itemUsage"][this.tier];
     // var obj = { first: 'someVal' };
     // obj[Object.keys(obj)[0]]; //returns 'someVal'
-    
+
     if (allPkmnData[this.name]["itemUsage"][this.tier]) {
       for (var j = 0; j < allPkmnData[this.name]["itemUsage"][this.tier].length; ++j) {
         var key = Object.keys(allPkmnData[this.name]["itemUsage"][this.tier][j]);
@@ -113,13 +168,13 @@ export class PkmncubbyComponent implements OnInit {
       }
     }
 
-    if (allPkmnData[this.name]["specialItem"]) {
-      // this.item = allPkmnData[this.name]["specialItem"];
-      // this.searchAbi.nativeElement.focus();
-      this.addItem(allPkmnData[this.name]["specialItem"]);
-    } else {
-      this.searchIte.nativeElement.focus();
-    }
+    // if (allPkmnData[this.name]["specialItem"]) {
+    //   // this.item = allPkmnData[this.name]["specialItem"];
+    //   // this.searchAbi.nativeElement.focus();
+    //   this.addItem(allPkmnData[this.name]["specialItem"]);
+    // } else {
+    //   this.searchIte.nativeElement.focus();
+    // }
 
     this.allDataArray.splice(-1,1);
 
@@ -521,7 +576,7 @@ export class PkmncubbyComponent implements OnInit {
     this.setAllStats();
   }
 
-  setNature(preset: string) {
+  setNature(preset: string, imported: string) {
     //console.log(document.getElementById('natureSelect').options);
     var natureSelected = "";
 
@@ -531,15 +586,25 @@ export class PkmncubbyComponent implements OnInit {
       let parenIndex = this.nature.indexOf('(');
       natureSelected = this.nature.substring(0, parenIndex-1);
     } else {
-      for (var m = 0; m < document.getElementById('natureSelect').options.length; ++m) {
-        if (document.getElementById('natureSelect').options[m].value.includes(preset)) {
-          document.getElementById('natureSelect').value = document.getElementById('natureSelect').options[m].value;
+      if (imported === undefined) {
+        for (var m = 0; m < document.getElementById('natureSelect').options.length; ++m) {
+          if (document.getElementById('natureSelect').options[m].value.includes(preset)) {
+            document.getElementById('natureSelect').value = document.getElementById('natureSelect').options[m].value;
+          }
+        }
+        this.nature = document.getElementById('natureSelect').value;
+      } else {
+        for (var m = 0; m < this.natureKeys.length; ++m) {
+          if (this.natureKeys[m].includes(preset)) {
+            //document.getElementById('natureSelect').value = this.natureKeys[m];
+            this.nature = this.natureKeys[m];
+          }
         }
       }
       natureSelected = preset;
     }
 
-    this.nature = document.getElementById('natureSelect').value;
+    //this.nature = document.getElementById('natureSelect').value;
     
     // reset modifiers to neutral nature
     this.statModifiers = [1, 1, 1, 1, 1, 1];
