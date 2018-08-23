@@ -1,6 +1,6 @@
 <div id="top" class="btn-toolbar">
 	<div class="dropdown">
-		<button type="button" class="btn btn-secondary dropdown-toggle mr-2" data-toggle="dropdown">{{ tier }}</button>
+		<button type="button" class="btn btn-light dropdown-toggle mr-2" data-toggle="dropdown">{{ tier }}</button>
 		<div class="dropdown-menu">
 			<button class="dropdown-item" (click)="setTier('OU')">OU</button>
 			<button class="dropdown-item" (click)="setTier('UU')">UU</button>
@@ -13,8 +13,8 @@
 		</div>
 	</div>
 	<button *ngIf="teamMembers.length < 6" class="btn btn-success mr-2" [disabled]="!tierSelected" (click)="printPokemon()">Add Pok&eacute;mon</button>
-	<button *ngIf="!importClicked" class="btn btn-primary mr-2" [disabled]="!tierSelected" (click)="importClicked = true">Import from Showdown</button>
-	<button *ngIf="teamMembers.length != 0" class="btn btn-primary mr-2" (click)="exportShowdown()">Export to Showdown</button>
+	<button *ngIf="!importClicked" class="btn btn-info mr-2" [disabled]="!tierSelected" (click)="importClicked = true">Import from Showdown</button>
+	<button *ngIf="teamMembers.length != 0" class="btn btn-info mr-2" (click)="exportShowdown()">Export to Showdown</button>
 	<div *ngIf="singlePokemonView[0]">
 		<button class="btn btn-warning mr-2" (click)="enterTeamView()">&lt; Team View</button>
 		<div class="d-inline">
@@ -31,7 +31,7 @@
 	<p style="color:#f00">*Warning: clicking the save button will overwrite your current team</p><br>
 	<textarea id="importTextArea" class="w-100" rows="10" autofocus></textarea><br><br>
 	<button class="btn btn-danger mr-2" (click)="importClicked = false;">Hide Import</button>
-	<button class="btn btn-primary" (click)="importShowdown()">Save</button><br><br>
+	<button class="btn btn-info" (click)="importShowdown()">Save</button><br><br>
 </div>
 <div *ngIf="exportClicked">
 	<textarea class="w-100" rows="{{exportRows}}" autofocus>{{ exportText }}</textarea><br><br>
@@ -40,7 +40,7 @@
 <p *ngIf="teamMembers.length == 0; else teamNotEmpty">team is empty :(</p>
 <ng-template #teamNotEmpty>
 	<div *ngFor="let member of teamMembers; let j = index">
-		<div id="cubby{{j}}" class="border border-dark rounded">
+		<div id="cubby{{j}}" class="border border-light rounded">
 			<app-pkmncubby *ngIf="member.nameImport != null; else notImported" [team]="teamMembers" [teamSprites]="teamSprites" [singleDisplay]="singlePokemonView" [name]="member.nameImport" [tier]="tier" [index]=j [itemImport]="member.itemImport" [abilityImport]="member.abilityImport" [evsImport]="member.evsImport" [natureImport]="member.natureImport" [ivsImport]="member.ivsImport" [movesImport]="member.movesImport"></app-pkmncubby>
 			<ng-template #notImported>
 				<app-pkmncubby [team]="teamMembers" [teamSprites]="teamSprites" [singleDisplay]="singlePokemonView" [name]="member" [tier]="tier" [index]=j></app-pkmncubby>
@@ -55,7 +55,7 @@
 		<div class="row">
 			<div class="ml-3 mt-2">
 				<p class="d-inline mr-2">Apply Filters:</p>
-				<button type="button" class="btn btn-sm btn-primary dropdown-toggle mr-2" data-toggle="dropdown">Tier</button>
+				<button type="button" class="btn btn-sm btn-info dropdown-toggle mr-2" data-toggle="dropdown">Tier</button>
 				<div class="dropdown-menu">
 					<div id="tierFilterDiv12" (mouseover)="setHoverFilter(12, 'tier')" (mouseout)="setHoverFilter(12, 'tierNo')" (click)="checkBoxInsideDiv(12, 'propBad')">
 						<div class="container"><input id="tierFilterInput12" type="checkbox" (click)="checkBoxInsideDiv(12, 'propOk')"> All Pokemon</div>
@@ -66,25 +66,25 @@
 				</div>
 			</div>
 			<div class="mt-2">
-				<select id="typeFilterInput" class="btn btn-primary custom-select-sm mr-2" style="width:70px" (change)="applyFilter()">
+				<select id="typeFilterInput" class="btn btn-info custom-select-sm mr-2" style="width:70px" (change)="applyFilter()">
 		      <option selected>Type</option>
 		      <option *ngFor="let type of typeKeys">{{ type }}</option>
 		    </select>
 			</div>
 			<div class="mt-2">
-				<select id="abilityFilterInput" class="btn btn-primary custom-select-sm mr-2" style="width:100px" (change)="applyFilter()">
+				<select id="abilityFilterInput" class="btn btn-info custom-select-sm mr-2" style="width:100px" (change)="applyFilter()">
 		      <option selected>Ability</option>
 		      <option *ngFor="let ability of abilityKeys">{{ ability }}</option>
 		    </select>
 			</div>
 			<div class="mt-2">
-				<select id="moveFilterInput" class="btn btn-primary custom-select-sm mr-2" style="width:100px" (change)="applyFilter()">
+				<select id="moveFilterInput" class="btn btn-info custom-select-sm mr-2" style="width:100px" (change)="applyFilter()">
 		      <option selected>Move</option>
 		      <option *ngFor="let move of moveKeys">{{ move }}</option>
 		    </select>
 			</div>
 			<div class="mt-2">
-				<select id="roleFilterInput" class="btn btn-primary custom-select-sm mr-2" style="width:120px" (change)="applyFilter()">
+				<select id="roleFilterInput" class="btn btn-info custom-select-sm mr-2" style="width:120px" (change)="applyFilter()">
 		      <option selected>Role</option>
 		      <option *ngFor="let role of roleKeys">{{ role }}</option>
 		    </select>
@@ -93,12 +93,12 @@
 				<button class="btn btn-sm btn-danger mr-2" (click)="resetFilters()">Reset Filters</button>
 			</div>
 			<div class="mt-2">
-				<button *ngIf="!displayRecommended && teamMembers.length > 0" class="btn btn-warning btn-sm mr-2" (click)="updateRecommended()">View Recommended Pok&eacute;mon</button>
+				<button *ngIf="!displayRecommended && teamMembers.length > 0" class="btn btn-primary btn-sm mr-2" (click)="updateRecommended()">View Recommended Pok&eacute;mon</button>
 				<button *ngIf="displayRecommended" class="btn btn-danger btn-sm" (click)="displayRecommended = false; searchBar.nativeElement.focus();">Hide Recommended Pok&eacute;mon</button>
 			</div>
 			<div class="mt-2">
 				<p class="d-inline ml-3 mr-2">Sort By:</p>
-				<select id="sortInput" class="btn btn-secondary custom-select-sm" style="width:100px" (change)="sortPokeList()">
+				<select id="sortInput" class="btn btn-light custom-select-sm" style="width:100px" (change)="sortPokeList()">
 		      <option selected>Alphabetical</option>
 		      <option>Highest HP</option>
 		      <option>Highest Atk</option>
@@ -117,7 +117,7 @@
 		</div>
 		<br>
 		<div *ngIf="displayRecommended">
-			<div class="container-fluid" style="background-color:#939dad;">
+			<div class="container-fluid" style="background-color:#939dad; color:#000;">
 				<div class="row" style="font-weight:bold; height:25px;">
 					<div class="col-sm-2 text-center">
 			      <p>Name</p>
@@ -134,7 +134,7 @@
 				</div>
 			</div>
 			<div *ngFor="let recpoke of recpokelist; let i = index;">
-				<button class="btn btn-outline-dark btn-sm btn-block" (click)="addTeamMember(recpoke.name)">
+				<button class="btn btn-outline-light btn-sm btn-block" (click)="addTeamMember(recpoke.name)">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-2 text-left">
@@ -164,7 +164,7 @@
 			</div>
 		</div>
 		<br>
-		<div class="container-fluid" style="background-color:#939dad;">
+		<div class="container-fluid" style="background-color:#939dad; color:#000;">
 			<div class="row" style="font-weight:bold; height:25px;">
 				<div class="col-sm-2 text-center">
 		      <p>Name</p>
@@ -189,7 +189,7 @@
 		</div>
 		<virtual-scroll [items]="tierpkmn" (update)="updateViewPort($event)">
 	    <div *ngFor="let poke of viewPortItems; let i = index;">
-	    	<div *ngIf="tierKeys.indexOf(poke) != -1 || poke === 'All Pokemon'; else notaDivider" class="container-fluid" style="color:#fff; background-color:#000;">
+	    	<div *ngIf="tierKeys.indexOf(poke) != -1 || poke === 'All Pokemon'; else notaDivider" class="container-fluid border border-dark" style="background-color:#939dad; color:#000;">
           <div class="row" style="font-weight:bold; height:25px;">
             <div class="col text-left">
               <p>{{poke}}</p>
@@ -197,7 +197,7 @@
           </div>
         </div>
 				<ng-template #notaDivider>
-					<button attr.id="listedpkmn{{i}}" class="btn btn-outline-dark btn-sm btn-block" style="height:50px;" (click)="addTeamMember(poke)" (mouseover)="setHover(i)">
+					<button attr.id="listedpkmn{{i}}" class="btn btn-outline-light btn-sm btn-block" style="height:50px;" (click)="addTeamMember(poke)" (mouseover)="setHover(i)">
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-2 text-left">

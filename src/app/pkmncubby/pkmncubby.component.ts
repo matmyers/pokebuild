@@ -40,6 +40,7 @@ export class PkmncubbyComponent implements OnInit {
   abilitylist = [];
   abilityIndex = 0;
 	moves = ["", "", "", ""];
+  moveSelected = [false, false, false, false]
   movelist = [];
   recmovelist = [];
   moveIndex = 0;
@@ -411,6 +412,17 @@ export class PkmncubbyComponent implements OnInit {
     }, 10);
   }
 
+  calcHammingDistance(searchTerm: string, possibleMatch: string) {
+    var hd = 0;
+    for (var i = 0; i < searchTerm.length && i < possibleMatch.length; ++i) {
+      if (searchTerm[i] !== possibleMatch[i]) {
+        hd++;
+      }
+    }
+
+    return hd;
+  }
+
   onUpdateSearchMove(event: Event) {
     //searchInput = event.target.value;
 
@@ -424,6 +436,7 @@ export class PkmncubbyComponent implements OnInit {
     if (event.target.value.length === 0) {
       this.isSearching = false;
       this.moveNavIndex = 0;
+      this.moveSelected[this.moveIndex] = false;
     } else {
       this.isSearching = true;
       this.moveNavIndex = this.recmovelist.length;
@@ -442,6 +455,7 @@ export class PkmncubbyComponent implements OnInit {
 
   addMove(moveSelected: string) {
     this.moves[this.moveIndex] = moveSelected;
+    this.moveSelected[this.moveIndex] = true;
     // shift move focus
     if (this.moveIndex == 3) {
       this.displayMoves = false;
@@ -452,7 +466,10 @@ export class PkmncubbyComponent implements OnInit {
       setTimeout(()=>{
         this.moveIndex++;
         // reset move display for next move
-        document.getElementById('searchMov' + this.index + '-' + (this.moveIndex)).value = "";
+        if (!this.moveSelected[this.moveIndex]) {
+          document.getElementById('searchMov' + this.index + '-' + (this.moveIndex)).value = "";  
+        }
+        
         this.movelist = allPkmnData[this.name]["moves"];
         document.getElementById('searchMov' + this.index + '-' + (this.moveIndex)).focus();
       }, 10);
@@ -475,7 +492,7 @@ export class PkmncubbyComponent implements OnInit {
     if (this.ptsRemaining < 0) {
       document.getElementById('pts' + this.index).style.color = 'red';
     } else {
-      document.getElementById('pts' + this.index).style.color = 'black';
+      document.getElementById('pts' + this.index).style.color = 'white';
     }
 
     this.setNature(natureSelected);
@@ -519,7 +536,7 @@ export class PkmncubbyComponent implements OnInit {
     if (this.ptsRemaining < 0) {
       document.getElementById('pts' + this.index).style.color = 'red';
     } else {
-      document.getElementById('pts' + this.index).style.color = 'black';
+      document.getElementById('pts' + this.index).style.color = 'white';
     }
   }
 

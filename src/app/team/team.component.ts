@@ -684,6 +684,17 @@ export class TeamComponent implements OnInit {
     this.exportClicked = true;
   }
 
+  calcHammingDistance(searchTerm: string, possibleMatch: string) {
+    var hd = 0;
+    for (var i = 0; i < searchTerm.length && i < possibleMatch.length; ++i) {
+      if (searchTerm.charAt(i) !== possibleMatch.charAt(i)) {
+        hd++;
+      }
+    }
+
+    return hd;
+  }
+
   onUpdateSearchPokemon(event: Event) {
     this.tierpkmn = [];
     if (event.target.value.length === 0) {
@@ -716,11 +727,23 @@ export class TeamComponent implements OnInit {
     // search by name
     for (var i = 0; i < this.legalpkmn.length; ++i) {
       if (this.tierKeys.indexOf(this.legalpkmn[i]) == -1) {
-        if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase())) {
+        if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase()) || this.calcHammingDistance(this.searchInput.toLowerCase(), this.legalpkmn[i].toLowerCase()) == 0) {
           this.tierpkmn.push(this.legalpkmn[i]);
         }
       }
     }
+
+    var hdArray = {};
+    for (var i = 0; i < this.tierpkmn.length; ++i) {
+      var name = this.tierpkmn[i];
+      var hd = this.calcHammingDistance(this.searchInput.toLowerCase(),this.tierpkmn[i].toLowerCase());
+      hdArray[name] = hd;
+    }
+
+    // sort by hamming distance
+    this.tierpkmn.sort(function(a,b) {
+      return hdArray[a] - hdArray[b];
+    });
 
     for (var i = 0; i < this.tierpkmn.length; ++i) {
       if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
