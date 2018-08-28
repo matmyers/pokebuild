@@ -32,6 +32,7 @@
     "ngx-ui-scroll": "0.0.6",
     "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",
+    "url-parse": "^1.4.3",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
