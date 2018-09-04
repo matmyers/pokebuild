@@ -1,10 +1,10 @@
 import { Component, OnInit, QueryList, ViewChild, ViewChildren, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PkmncubbyComponent } from '../pkmncubby/pkmncubby.component';
-import * as pkmnData from "../../assets/tierList.json"
-import * as allPkmnData from "../../assets/dataTest3.json"
-import * as abilityData from "../../assets/abilities.json"
-import * as moveData from "../../assets/moves.json"
-import * as roleData from "../../assets/roles.json"
+import * as pkmnData from "../../jsondata/tierList.json"
+import * as allPkmnData from "../../jsondata/dataTest3.json"
+import * as abilityData from "../../jsondata/abilities.json"
+import * as moveData from "../../jsondata/moves.json"
+import * as roleData from "../../jsondata/roles.json"
 
 
 enum Tier {
@@ -34,7 +34,7 @@ export class TeamComponent implements OnInit {
 
   teamMembers = [];
   teamSprites = [];
-  viewPortItems = [];
+  viewPortItems;
   tier = "Select tier";
   tierpkmn = [];
   legalpkmn = [];
@@ -127,7 +127,7 @@ export class TeamComponent implements OnInit {
     }
   }
 
-  navigatePokemon(event: Event) {
+  navigatePokemon(event: KeyboardEvent) {
     if (event.keyCode == 13) {
       this.addTeamMember(this.tierpkmn[this.listedpkmnIndex]);
     } else if (event.keyCode == 38) {
@@ -262,7 +262,7 @@ export class TeamComponent implements OnInit {
   }
 
   sortPokeList() {
-    var sortSelected = document.getElementById('sortInput').value;
+    var sortSelected = (<HTMLInputElement>document.getElementById('sortInput')).value;
 
     switch(sortSelected) {
       case "Alphabetical":
@@ -470,7 +470,7 @@ export class TeamComponent implements OnInit {
     this.displayPokemon = false;
 
     setTimeout(()=>{
-      document.activeElement.blur();
+      (<HTMLInputElement>document.activeElement).blur();
       this.scrollToTop();
     },10);
   }
@@ -494,7 +494,7 @@ export class TeamComponent implements OnInit {
   importShowdown() {
     this.teamMembers = [];
     this.teamSprites = [];
-    let importLines = document.getElementById("importTextArea").value.split("\n");
+    let importLines = (<HTMLTextAreaElement>document.getElementById("importTextArea")).value.split("\n");
 
     for (var i = 0; i < importLines.length; ++i) {
       if (importLines[i].length == 0) {
@@ -664,11 +664,15 @@ export class TeamComponent implements OnInit {
       this.exportText += "Ability: " + this.teamCubbies[i].ability + "\n";
       this.exportText += "EVs: " + this.teamCubbies[i].ev[0] + " HP / " + this.teamCubbies[i].ev[1] + " Atk / " + this.teamCubbies[i].ev[2] + " Def / " + this.teamCubbies[i].ev[3] + " SpA / " + this.teamCubbies[i].ev[4] + " SpD / " + this.teamCubbies[i].ev[5] + " Spe\n";
 
+      let natureSelected = this.teamCubbies[i].nature;
       let parenIndex = this.teamCubbies[i].nature.indexOf('(');
-      if (parenIndex == -1) {
-        let natureSelected = this.teamCubbies[i].nature;
-      } else {
-        let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
+      // if (parenIndex == -1) {
+      //   let natureSelected = this.teamCubbies[i].nature;
+      // } else {
+      //   let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
+      // }
+      if (parenIndex != -1) {
+        natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
       }
       this.exportText += natureSelected + " Nature\n";
 
@@ -697,7 +701,7 @@ export class TeamComponent implements OnInit {
 
   onUpdateSearchPokemon(event: Event) {
     this.tierpkmn = [];
-    if (event.target.value.length === 0) {
+    if ((<HTMLInputElement>event.target).value.length === 0) {
       this.tierpkmn = this.legalpkmn;
 
       for (var i = 0; i < this.tierpkmn.length; ++i) {
@@ -713,7 +717,7 @@ export class TeamComponent implements OnInit {
       return;
     }
 
-    this.searchInput = event.target.value;
+    this.searchInput = (<HTMLInputElement>event.target).value;
 
     if (this.tierpkmn.length > 0) {
       // remove hover class only if there was something to hover over before
@@ -765,7 +769,7 @@ export class TeamComponent implements OnInit {
       event.stopPropagation();
     }
 
-    document.getElementById('tierFilterInput' + index).checked = !document.getElementById('tierFilterInput' + index).checked;
+    (<HTMLInputElement>document.getElementById('tierFilterInput' + index)).checked = !(<HTMLInputElement>document.getElementById('tierFilterInput' + index)).checked;
     this.applyFilter();
   }
 
@@ -782,15 +786,15 @@ export class TeamComponent implements OnInit {
   //pseudocode for now
 
   applyFilter() {
-    var roleSelected = document.getElementById('roleFilterInput').value;
+    var roleSelected = (<HTMLInputElement>document.getElementById('roleFilterInput')).value;
     var pkmnSearchArray = [];
     // check if 'all tiers' selected
-    if (document.getElementById('tierFilterInput12').checked) {
+    if ((<HTMLInputElement>document.getElementById('tierFilterInput12')).checked) {
       pkmnSearchArray = ['All Pokemon'].concat(Object.keys(allPkmnData));
       pkmnSearchArray.splice(-1,1);
     } else {
       for (var h = 0; h < this.tierKeys.length; ++h) {
-        var checkbox = document.getElementById('tierFilterInput' + h);
+        var checkbox = (<HTMLInputElement>document.getElementById('tierFilterInput' + h));
         if (checkbox.checked) {
           if (roleSelected === 'Role') {
             pkmnSearchArray.push.apply(pkmnSearchArray, pkmnData[this.tierKeys[h]]);
@@ -821,7 +825,7 @@ export class TeamComponent implements OnInit {
     }
 
     var tempArray = [];
-    var typeSelected = document.getElementById('typeFilterInput').value;
+    var typeSelected = (<HTMLInputElement>document.getElementById('typeFilterInput')).value;
     if (typeSelected !== 'Type') {
 
       for (var i = 0; i < pkmnSearchArray.length; ++i) {
@@ -839,7 +843,7 @@ export class TeamComponent implements OnInit {
       pkmnSearchArray = tempArray;
     }
 
-    var abilitySelected = document.getElementById('abilityFilterInput').value;
+    var abilitySelected = (<HTMLInputElement>document.getElementById('abilityFilterInput')).value;
     if (abilitySelected !== 'Ability') {
       tempArray = [];
 
@@ -858,7 +862,7 @@ export class TeamComponent implements OnInit {
       pkmnSearchArray = tempArray;
     }
 
-    var moveSelected = document.getElementById('moveFilterInput').value;
+    var moveSelected = (<HTMLInputElement>document.getElementById('moveFilterInput')).value;
     if (moveSelected !== 'Move') {
       tempArray = [];
 
@@ -884,12 +888,12 @@ export class TeamComponent implements OnInit {
 
   resetFilters() {
     for (var i = 0; i < this.tierKeys.length+1; ++i) {
-      document.getElementById('tierFilterInput' + i).checked = false;
+      (<HTMLInputElement>document.getElementById('tierFilterInput' + i)).checked = false;
     }
-    document.getElementById('typeFilterInput').value = "Type";
-    document.getElementById('abilityFilterInput').value = "Ability";
-    document.getElementById('moveFilterInput').value = "Move";
-    document.getElementById('roleFilterInput').value = "Role";
+    (<HTMLInputElement>document.getElementById('typeFilterInput')).value = "Type";
+    (<HTMLInputElement>document.getElementById('abilityFilterInput')).value = "Ability";
+    (<HTMLInputElement>document.getElementById('moveFilterInput')).value = "Move";
+    (<HTMLInputElement>document.getElementById('roleFilterInput')).value = "Role";
     this.applyFilter();
   }
 

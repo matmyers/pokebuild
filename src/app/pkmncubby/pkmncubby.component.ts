@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import * as pkmnData from "../../assets/tierList.json"
-import * as allPkmnData from "../../assets/dataTest3.json"
-import * as itemData from "../../assets/items.json"
-import * as abilityData from "../../assets/abilities.json"
-import * as moveData from "../../assets/moves.json"
+import * as pkmnData from "../../jsondata/tierList.json"
+import * as allPkmnData from "../../jsondata/dataTest3.json"
+import * as itemData from "../../jsondata/items.json"
+import * as abilityData from "../../jsondata/abilities.json"
+import * as moveData from "../../jsondata/moves.json"
 
 
 @Component({
@@ -61,6 +61,7 @@ export class PkmncubbyComponent implements OnInit {
   displayMoves = false;
   displayStats = false;
   displaySpeedComparison = false;
+  displaySpreads = false;
   opponentSelected = false;
   opponent = "";
   opponentSprite = "";
@@ -193,7 +194,7 @@ export class PkmncubbyComponent implements OnInit {
       prevHoverItem.classList.remove('myHover');
     }
     
-    if (event.target.value.length === 0) {
+    if ((<HTMLInputElement>event.target).value.length === 0) {
       this.isSearching = false;
       this.itemIndex = 0;
     } else {
@@ -204,7 +205,7 @@ export class PkmncubbyComponent implements OnInit {
     this.itemlist = [];
     // search by name
     for (var i = 0; i < Object.keys(itemData).length; ++i) {
-      if (Object.keys(itemData)[i].toLowerCase().includes(event.target.value.toLowerCase()) && Object.keys(itemData)[i].toLowerCase() !== "default") {
+      if (Object.keys(itemData)[i].toLowerCase().includes((<HTMLInputElement>event.target).value.toLowerCase()) && Object.keys(itemData)[i].toLowerCase() !== "default") {
         this.itemlist.push(Object.keys(itemData)[i]);
       }
     }
@@ -221,14 +222,18 @@ export class PkmncubbyComponent implements OnInit {
     }, 10);
   }
 
-  navigateItem(event: Event) {
+  navigateItem(event: KeyboardEvent) {
+    let minValue = 0;
+    let maxValue = this.itemlist.length-1;
+
     if (this.isSearching) {
-      let minValue = this.recitemlist.length;
-      let maxValue = this.itemlist.length-1 + this.recitemlist.length;
-    } else {
-      let minValue = 0;
-      let maxValue = this.itemlist.length-1;
+      minValue = this.recitemlist.length;
+      maxValue = this.itemlist.length-1 + this.recitemlist.length;
     }
+    // else {
+    //   let minValue = 0;
+    //   let maxValue = this.itemlist.length-1;
+    // }
 
     if (event.keyCode == 13) {
       if (this.itemIndex < this.recitemlist.length) {
@@ -255,7 +260,7 @@ export class PkmncubbyComponent implements OnInit {
     }
   }
 
-  navigateAbility(event: Event) {
+  navigateAbility(event: KeyboardEvent) {
     if (event.keyCode == 13) {
       this.addAbility(this.abilitylist[this.abilityIndex]);
     } else if (event.keyCode == 38) {
@@ -277,14 +282,18 @@ export class PkmncubbyComponent implements OnInit {
     }
   }
 
-  navigateMove(event: Event) {
+  navigateMove(event: KeyboardEvent) {
+    let minValue = 0;
+    let maxValue = this.movelist.length-1;
+
     if (this.isSearching) {
-      let minValue = this.recmovelist.length;
-      let maxValue = this.movelist.length-1 + this.recmovelist.length;
-    } else {
-      let minValue = 0;
-      let maxValue = this.movelist.length-1;
+      minValue = this.recmovelist.length;
+      maxValue = this.movelist.length-1 + this.recmovelist.length;
     }
+    // else {
+    //   let minValue = 0;
+    //   let maxValue = this.movelist.length-1;
+    // }
 
     if (event.keyCode == 13) {
       if (this.moveNavIndex < this.recmovelist.length) {
@@ -433,7 +442,7 @@ export class PkmncubbyComponent implements OnInit {
       }
     }
 
-    if (event.target.value.length === 0) {
+    if ((<HTMLInputElement>event.target).value.length === 0) {
       this.isSearching = false;
       this.moveNavIndex = 0;
       this.moveSelected[this.moveIndex] = false;
@@ -445,7 +454,7 @@ export class PkmncubbyComponent implements OnInit {
     this.movelist = [];
     // search by name
     for (var i = 0; i < allPkmnData[this.name]["moves"].length; ++i) {
-      if (allPkmnData[this.name]["moves"][i].toLowerCase().includes(event.target.value.toLowerCase()) || moveData[allPkmnData[this.name]["moves"][i]]['type'].includes(event.target.value.toLowerCase())) {
+      if (allPkmnData[this.name]["moves"][i].toLowerCase().includes((<HTMLInputElement>event.target).value.toLowerCase()) || moveData[allPkmnData[this.name]["moves"][i]]['type'].includes((<HTMLInputElement>event.target).value.toLowerCase())) {
         this.movelist.push(allPkmnData[this.name]["moves"][i]);
       }
     }
@@ -467,7 +476,7 @@ export class PkmncubbyComponent implements OnInit {
         this.moveIndex++;
         // reset move display for next move
         if (!this.moveSelected[this.moveIndex]) {
-          document.getElementById('searchMov' + this.index + '-' + (this.moveIndex)).value = "";  
+          (<HTMLInputElement>document.getElementById('searchMov' + this.index + '-' + (this.moveIndex))).value = "";  
         }
         
         this.movelist = allPkmnData[this.name]["moves"];
@@ -476,7 +485,7 @@ export class PkmncubbyComponent implements OnInit {
     }
   }
 
-  addSpread(spreadSelected: string) {
+  addSpread(spreadSelected: any) {
     let natureSelected = spreadSelected.nature;
 
     this.ev[0] = parseInt(spreadSelected.hp);
@@ -495,35 +504,35 @@ export class PkmncubbyComponent implements OnInit {
       document.getElementById('pts' + this.index).style.color = 'white';
     }
 
-    this.setNature(natureSelected);
+    this.setNature(natureSelected, undefined);
     this.displaySpreads = false
   }
 
   setStats(event: Event, statChanged: string) {
-    if (event.target.value.length === 0) {
-      event.target.value = 0;
+    if ((<HTMLInputElement>event.target).value.length === 0) {
+      (<HTMLInputElement>event.target).value = '0';
     }
-    if (event.target.value > 252) {
-      event.target.value = 252;
+    if (parseInt((<HTMLInputElement>event.target).value) > 252) {
+      (<HTMLInputElement>event.target).value = '252';
     }
     switch(statChanged) {
       case "hp":
-        this.ev[0] = parseInt(event.target.value);
+        this.ev[0] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "atk":
-        this.ev[1] = parseInt(event.target.value);
+        this.ev[1] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "def":
-        this.ev[2] = parseInt(event.target.value);
+        this.ev[2] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "spa":
-        this.ev[3] = parseInt(event.target.value);
+        this.ev[3] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "spd":
-        this.ev[4] = parseInt(event.target.value);
+        this.ev[4] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "spe":
-        this.ev[5] = parseInt(event.target.value);
+        this.ev[5] = parseInt((<HTMLInputElement>event.target).value);
         break;
       default:
         console.log("stat type error");
@@ -541,30 +550,30 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   setIV(event: Event, statChanged: string) {
-    if (event.target.value.length === 0) {
-      event.target.value = 0;
+    if ((<HTMLInputElement>event.target).value.length === 0) {
+      (<HTMLInputElement>event.target).value = '0';
     }
-    if (event.target.value > 31) {
-      event.target.value = 31;
+    if (parseInt((<HTMLInputElement>event.target).value) > 31) {
+      (<HTMLInputElement>event.target).value = '31';
     }
     switch(statChanged) {
       case "hp":
-        this.iv[0] = parseInt(event.target.value);
+        this.iv[0] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "atk":
-        this.iv[1] = parseInt(event.target.value);
+        this.iv[1] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "def":
-        this.iv[2] = parseInt(event.target.value);
+        this.iv[2] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "spa":
-        this.iv[3] = parseInt(event.target.value);
+        this.iv[3] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "spd":
-        this.iv[4] = parseInt(event.target.value);
+        this.iv[4] = parseInt((<HTMLInputElement>event.target).value);
         break;
       case "spe":
-        this.iv[5] = parseInt(event.target.value);
+        this.iv[5] = parseInt((<HTMLInputElement>event.target).value);
         break;
       default:
         console.log("stat type error");
@@ -578,18 +587,18 @@ export class PkmncubbyComponent implements OnInit {
     var natureSelected = "";
 
     if (preset === undefined) {
-      this.nature = document.getElementById('natureSelect').value;
+      this.nature = (<HTMLInputElement>document.getElementById('natureSelect')).value;
 
       let parenIndex = this.nature.indexOf('(');
       natureSelected = this.nature.substring(0, parenIndex-1);
     } else {
       if (imported === undefined) {
-        for (var m = 0; m < document.getElementById('natureSelect').options.length; ++m) {
-          if (document.getElementById('natureSelect').options[m].value.includes(preset)) {
-            document.getElementById('natureSelect').value = document.getElementById('natureSelect').options[m].value;
+        for (var m = 0; m < (<HTMLSelectElement>document.getElementById('natureSelect')).options.length; ++m) {
+          if ((<HTMLSelectElement>document.getElementById('natureSelect')).options[m].value.includes(preset)) {
+            (<HTMLSelectElement>document.getElementById('natureSelect')).value = (<HTMLSelectElement>document.getElementById('natureSelect')).options[m].value;
           }
         }
-        this.nature = document.getElementById('natureSelect').value;
+        this.nature = (<HTMLSelectElement>document.getElementById('natureSelect')).value;
       } else {
         for (var m = 0; m < this.natureKeys.length; ++m) {
           if (this.natureKeys[m].includes(preset)) {
@@ -709,7 +718,7 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   setSpeedBoost() {
-    switch(document.getElementById('speedBoostSelect').value) {
+    switch((<HTMLInputElement>document.getElementById('speedBoostSelect')).value) {
       case "+6":
         this.boostLevel = 4;
         break;
@@ -757,7 +766,7 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   setOpponentSpeedBoost() {
-    switch(document.getElementById('opponentSpeedBoostSelect').value) {
+    switch((<HTMLInputElement>document.getElementById('opponentSpeedBoostSelect')).value) {
       case "+6":
         this.opponentBoostLevel = 4;
         break;
@@ -805,16 +814,16 @@ export class PkmncubbyComponent implements OnInit {
   }
 
   setOpponent() {
-    this.opponent = document.getElementById('opponentSelect').value;
+    this.opponent = (<HTMLInputElement>document.getElementById('opponentSelect')).value;
     this.opponentSprite = "../../assets/sprites/" + this.opponent.toLowerCase().replace(/['%:.]/g,'') + ".png";
     this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * this.opponentBoostLevel);
     this.opponentSelected = true;
   }
 
   setOpponentModifier() {
-    if (document.getElementById('opponentModSelect').value === "+Speed") {
+    if ((<HTMLInputElement>document.getElementById('opponentModSelect')).value === "+Speed") {
       this.opponentModifier = 1.1;
-    } else if (document.getElementById('opponentModSelect').value === "-Speed") {
+    } else if ((<HTMLInputElement>document.getElementById('opponentModSelect')).value === "-Speed") {
       this.opponentModifier = 0.9;
     } else {
       this.opponentModifier = 1;
@@ -824,16 +833,16 @@ export class PkmncubbyComponent implements OnInit {
   }  
 
   setOpponentStats(event: Event, evOrIv: string) {
-    if (event.target.value.length === 0) {
-      event.target.value = 0;
+    if ((<HTMLInputElement>event.target).value.length === 0) {
+      (<HTMLInputElement>event.target).value = '0';
     }
 
     if (evOrIv === "ev") {
-      if (event.target.value > 252) {event.target.value = 252;}
-      this.opponentEv = parseInt(event.target.value);
+      if (parseInt((<HTMLInputElement>event.target).value) > 252) {(<HTMLInputElement>event.target).value = '252';}
+      this.opponentEv = parseInt((<HTMLInputElement>event.target).value);
     } else if (evOrIv === "iv") {
-      if (event.target.value > 31) {event.target.value = 31;}
-      this.opponentIv = parseInt(event.target.value);
+      if (parseInt((<HTMLInputElement>event.target).value) > 31) {(<HTMLInputElement>event.target).value = '31';}
+      this.opponentIv = parseInt((<HTMLInputElement>event.target).value);
     } else {
       console.log("opponent stat selection error");
     }
