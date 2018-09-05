@@ -1,0 +1,10 @@
+{
+	"Bisharp" : { 
+					"hp" : 65,
+					"atk" : 125,
+					"def" : 100,
+					"spatk" : 60,
+					"spdef" : 70,
+					"speed" : 70
+				}
+}
