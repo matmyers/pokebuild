@@ -11,7 +11,6 @@ import { NavbarpbComponent } from './navbarpb/navbarpb.component';
 import { TbcompetitiveComponent } from './tbcompetitive/tbcompetitive.component';
 import { PkmncubbyComponent } from './pkmncubby/pkmncubby.component';
 import { TeamComponent } from './team/team.component';
-import { SearchresultpkmnComponent } from './searchresultpkmn/searchresultpkmn.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { SearchresultpkmnComponent } from './searchresultpkmn/searchresultpkmn.c
     NavbarpbComponent,
     TbcompetitiveComponent,
     PkmncubbyComponent,
-    TeamComponent,
-    SearchresultpkmnComponent
+    TeamComponent
   ],
   imports: [
     BrowserModule,

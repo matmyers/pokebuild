@@ -6,8 +6,8 @@ import { TbcompetitiveComponent } from './tbcompetitive/tbcompetitive.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'teambuilderselect', component: TbselectComponent },
-  { path: 'teambuildercompetitive', component: TbcompetitiveComponent }
+  { path: 'teambuilder-select', component: TbselectComponent },
+  { path: 'teambuilder-competitive', component: TbcompetitiveComponent }
 ];
 
 @NgModule({
