@@ -85,7 +85,7 @@ export class PkmncubbyComponent implements OnInit {
 
     if (this.itemImport) {
       this.item = this.itemImport;
-      this.itemSprite = "./../../assets/items/" + this.itemImport + ".png";
+      this.itemSprite = "./../assets/items/" + this.itemImport + ".png";
     } else {
       if (allPkmnData[this.name]["specialItem"]) {
         this.addItem(allPkmnData[this.name]["specialItem"]);
@@ -115,7 +115,7 @@ export class PkmncubbyComponent implements OnInit {
     }
   	// initialize everything using this.name
   	// this.tier = this.tier.toLowerCase();
-    this.sprite = "./../../assets/sprites/" + this.name.toLowerCase().replace(/['%:.]/g,'') + ".png";
+    this.sprite = "./../assets/sprites/" + this.name.toLowerCase().replace(/['%:.]/g,'') + ".png";
 
     this.movelist = allPkmnData[this.name]["moves"];
     this.itemlist.splice(-1,1);
@@ -215,7 +215,7 @@ export class PkmncubbyComponent implements OnInit {
 
   addItem(itemSelected: string) {
     this.item = itemSelected;
-    this.itemSprite = "./../../assets/items/" + itemSelected + ".png";
+    this.itemSprite = "./../assets/items/" + itemSelected + ".png";
     this.displayItems = false;
     setTimeout(()=>{
       this.searchAbi.nativeElement.focus();
@@ -815,7 +815,7 @@ export class PkmncubbyComponent implements OnInit {
 
   setOpponent() {
     this.opponent = (<HTMLInputElement>document.getElementById('opponentSelect')).value;
-    this.opponentSprite = "./../../assets/sprites/" + this.opponent.toLowerCase().replace(/['%:.]/g,'') + ".png";
+    this.opponentSprite = "./../assets/sprites/" + this.opponent.toLowerCase().replace(/['%:.]/g,'') + ".png";
     this.opponentSpeed = Math.floor((2 * allPkmnData[this.opponent]["baseStats"][5] + this.opponentIv + Math.floor(this.opponentEv/4) + 5) * this.opponentModifier * this.opponentBoostLevel);
     this.opponentSelected = true;
   }
