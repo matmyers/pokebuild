@@ -142,7 +142,7 @@
 					      <p class="d-inline"> {{ recpoke.name }}</p>
 					    </div>
 					    <div class="col-sm-2 text-left">
-					      <img *ngFor="let type of allData[recpoke.name].types" src="../../assets/types/{{ type }}.png">
+					      <img *ngFor="let type of allData[recpoke.name].types" src="./assets/types/{{ type }}.png">
 					    </div>
 					    <!-- <div class="col-sm-1 text-left mt-2" style="line-height:4px">
 					      <p> {{ allData[recpoke.name]['abilities'][0] }}</p>
@@ -205,7 +205,7 @@
 						      <p class="d-inline"> {{ poke }}</p>
 						    </div>
 						    <div class="col-sm-2 text-left">
-						      <img *ngFor="let type of allData[poke].types" src="../../assets/types/{{ type }}.png">
+						      <img *ngFor="let type of allData[poke].types" src="./assets/types/{{ type }}.png">
 						    </div>
 						    <div class="col-sm-1 text-left mt-2" style="line-height:4px">
 						      <p> {{ allData[poke]['abilities'][0] }}</p>
