@@ -666,11 +666,6 @@ export class TeamComponent implements OnInit {
 
       let natureSelected = this.teamCubbies[i].nature;
       let parenIndex = this.teamCubbies[i].nature.indexOf('(');
-      // if (parenIndex == -1) {
-      //   let natureSelected = this.teamCubbies[i].nature;
-      // } else {
-      //   let natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
-      // }
       if (parenIndex != -1) {
         natureSelected = this.teamCubbies[i].nature.substring(0, parenIndex-1);
       }
@@ -718,6 +713,7 @@ export class TeamComponent implements OnInit {
     }
 
     this.searchInput = (<HTMLInputElement>event.target).value;
+    //console.log(this.searchInput);
 
     if (this.tierpkmn.length > 0) {
       // remove hover class only if there was something to hover over before
@@ -729,31 +725,38 @@ export class TeamComponent implements OnInit {
 
     this.tierpkmn = [];
     // search by name
-    for (var i = 0; i < this.legalpkmn.length; ++i) {
-      if (this.tierKeys.indexOf(this.legalpkmn[i]) == -1) {
-        if (this.legalpkmn[i].toLowerCase().includes(this.searchInput.toLowerCase()) || this.calcHammingDistance(this.searchInput.toLowerCase(), this.legalpkmn[i].toLowerCase()) == 0) {
-          this.tierpkmn.push(this.legalpkmn[i]);
+    for (var j = 0; j < this.legalpkmn.length; ++j) {
+      if (this.tierKeys.indexOf(this.legalpkmn[j]) == -1) {
+        if (this.legalpkmn[j].toLowerCase().includes(this.searchInput.toLowerCase()) || (this.searchInput.length > 3 && this.calcHammingDistance(this.searchInput.toLowerCase(), this.legalpkmn[j].toLowerCase()) < 2)) {
+          this.tierpkmn.push(this.legalpkmn[j]);
         }
       }
     }
 
     var hdArray = {};
-    for (var i = 0; i < this.tierpkmn.length; ++i) {
-      var name = this.tierpkmn[i];
-      var hd = this.calcHammingDistance(this.searchInput.toLowerCase(),this.tierpkmn[i].toLowerCase());
+    for (var k = 0; k < this.tierpkmn.length; ++k) {
+      var name = this.tierpkmn[k];
+      var hd = this.calcHammingDistance(this.searchInput.toLowerCase(),this.tierpkmn[k].toLowerCase());
       hdArray[name] = hd;
     }
+    console.log(this.tierpkmn.length);
+    console.log(Object.keys(hdArray).length);
 
     // sort by hamming distance
-    this.tierpkmn.sort(function(a,b) {
-      return hdArray[a] - hdArray[b];
-    });
+    if (this.tierpkmn.length > 0) {
+      console.log('noice');
+      this.tierpkmn.sort(function(a,b) {
+        return hdArray[a] - hdArray[b];
+      });
+    }
 
-    for (var i = 0; i < this.tierpkmn.length; ++i) {
-      if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
-        this.sprites[i] = "";
+    console.log('no problem yet')
+
+    for (var m = 0; m < this.tierpkmn.length; ++m) {
+      if (this.tierKeys.indexOf(this.tierpkmn[m]) != -1) {
+        this.sprites[m] = "";
       } else {
-        this.sprites[i] = "../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        this.sprites[m] = "../../assets/sprites/" + this.tierpkmn[m].toLowerCase().replace(/['%:.]/g,'') + ".png";
       }
     }
 
