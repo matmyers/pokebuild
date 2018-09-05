@@ -105,7 +105,7 @@ export class TeamComponent implements OnInit {
       if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
         this.sprites[i] = "";
       } else {
-        this.sprites[i] = "./../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        this.sprites[i] = "./../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
       }
     }
     this.tierSelected = true;
@@ -122,7 +122,7 @@ export class TeamComponent implements OnInit {
       if (this.tierKeys.indexOf(this.viewPortItems[i]) != -1) {
         this.sprites[i] = "";
       } else {
-        this.sprites[i] = "./../assets/sprites/" + this.viewPortItems[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        this.sprites[i] = "./../../assets/sprites/" + this.viewPortItems[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
       }
     }
   }
@@ -187,7 +187,7 @@ export class TeamComponent implements OnInit {
 
   addTeamMember(poke: string) {
   	this.teamMembers.push(poke);
-    this.teamSprites.push("./../assets/sprites/" + poke.toLowerCase().replace(/['%:.]/g,'') + ".png");
+    this.teamSprites.push("./../../assets/sprites/" + poke.toLowerCase().replace(/['%:.]/g,'') + ".png");
     this.displayPokemon = false;
     setTimeout(()=>{
       this.teamCubbies = this.pkmnCubbies.toArray();
@@ -211,7 +211,7 @@ export class TeamComponent implements OnInit {
         for (var j = 0; j < allPkmnData[memberName]["teammates"][this.tier].length; ++j) {
           var key = Object.keys(allPkmnData[memberName]["teammates"][this.tier][j]);
           // check if already in, if not, push
-          var poke = {name:key[0], sprite:"./../assets/sprites/" + key[0].toLowerCase().replace(/['%:.]/g,'') + ".png", usage:[allPkmnData[memberName]["teammates"][this.tier][j][key[0]]], partner:[memberName]};
+          var poke = {name:key[0], sprite:"./../../assets/sprites/" + key[0].toLowerCase().replace(/['%:.]/g,'') + ".png", usage:[allPkmnData[memberName]["teammates"][this.tier][j][key[0]]], partner:[memberName]};
           var alreadyIn = false;
           for (var k = 0; k < this.recpokelist.length; ++k) {
             if (this.recpokelist[k].name === key[0]) {
@@ -482,7 +482,7 @@ export class TeamComponent implements OnInit {
       if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
         this.sprites[i] = "";
       } else {
-        this.sprites[i] = "./../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        this.sprites[i] = "./../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
       }
     }
   	this.displayPokemon = true;
@@ -641,7 +641,7 @@ export class TeamComponent implements OnInit {
       }
 
       this.teamMembers.push({nameImport:name, itemImport:item, abilityImport:ability, evsImport:evs, natureImport:nature, ivsImport:ivs, movesImport:moves});
-      this.teamSprites.push("./../assets/sprites/" + name.toLowerCase().replace(/['%:.]/g,'') + ".png");
+      this.teamSprites.push("./../../assets/sprites/" + name.toLowerCase().replace(/['%:.]/g,'') + ".png");
     }
 
 
@@ -703,7 +703,7 @@ export class TeamComponent implements OnInit {
         if (this.tierKeys.indexOf(this.tierpkmn[i]) != -1) {
           this.sprites[i] = "";
         } else {
-          this.sprites[i] = "./../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
+          this.sprites[i] = "./../../assets/sprites/" + this.tierpkmn[i].toLowerCase().replace(/['%:.]/g,'') + ".png";
         }
       }
 
@@ -756,7 +756,7 @@ export class TeamComponent implements OnInit {
       if (this.tierKeys.indexOf(this.tierpkmn[m]) != -1) {
         this.sprites[m] = "";
       } else {
-        this.sprites[m] = "./../assets/sprites/" + this.tierpkmn[m].toLowerCase().replace(/['%:.]/g,'') + ".png";
+        this.sprites[m] = "./../../assets/sprites/" + this.tierpkmn[m].toLowerCase().replace(/['%:.]/g,'') + ".png";
       }
     }
 
