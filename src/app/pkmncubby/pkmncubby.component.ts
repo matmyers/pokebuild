@@ -175,6 +175,7 @@ export class PkmncubbyComponent implements OnInit {
       var displayArea = document.getElementById('displayArea' + this.index);
       if (displayArea !== null) {
         displayArea.scrollIntoView({ block: 'start', behavior: 'auto' });
+        window.scrollBy(0, -69);
       }
     }, 10);
   }

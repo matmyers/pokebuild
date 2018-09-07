@@ -1,4 +1,4 @@
-<div class="container" (click)="enterSinglePokemonView()">
+<div attr.id="displayArea{{index}}" class="container" (click)="enterSinglePokemonView()">
   <div class="row">
     <div class="col-sm-6 text-left">
       <p class="d-inline">{{ name }}</p>
@@ -11,7 +11,7 @@
     </div>
   </div>
   <hr>
-  <div attr.id="displayArea{{index}}" class="row">
+  <div class="row">
     <div class="col-sm-2 text-left mt-1">
     	<!-- item -->
       <label for="searchItem">Item:</label><img src="{{ itemSprite }}">

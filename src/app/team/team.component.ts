@@ -128,7 +128,7 @@ export class TeamComponent implements OnInit {
   }
 
   navigatePokemon(event: KeyboardEvent) {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 13 && this.tierpkmn.length > 0) {
       this.addTeamMember(this.tierpkmn[this.listedpkmnIndex]);
     } else if (event.keyCode == 38) {
       if (this.listedpkmnIndex > 0) {
@@ -469,6 +469,11 @@ export class TeamComponent implements OnInit {
     this.cd.detectChanges();
     this.displayPokemon = false;
 
+    this.teamCubbies = this.pkmnCubbies.toArray();
+    for (var j = 0; j < this.teamCubbies.length; ++j) {
+      this.teamCubbies[j].displayStats = false;
+    }
+
     setTimeout(()=>{
       (<HTMLInputElement>document.activeElement).blur();
       this.scrollToTop();
@@ -739,18 +744,14 @@ export class TeamComponent implements OnInit {
       var hd = this.calcHammingDistance(this.searchInput.toLowerCase(),this.tierpkmn[k].toLowerCase());
       hdArray[name] = hd;
     }
-    console.log(this.tierpkmn.length);
-    console.log(Object.keys(hdArray).length);
-
+    
     // sort by hamming distance
     if (this.tierpkmn.length > 0) {
-      console.log('noice');
       this.tierpkmn.sort(function(a,b) {
         return hdArray[a] - hdArray[b];
       });
     }
 
-    console.log('no problem yet')
 
     for (var m = 0; m < this.tierpkmn.length; ++m) {
       if (this.tierKeys.indexOf(this.tierpkmn[m]) != -1) {
