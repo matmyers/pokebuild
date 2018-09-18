@@ -1229,7 +1229,7 @@
         "power": "50",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 75 of the damage dealt."
+        "desc": "Leeches 75% of the damage dealt."
     },
     "Dream Eater": {
         "type": "psychic",
@@ -3413,7 +3413,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 75 of the damage dealt."
+        "desc": "Leeches 75% of the damage dealt."
     },
     "Oceanic Operetta": {
         "type": "water",
