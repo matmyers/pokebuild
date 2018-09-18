@@ -13,7 +13,7 @@
         "power": "20",
         "accuracy": "100",
         "pp": "64",
-        "desc": "Leeches 50 of the damage dealt."
+        "desc": "Leeches 50% of the damage dealt."
     },
     "Accelerock": {
         "type": "rock",
@@ -29,7 +29,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "48",
-        "desc": "10 chance to lower the target's Defense by one stage."
+        "desc": "10% chance to lower the target's Defense by one stage."
     },
     "Acid Armor": {
         "type": "poison",
@@ -117,7 +117,7 @@
         "power": "75",
         "accuracy": "95",
         "pp": "32",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "All-Out Pummeling": {
         "type": "fighting",
@@ -157,7 +157,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "8",
-        "desc": "10 chance to boost all stats by one stage."
+        "desc": "10% chance to boost all stats by one stage."
     },
     "Aqua Jet": {
         "type": "water",
@@ -229,7 +229,7 @@
         "power": "30",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Attack Order": {
         "type": "bug",
@@ -245,7 +245,7 @@
         "power": "-",
         "accuracy": "100",
         "pp": "24",
-        "desc": "Targets of the opposite gender are infatuated and have a 50 chance to do nothing."
+        "desc": "Targets of the opposite gender are infatuated and have a 50% chance to do nothing."
     },
     "Aura Sphere": {
         "type": "fighting",
@@ -261,7 +261,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "10 chance to lower the opposing Pokemon's Attack by one stage."
+        "desc": "10% chance to lower the opposing Pokemon's Attack by one stage."
     },
     "Aurora Veil": {
         "type": "ice",
@@ -357,7 +357,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "The user loses 50 of max HP. Maximizes the user's Attack."
+        "desc": "The user loses 50% of max HP. Maximizes the user's Attack."
     },
     "Bestow": {
         "type": "normal",
@@ -389,7 +389,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "64",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Black Hole Eclipse": {
         "type": "dark",
@@ -413,7 +413,7 @@
         "power": "85",
         "accuracy": "90",
         "pp": "16",
-        "desc": "High critical hit rate. 10 chance to burn the target."
+        "desc": "High critical hit rate. 10% chance to burn the target."
     },
     "Blizzard": {
         "type": "ice",
@@ -421,7 +421,7 @@
         "power": "110",
         "accuracy": "70",
         "pp": "8",
-        "desc": "10 chance to freeze the target."
+        "desc": "10% chance to freeze the target."
     },
     "Block": {
         "type": "normal",
@@ -445,7 +445,7 @@
         "power": "130",
         "accuracy": "85",
         "pp": "8",
-        "desc": "20 chance to burn the target."
+        "desc": "20% chance to burn the target."
     },
     "Body Slam": {
         "type": "normal",
@@ -453,7 +453,7 @@
         "power": "85",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance to paralyze the target."
+        "desc": "30% chance to paralyze the target."
     },
     "Bolt Strike": {
         "type": "electric",
@@ -461,7 +461,7 @@
         "power": "130",
         "accuracy": "85",
         "pp": "8",
-        "desc": "20 chance to paralyze the target."
+        "desc": "20% chance to paralyze the target."
     },
     "Bone Club": {
         "type": "ground",
@@ -469,7 +469,7 @@
         "power": "65",
         "accuracy": "85",
         "pp": "32",
-        "desc": "10 chance of causing the target to flinch."
+        "desc": "10% chance of causing the target to flinch."
     },
     "Bone Rush": {
         "type": "ground",
@@ -501,7 +501,7 @@
         "power": "85",
         "accuracy": "85",
         "pp": "8",
-        "desc": "The user is made invulnerable for one turn, then hits the next turn. 30 chance to paralyze the target."
+        "desc": "The user is made invulnerable for one turn, then hits the next turn. 30% chance to paralyze the target."
     },
     "Brave Bird": {
         "type": "flying",
@@ -533,7 +533,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Base Power doubles if the target's HP is 50 or less."
+        "desc": "Base Power doubles if the target's HP is 50% or less."
     },
     "Brutal Swing": {
         "type": "dark",
@@ -549,7 +549,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "48",
-        "desc": "10 chance to lower the target's Speed by one stage."
+        "desc": "10% chance to lower the target's Speed by one stage."
     },
     "Bubble Beam": {
         "type": "water",
@@ -557,7 +557,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "10 chance to lower the target's Speed by one stage."
+        "desc": "10% chance to lower the target's Speed by one stage."
     },
     "Bug Bite": {
         "type": "bug",
@@ -573,7 +573,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to lower the target's Special Defense by one stage."
+        "desc": "10% chance to lower the target's Special Defense by one stage."
     },
     "Bulk Up": {
         "type": "fighting",
@@ -669,7 +669,7 @@
         "power": "50",
         "accuracy": "90",
         "pp": "16",
-        "desc": "70 chance to boost the user's Special Attack by one stage."
+        "desc": "70% chance to boost the user's Special Attack by one stage."
     },
     "Charm": {
         "type": "fairy",
@@ -781,7 +781,7 @@
         "power": "50",
         "accuracy": "100",
         "pp": "64",
-        "desc": "10 chance to confuse the target."
+        "desc": "10% chance to confuse the target."
     },
     "Constrict": {
         "type": "normal",
@@ -789,7 +789,7 @@
         "power": "10",
         "accuracy": "100",
         "pp": "56",
-        "desc": "10 chance to lower the target Speed by one stage."
+        "desc": "10% chance to lower the target Speed by one stage."
     },
     "Continental Crush": {
         "type": "rock",
@@ -909,7 +909,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "32",
-        "desc": "High critical hit rate. 10 chance to poison the target."
+        "desc": "High critical hit rate. 10% chance to poison the target."
     },
     "Crunch": {
         "type": "dark",
@@ -917,7 +917,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "20 chance to lower the target's Defense by one stage."
+        "desc": "20% chance to lower the target's Defense by one stage."
     },
     "Crush Claw": {
         "type": "normal",
@@ -925,7 +925,7 @@
         "power": "75",
         "accuracy": "95",
         "pp": "16",
-        "desc": "50 chance to lower the target's Defense by one stage."
+        "desc": "50% chance to lower the target's Defense by one stage."
     },
     "Crush Grip": {
         "type": "normal",
@@ -957,7 +957,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "20 chance of causing the target to flinch."
+        "desc": "20% chance of causing the target to flinch."
     },
     "Dark Void": {
         "type": "dark",
@@ -1037,7 +1037,7 @@
         "power": "100",
         "accuracy": "95",
         "pp": "8",
-        "desc": "50 chance to boost the user's Defense by two stages."
+        "desc": "50% chance to boost the user's Defense by two stages."
     },
     "Dig": {
         "type": "ground",
@@ -1069,7 +1069,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance to paralyze the target."
+        "desc": "30% chance to paralyze the target."
     },
     "Dive": {
         "type": "water",
@@ -1085,7 +1085,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "16",
-        "desc": "20 chance to confuse the target."
+        "desc": "20% chance to confuse the target."
     },
     "Doom Desire": {
         "type": "steel",
@@ -1157,7 +1157,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "32",
-        "desc": "30 chance to paralyze the target."
+        "desc": "30% chance to paralyze the target."
     },
     "Dragon Claw": {
         "type": "dragon",
@@ -1205,7 +1205,7 @@
         "power": "100",
         "accuracy": "75",
         "pp": "16",
-        "desc": "20 chance of causing the target to flinch."
+        "desc": "20% chance of causing the target to flinch."
     },
     "Dragon Tail": {
         "type": "dragon",
@@ -1221,7 +1221,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 50 of the damage dealt."
+        "desc": "Leeches 50% of the damage dealt."
     },
     "Draining Kiss": {
         "type": "fairy",
@@ -1229,7 +1229,7 @@
         "power": "50",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 75 of the damage dealt."
+        "desc": "Leeches 75% of the damage dealt."
     },
     "Dream Eater": {
         "type": "psychic",
@@ -1237,7 +1237,7 @@
         "power": "100",
         "accuracy": "100",
         "pp": "24",
-        "desc": "Leeches 50 of the damage dealt. Only works if the target is asleep."
+        "desc": "Leeches 50% of the damage dealt. Only works if the target is asleep."
     },
     "Drill Peck": {
         "type": "flying",
@@ -1277,7 +1277,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to lower the target's Special Defense by one stage."
+        "desc": "10% chance to lower the target's Special Defense by one stage."
     },
     "Earthquake": {
         "type": "ground",
@@ -1357,7 +1357,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "64",
-        "desc": "10 chance to burn the target."
+        "desc": "10% chance to burn the target."
     },
     "Encore": {
         "type": "normal",
@@ -1389,7 +1389,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to lower the target's Special Defense by one stage."
+        "desc": "10% chance to lower the target's Special Defense by one stage."
     },
     "Entrainment": {
         "type": "normal",
@@ -1421,7 +1421,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "32",
-        "desc": "10 chance of causing the target to flinch."
+        "desc": "10% chance of causing the target to flinch."
     },
     "Extreme Evoboost": {
         "type": "normal",
@@ -1525,7 +1525,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "50 chance to boost the user's Special Attack by one stage."
+        "desc": "50% chance to boost the user's Special Attack by one stage."
     },
     "Final Gambit": {
         "type": "fighting",
@@ -1541,7 +1541,7 @@
         "power": "110",
         "accuracy": "85",
         "pp": "8",
-        "desc": "10 chance to burn the target."
+        "desc": "10% chance to burn the target."
     },
     "Fire Fang": {
         "type": "fire",
@@ -1549,7 +1549,7 @@
         "power": "65",
         "accuracy": "95",
         "pp": "24",
-        "desc": "10 chance of causing the target to flinch. 10 chance to burn the target."
+        "desc": "10% chance of causing the target to flinch. 10% chance to burn the target."
     },
     "Fire Lash": {
         "type": "fire",
@@ -1557,7 +1557,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "100 chance to lower the target's Defense by 1."
+        "desc": "100% chance to lower the target's Defense by 1."
     },
     "Fire Pledge": {
         "type": "fire",
@@ -1573,7 +1573,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "24",
-        "desc": "10 chance to burn the target."
+        "desc": "10% chance to burn the target."
     },
     "Fire Spin": {
         "type": "fire",
@@ -1629,7 +1629,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "64",
-        "desc": "10 chance to burn the target. Thaws the user."
+        "desc": "10% chance to burn the target. Thaws the user."
     },
     "Flamethrower": {
         "type": "fire",
@@ -1637,7 +1637,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "24",
-        "desc": "10 chance to burn the target."
+        "desc": "10% chance to burn the target."
     },
     "Flare Blitz": {
         "type": "fire",
@@ -1645,7 +1645,7 @@
         "power": "120",
         "accuracy": "100",
         "pp": "24",
-        "desc": "User takes one-third of damage dealt in recoil. 10 chance to burn the target."
+        "desc": "User takes one-third of damage dealt in recoil. 10% chance to burn the target."
     },
     "Flash": {
         "type": "normal",
@@ -1661,7 +1661,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to lower the target's Special Defense by one stage."
+        "desc": "10% chance to lower the target's Special Defense by one stage."
     },
     "Flatter": {
         "type": "dark",
@@ -1693,7 +1693,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals the target by 50 of its max HP."
+        "desc": "Heals the target by 50% of its max HP."
     },
     "Flower Shield": {
         "type": "fairy",
@@ -1725,7 +1725,7 @@
         "power": "120",
         "accuracy": "70",
         "pp": "8",
-        "desc": "10 chance to lower the target's Special Defense by one stage."
+        "desc": "10% chance to lower the target's Special Defense by one stage."
     },
     "Focus Energy": {
         "type": "normal",
@@ -1757,7 +1757,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "16",
-        "desc": "30 chance to paralyze the target."
+        "desc": "30% chance to paralyze the target."
     },
     "Foresight": {
         "type": "normal",
@@ -1789,7 +1789,7 @@
         "power": "140",
         "accuracy": "90",
         "pp": "8",
-        "desc": "Hits the turn after being used. 30 chance to paralyze the target."
+        "desc": "Hits the turn after being used. 30% chance to paralyze the target."
     },
     "Freeze-Dry": {
         "type": "ice",
@@ -1797,7 +1797,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "32",
-        "desc": "Super effective against Water-type Pokemon. 10 chance to freeze the target."
+        "desc": "Super effective against Water-type Pokemon. 10% chance to freeze the target."
     },
     "Frenzy Plant": {
         "type": "grass",
@@ -1917,7 +1917,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 50 of the damage dealt."
+        "desc": "Leeches 50% of the damage dealt."
     },
     "Giga Impact": {
         "type": "normal",
@@ -2053,7 +2053,7 @@
         "power": "120",
         "accuracy": "80",
         "pp": "8",
-        "desc": "30 chance to poison the target."
+        "desc": "30% chance to poison the target."
     },
     "Gust": {
         "type": "flying",
@@ -2133,7 +2133,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Heal Bell": {
         "type": "normal",
@@ -2157,7 +2157,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 max HP."
+        "desc": "Heals 50% max HP."
     },
     "Heal Pulse": {
         "type": "psychic",
@@ -2165,7 +2165,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals the target by 50 its max HP."
+        "desc": "Heals the target by 50% its max HP."
     },
     "Healing Wish": {
         "type": "psychic",
@@ -2181,7 +2181,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "64",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Heart Swap": {
         "type": "psychic",
@@ -2205,7 +2205,7 @@
         "power": "95",
         "accuracy": "90",
         "pp": "16",
-        "desc": "10 chance to burn the target."
+        "desc": "10% chance to burn the target."
     },
     "Heavy Slam": {
         "type": "steel",
@@ -2421,7 +2421,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 50 of the damage dealt."
+        "desc": "Leeches 50% of the damage dealt."
     },
     "Howl": {
         "type": "normal",
@@ -2437,7 +2437,7 @@
         "power": "110",
         "accuracy": "70",
         "pp": "16",
-        "desc": "30 chance to confuse the target."
+        "desc": "30% chance to confuse the target."
     },
     "Hydro Cannon": {
         "type": "water",
@@ -2477,7 +2477,7 @@
         "power": "80",
         "accuracy": "90",
         "pp": "24",
-        "desc": "10 chance of causing the target to flinch."
+        "desc": "10% chance of causing the target to flinch."
     },
     "Hyper Voice": {
         "type": "normal",
@@ -2525,7 +2525,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to freeze."
+        "desc": "10% chance to freeze."
     },
     "Ice Burn": {
         "type": "ice",
@@ -2533,7 +2533,7 @@
         "power": "140",
         "accuracy": "90",
         "pp": "8",
-        "desc": "Hits the turn after being used. 30 chance to burn the target."
+        "desc": "Hits the turn after being used. 30% chance to burn the target."
     },
     "Ice Fang": {
         "type": "ice",
@@ -2541,7 +2541,7 @@
         "power": "65",
         "accuracy": "95",
         "pp": "24",
-        "desc": "10 chance of causing the target to flinch. 10 chance to freeze."
+        "desc": "10% chance of causing the target to flinch. 10% chance to freeze."
     },
     "Ice Hammer": {
         "type": "ice",
@@ -2557,7 +2557,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "24",
-        "desc": "10 chance to freeze."
+        "desc": "10% chance to freeze."
     },
     "Ice Shard": {
         "type": "ice",
@@ -2573,7 +2573,7 @@
         "power": "85",
         "accuracy": "90",
         "pp": "16",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Icicle Spear": {
         "type": "ice",
@@ -2669,7 +2669,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Iron Tail": {
         "type": "steel",
@@ -2677,7 +2677,7 @@
         "power": "100",
         "accuracy": "75",
         "pp": "24",
-        "desc": "30 chance to lower the target's Defense by one stage."
+        "desc": "30% chance to lower the target's Defense by one stage."
     },
     "Judgment": {
         "type": "normal",
@@ -2757,7 +2757,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance to burn the target."
+        "desc": "30% chance to burn the target."
     },
     "Leaf Blade": {
         "type": "grass",
@@ -2781,7 +2781,7 @@
         "power": "65",
         "accuracy": "90",
         "pp": "16",
-        "desc": "50 chance to lower the target's accuracy by one stage."
+        "desc": "50% chance to lower the target's accuracy by one stage."
     },
     "Leafage": {
         "type": "grass",
@@ -2797,7 +2797,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 50 of the damage dealt."
+        "desc": "Leeches 50% of the damage dealt."
     },
     "Leech Seed": {
         "type": "grass",
@@ -2829,7 +2829,7 @@
         "power": "30",
         "accuracy": "100",
         "pp": "48",
-        "desc": "30 chance to paralyze the target."
+        "desc": "30% chance to paralyze the target."
     },
     "Light Screen": {
         "type": "psychic",
@@ -2861,7 +2861,7 @@
         "power": "85",
         "accuracy": "100",
         "pp": "16",
-        "desc": "20 chance to lower the target's Defense by 1."
+        "desc": "20% chance to lower the target's Defense by 1."
     },
     "Lock-On": {
         "type": "normal",
@@ -2917,7 +2917,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "100 chance to lower the target's Attack by 1."
+        "desc": "100% chance to lower the target's Attack by 1."
     },
     "Luster Purge": {
         "type": "psychic",
@@ -2925,7 +2925,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "8",
-        "desc": "50 chance to lower the target's Special Defense by one stage."
+        "desc": "50% chance to lower the target's Special Defense by one stage."
     },
     "Mach Punch": {
         "type": "fighting",
@@ -3045,7 +3045,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "24",
-        "desc": "Leeches 50 of the damage dealt."
+        "desc": "Leeches 50% of the damage dealt."
     },
     "Mega Kick": {
         "type": "normal",
@@ -3101,7 +3101,7 @@
         "power": "50",
         "accuracy": "95",
         "pp": "56",
-        "desc": "10 chance to boost the user's Attack by one stage."
+        "desc": "10% chance to boost the user's Attack by one stage."
     },
     "Metal Sound": {
         "type": "steel",
@@ -3117,7 +3117,7 @@
         "power": "90",
         "accuracy": "90",
         "pp": "16",
-        "desc": "20 chance to raise the user's Attack by one stage."
+        "desc": "20% chance to raise the user's Attack by one stage."
     },
     "Metronome": {
         "type": "normal",
@@ -3133,7 +3133,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 of the user's max HP."
+        "desc": "Heals 50% of the user's max HP."
     },
     "Mimic": {
         "type": "normal",
@@ -3149,7 +3149,7 @@
         "power": "150",
         "accuracy": "100",
         "pp": "8",
-        "desc": "User loses 50 max HP. Hits adjacent Pokemon."
+        "desc": "User loses 50% max HP. Hits adjacent Pokemon."
     },
     "Mind Reader": {
         "type": "normal",
@@ -3197,7 +3197,7 @@
         "power": "65",
         "accuracy": "85",
         "pp": "16",
-        "desc": "30 chance to lower the target's accuracy by one stage."
+        "desc": "30% chance to lower the target's accuracy by one stage."
     },
     "Mist": {
         "type": "ice",
@@ -3213,7 +3213,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "8",
-        "desc": "50 chance to lower the target's Special Attack by one stage."
+        "desc": "50% chance to lower the target's Special Attack by one stage."
     },
     "Misty Terrain": {
         "type": "fairy",
@@ -3229,7 +3229,7 @@
         "power": "95",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance to lower the target's Special Attack by one stage."
+        "desc": "30% chance to lower the target's Special Attack by one stage."
     },
     "Moongeist Beam": {
         "type": "ghost",
@@ -3261,7 +3261,7 @@
         "power": "65",
         "accuracy": "85",
         "pp": "16",
-        "desc": "30 chance to lower the target's accuracy by one stage."
+        "desc": "30% chance to lower the target's accuracy by one stage."
     },
     "Mud Shot": {
         "type": "ground",
@@ -3277,7 +3277,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "24",
-        "desc": "Electric-type attacks do 50 damage."
+        "desc": "Electric-type attacks do 50% damage."
     },
     "Mud-Slap": {
         "type": "ground",
@@ -3293,7 +3293,7 @@
         "power": "90",
         "accuracy": "85",
         "pp": "16",
-        "desc": "30 chance to lower the target's accuracy by one stage."
+        "desc": "30% chance to lower the target's accuracy by one stage."
     },
     "Multi-Attack": {
         "type": "normal",
@@ -3349,7 +3349,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Never-Ending Nightmare": {
         "type": "ghost",
@@ -3365,7 +3365,7 @@
         "power": "85",
         "accuracy": "95",
         "pp": "16",
-        "desc": "40 chance to lower the target's accuracy by one stage."
+        "desc": "40% chance to lower the target's accuracy by one stage."
     },
     "Night Shade": {
         "type": "ghost",
@@ -3413,7 +3413,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "Leeches 75 of the damage dealt."
+        "desc": "Leeches 75% of the damage dealt."
     },
     "Oceanic Operetta": {
         "type": "water",
@@ -3429,7 +3429,7 @@
         "power": "65",
         "accuracy": "85",
         "pp": "16",
-        "desc": "50 chance to lower the target's accuracy by one stage."
+        "desc": "50% chance to lower the target's accuracy by one stage."
     },
     "Odor Sleuth": {
         "type": "normal",
@@ -3445,7 +3445,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "8",
-        "desc": "10 chance to boost all of the user's stats by one stage."
+        "desc": "10% chance to boost all of the user's stats by one stage."
     },
     "Origin Pulse": {
         "type": "water",
@@ -3485,7 +3485,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "Leeches 50 damage dealt to all targets."
+        "desc": "Leeches 50% damage dealt to all targets."
     },
     "Parting Shot": {
         "type": "dark",
@@ -3589,7 +3589,7 @@
         "power": "90",
         "accuracy": "90",
         "pp": "16",
-        "desc": "10 chance to lower the target's Attack stat by one stage."
+        "desc": "10% chance to lower the target's Attack stat by one stage."
     },
     "Pluck": {
         "type": "flying",
@@ -3605,7 +3605,7 @@
         "power": "50",
         "accuracy": "100",
         "pp": "24",
-        "desc": "50 chance to badly poison the target."
+        "desc": "50% chance to badly poison the target."
     },
     "Poison Gas": {
         "type": "poison",
@@ -3621,7 +3621,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "32",
-        "desc": "30 chance to poison the target."
+        "desc": "30% chance to poison the target."
     },
     "Poison Powder": {
         "type": "poison",
@@ -3637,7 +3637,7 @@
         "power": "15",
         "accuracy": "100",
         "pp": "56",
-        "desc": "30 chance to poison the target."
+        "desc": "30% chance to poison the target."
     },
     "Poison Tail": {
         "type": "poison",
@@ -3645,7 +3645,7 @@
         "power": "50",
         "accuracy": "100",
         "pp": "64",
-        "desc": "High critical hit rate. 10 chance to poison the target."
+        "desc": "High critical hit rate. 10% chance to poison the target."
     },
     "Pollen Puff": {
         "type": "bug",
@@ -3653,7 +3653,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "24",
-        "desc": "If the target is an ally, heals 50 of its max HP."
+        "desc": "If the target is an ally, heals 50% of its max HP."
     },
     "Pound": {
         "type": "normal",
@@ -3677,7 +3677,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "64",
-        "desc": "10 chance to freeze."
+        "desc": "10% chance to freeze."
     },
     "Power Gem": {
         "type": "rock",
@@ -3773,7 +3773,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "10 chance to confuse the target."
+        "desc": "10% chance to confuse the target."
     },
     "Psych Up": {
         "type": "normal",
@@ -3789,7 +3789,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to lower the target's Special Defense by one stage."
+        "desc": "10% chance to lower the target's Special Defense by one stage."
     },
     "Psychic Fangs": {
         "type": "psychic",
@@ -3965,7 +3965,7 @@
         "power": "75",
         "accuracy": "95",
         "pp": "16",
-        "desc": "50 chance to lower the target's Defense by one stage."
+        "desc": "50% chance to lower the target's Defense by one stage."
     },
     "Razor Wind": {
         "type": "normal",
@@ -3981,7 +3981,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 of the user's max HP."
+        "desc": "Heals 50% of the user's max HP."
     },
     "Recycle": {
         "type": "normal",
@@ -4021,7 +4021,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to put target to sleep. If used by Meloetta, causes it to change from Aria Forme to Pirouette Forme."
+        "desc": "10% chance to put target to sleep. If used by Meloetta, causes it to change from Aria Forme to Pirouette Forme."
     },
     "Rest": {
         "type": "psychic",
@@ -4101,7 +4101,7 @@
         "power": "90",
         "accuracy": "85",
         "pp": "32",
-        "desc": "20 chance to confuse the target."
+        "desc": "20% chance to confuse the target."
     },
     "Rock Polish": {
         "type": "rock",
@@ -4117,7 +4117,7 @@
         "power": "75",
         "accuracy": "90",
         "pp": "16",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Rock Smash": {
         "type": "fighting",
@@ -4125,7 +4125,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "24",
-        "desc": "50 chance to lower the target's Defense by one stage."
+        "desc": "50% chance to lower the target's Defense by one stage."
     },
     "Rock Throw": {
         "type": "rock",
@@ -4165,7 +4165,7 @@
         "power": "60",
         "accuracy": "85",
         "pp": "24",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Rollout": {
         "type": "rock",
@@ -4181,7 +4181,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 of the user's max HP. Temporarily removes the user's Flying type and turns it into a Normal-type if it is a pure Flying-type."
+        "desc": "Heals 50% of the user's max HP. Temporarily removes the user's Flying type and turns it into a Normal-type if it is a pure Flying-type."
     },
     "Rototiller": {
         "type": "ground",
@@ -4205,7 +4205,7 @@
         "power": "100",
         "accuracy": "95",
         "pp": "8",
-        "desc": "50 chance to burn the target. Thaws the user."
+        "desc": "50% chance to burn the target. Thaws the user."
     },
     "Sacred Sword": {
         "type": "fighting",
@@ -4261,7 +4261,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "30 chance to burn the target. Thaws the user."
+        "desc": "30% chance to burn the target. Thaws the user."
     },
     "Scary Face": {
         "type": "normal",
@@ -4293,7 +4293,7 @@
         "power": "100",
         "accuracy": "100",
         "pp": "8",
-        "desc": "30 chance to burn the target."
+        "desc": "30% chance to burn the target."
     },
     "Searing Sunraze Smash": {
         "type": "steel",
@@ -4333,7 +4333,7 @@
         "power": "120",
         "accuracy": "85",
         "pp": "8",
-        "desc": "40 chance to lower the target's Special Defense by two stages."
+        "desc": "40% chance to lower the target's Special Defense by two stages."
     },
     "Seismic Toss": {
         "type": "fighting",
@@ -4357,7 +4357,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "20 chance to lower the target's Special Defense by one stage."
+        "desc": "20% chance to lower the target's Special Defense by one stage."
     },
     "Shadow Bone": {
         "type": "ghost",
@@ -4365,7 +4365,7 @@
         "power": "85",
         "accuracy": "100",
         "pp": "16",
-        "desc": "20 chance to lower the target's Defense by 1."
+        "desc": "20% chance to lower the target's Defense by 1."
     },
     "Shadow Claw": {
         "type": "ghost",
@@ -4469,7 +4469,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "24",
-        "desc": "10 chance to confuse the target."
+        "desc": "10% chance to confuse the target."
     },
     "Silver Wind": {
         "type": "bug",
@@ -4477,7 +4477,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "8",
-        "desc": "10 chance to boost all the user's stats by one stage."
+        "desc": "10% chance to boost all the user's stats by one stage."
     },
     "Simple Beam": {
         "type": "normal",
@@ -4557,7 +4557,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 of the user's max HP."
+        "desc": "Heals 50% of the user's max HP."
     },
     "Slam": {
         "type": "normal",
@@ -4597,7 +4597,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "30 chance to poison the target."
+        "desc": "30% chance to poison the target."
     },
     "Sludge Bomb": {
         "type": "poison",
@@ -4605,7 +4605,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "16",
-        "desc": "30 chance to poison the target."
+        "desc": "30% chance to poison the target."
     },
     "Sludge Wave": {
         "type": "poison",
@@ -4613,7 +4613,7 @@
         "power": "95",
         "accuracy": "100",
         "pp": "16",
-        "desc": "10 chance to poison the target."
+        "desc": "10% chance to poison the target."
     },
     "Smack Down": {
         "type": "rock",
@@ -4645,7 +4645,7 @@
         "power": "30",
         "accuracy": "70",
         "pp": "32",
-        "desc": "40 chance to poison the target."
+        "desc": "40% chance to poison the target."
     },
     "Smokescreen": {
         "type": "normal",
@@ -4677,7 +4677,7 @@
         "power": "50",
         "accuracy": "100",
         "pp": "24",
-        "desc": "Fails if the user is awake. 30 chance of causing the target to flinch."
+        "desc": "Fails if the user is awake. 30% chance of causing the target to flinch."
     },
     "Soak": {
         "type": "water",
@@ -4693,7 +4693,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 of the user's max HP."
+        "desc": "Heals 50% of the user's max HP."
     },
     "Solar Beam": {
         "type": "grass",
@@ -4741,7 +4741,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "30 chance to paralyze the target."
+        "desc": "30% chance to paralyze the target."
     },
     "Sparkling Aria": {
         "type": "water",
@@ -4869,7 +4869,7 @@
         "power": "110",
         "accuracy": "95",
         "pp": "8",
-        "desc": "30 chance to burn the target."
+        "desc": "30% chance to burn the target."
     },
     "Steamroller": {
         "type": "bug",
@@ -4877,7 +4877,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Steel Wing": {
         "type": "steel",
@@ -4885,7 +4885,7 @@
         "power": "70",
         "accuracy": "90",
         "pp": "64",
-        "desc": "10 chance to raise the user's Defense by one stage."
+        "desc": "10% chance to raise the user's Defense by one stage."
     },
     "Sticky Web": {
         "type": "bug",
@@ -4909,7 +4909,7 @@
         "power": "175",
         "accuracy": "-",
         "pp": "1",
-        "desc": "100 chance to paralyze the target."
+        "desc": "100% chance to paralyze the target."
     },
     "Stomp": {
         "type": "normal",
@@ -4917,7 +4917,7 @@
         "power": "65",
         "accuracy": "100",
         "pp": "32",
-        "desc": "30 chance of causing the target to flinch."
+        "desc": "30% chance of causing the target to flinch."
     },
     "Stomping Tantrum": {
         "type": "ground",
@@ -5309,7 +5309,7 @@
         "power": "110",
         "accuracy": "70",
         "pp": "16",
-        "desc": "30 chance to paralyze the target. Never misses in rain."
+        "desc": "30% chance to paralyze the target. Never misses in rain."
     },
     "Thunder Fang": {
         "type": "electric",
@@ -5317,7 +5317,7 @@
         "power": "65",
         "accuracy": "95",
         "pp": "24",
-        "desc": "10 chance of causing the target to flinch. 10 chance to paralyze the target."
+        "desc": "10% chance of causing the target to flinch. 10% chance to paralyze the target."
     },
     "Thunder Punch": {
         "type": "electric",
@@ -5325,7 +5325,7 @@
         "power": "75",
         "accuracy": "100",
         "pp": "24",
-        "desc": "10 chance to paralyze the target."
+        "desc": "10% chance to paralyze the target."
     },
     "Thunder Shock": {
         "type": "electric",
@@ -5333,7 +5333,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "48",
-        "desc": "10 chance to paralyze the target."
+        "desc": "10% chance to paralyze the target."
     },
     "Thunder Wave": {
         "type": "electric",
@@ -5349,7 +5349,7 @@
         "power": "90",
         "accuracy": "100",
         "pp": "24",
-        "desc": "10 chance to paralyze the target."
+        "desc": "10% chance to paralyze the target."
     },
     "Tickle": {
         "type": "normal",
@@ -5413,7 +5413,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "20 chance to burn the target, freeze, or paralyze the target, with an equal chance for each."
+        "desc": "20% chance to burn the target, freeze, or paralyze the target, with an equal chance for each."
     },
     "Trick": {
         "type": "psychic",
@@ -5453,7 +5453,7 @@
         "power": "70",
         "accuracy": "100",
         "pp": "24",
-        "desc": "100 chance to lower the target's Attack by 1."
+        "desc": "100% chance to lower the target's Attack by 1."
     },
     "Trump Card": {
         "type": "normal",
@@ -5469,7 +5469,7 @@
         "power": "25",
         "accuracy": "100",
         "pp": "32",
-        "desc": "Hits twice. Each hit has a 20 chance to poison the target."
+        "desc": "Hits twice. Each hit has a 20% chance to poison the target."
     },
     "Twinkle Tackle": {
         "type": "fairy",
@@ -5485,7 +5485,7 @@
         "power": "40",
         "accuracy": "100",
         "pp": "32",
-        "desc": "20 chance of causing the target to flinch."
+        "desc": "20% chance of causing the target to flinch."
     },
     "U-turn": {
         "type": "bug",
@@ -5605,7 +5605,7 @@
         "power": "60",
         "accuracy": "100",
         "pp": "32",
-        "desc": "20 chance to confuse the target."
+        "desc": "20% chance to confuse the target."
     },
     "Water Shuriken": {
         "type": "water",
@@ -5621,7 +5621,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "24",
-        "desc": "Fire-type attacks do 50 damage."
+        "desc": "Fire-type attacks do 50% damage."
     },
     "Water Spout": {
         "type": "water",
@@ -5637,7 +5637,7 @@
         "power": "80",
         "accuracy": "100",
         "pp": "24",
-        "desc": "20 chance of causing the target to flinch."
+        "desc": "20% chance of causing the target to flinch."
     },
     "Weather Ball": {
         "type": "normal",
@@ -5701,7 +5701,7 @@
         "power": "-",
         "accuracy": "-",
         "pp": "16",
-        "desc": "Heals 50 of the user's max HP after two turns. Can heal an ally in the user's place."
+        "desc": "Heals 50% of the user's max HP after two turns. Can heal an ally in the user's place."
     },
     "Withdraw": {
         "type": "water",
@@ -5789,7 +5789,7 @@
         "power": "80",
         "accuracy": "90",
         "pp": "24",
-        "desc": "20 chance of causing the target to flinch."
+        "desc": "20% chance of causing the target to flinch."
     },
     "Zing Zap": {
         "type": "electric",
@@ -5797,6 +5797,6 @@
         "power": "80",
         "accuracy": "100",
         "pp": "16",
-        "desc": "30 chance to flinch the target."
+        "desc": "30% chance to flinch the target."
     }
 }
